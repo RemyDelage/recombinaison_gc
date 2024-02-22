@@ -1,0 +1,7 @@
+name: est-sfs
+
+channels:
+  - bioconda
+
+dependencies:
+  - est-sfs=2.04-0
