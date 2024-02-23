@@ -1,7 +1,10 @@
 name: est-sfs
 
 channels:
+  - defaults
   - bioconda
 
 dependencies:
+  - gsl >=2.7,<2.8.0a0
+  - libgcc-ng >=12 
   - est-sfs=2.04-0
