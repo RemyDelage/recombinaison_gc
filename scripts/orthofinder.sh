@@ -18,7 +18,7 @@ for file in "$in_dir"/*.fasta.gz; do
 done
 
 # Command line
-orthofinder -o "$out_dir" -f "$in_dir"
+orthofinder -o "$out_dir" -f "$in_dir" -d
 
 # Compress the fasta file at the end of the orthofinder execution
 for file in "$in_dir"/*.fasta; do
