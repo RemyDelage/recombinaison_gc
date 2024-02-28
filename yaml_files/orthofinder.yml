@@ -1,0 +1,23 @@
+name: orthofinder
+
+channels:
+  - defaults
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - blast
+  - bzip2
+  - diamond <2.1|>=2.1.7
+  - fastme
+  - fasttree
+  - iqtree
+  - mafft
+  - mcl
+  - mmseqs2
+  - muscle <5
+  - python >=3.7
+  - raxml
+  - raxml-ng
+  - scipy
+  - orthofinder=2.5.2-0
