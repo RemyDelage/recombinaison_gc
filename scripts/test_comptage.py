@@ -50,8 +50,6 @@ def comptage(file_name:str):
 
     return count # Return the list of counters
 
-
-# Script execution
 # Script execution
 if __name__ == "__main__":
     # Create the parser to execute this script in command line 
