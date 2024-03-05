@@ -1,0 +1,140 @@
+
+Traceback (most recent call last):
+  File "/home/genouest/cnrs_umr6553/rdelage/scripts/primary_transcript.py", line 219, in <module>
+    main(args)
+  File "/home/genouest/cnrs_umr6553/rdelage/scripts/primary_transcript.py", line 190, in main
+    if not CheckFile(fn):
+  File "/home/genouest/cnrs_umr6553/rdelage/scripts/primary_transcript.py", line 14, in CheckFile
+    with open(fn, 'r') as infile:
+FileNotFoundError: [Errno 2] No such file or directory: '*fasta'
+
+OrthoFinder version 2.5.2 Copyright (C) 2014 David Emms
+
+2024-03-05 14:34:39 : Starting OrthoFinder 2.5.2
+16 thread(s) for highly parallel tasks (BLAST searches etc.)
+16 thread(s) for OrthoFinder algorithm
+
+Checking required programs are installed
+----------------------------------------
+Test can run "mcl -h" - ok
+Test can run "fastme -i /home/genouest/cnrs_umr6553/rdelage/results/01_orthofinder/Results_Mar05/WorkingDirectory/SimpleTest.phy -o /home/genouest/cnrs_umr6553/rdelage/results/01_orthofinder/Results_Mar05/WorkingDirectory/SimpleTest.tre" - ok
+
+Dividing up work for BLAST for parallel processing
+--------------------------------------------------
+2024-03-05 14:34:41 : Creating diamond database 1 of 4
+2024-03-05 14:34:41 : Creating diamond database 2 of 4
+2024-03-05 14:34:42 : Creating diamond database 3 of 4
+2024-03-05 14:34:42 : Creating diamond database 4 of 4
+
+Running diamond all-versus-all
+------------------------------
+Using 16 thread(s)
+2024-03-05 14:34:43 : This may take some time....
+2024-03-05 14:34:43 : Done 0 of 16
+2024-03-05 15:09:56 : Done all-versus-all sequence search
+
+Running OrthoFinder algorithm
+-----------------------------
+2024-03-05 15:09:57 : Initial processing of each species
+2024-03-05 15:10:20 : Initial processing of species 2 complete
+2024-03-05 15:10:36 : Initial processing of species 0 complete
+2024-03-05 15:10:44 : Initial processing of species 1 complete
+2024-03-05 15:10:50 : Initial processing of species 3 complete
+2024-03-05 15:10:57 : Connected putative homologues
+2024-03-05 15:10:59 : Written final scores for species 2 to graph file
+2024-03-05 15:11:01 : Written final scores for species 0 to graph file
+2024-03-05 15:11:01 : Written final scores for species 1 to graph file
+2024-03-05 15:11:02 : Written final scores for species 3 to graph file
+2024-03-05 15:11:44 : Ran MCL
+
+Writing orthogroups to file
+---------------------------
+OrthoFinder assigned 170136 genes (92.3% of total) to 29166 orthogroups. Fifty percent of all genes were in orthogroups with 6 or more genes (G50 was 6) and were contained in the largest 8963 orthogroups (O50 was 8963). There were 15337 orthogroups with all species present and 3063 of these consisted entirely of single-copy genes.
+
+2024-03-05 15:13:23 : Done orthogroups
+
+Analysing Orthogroups
+=====================
+
+Calculating gene distances
+--------------------------
+2024-03-05 15:15:15 : Done 10000 of 21023
+2024-03-05 15:15:19 : Done 12000 of 21023
+2024-03-05 15:15:08 : Done 6000 of 21023
+2024-03-05 15:15:23 : Done 14000 of 21023
+2024-03-05 15:15:35 : Done 19000 of 21023
+2024-03-05 15:15:25 : Done 15000 of 21023
+2024-03-05 15:15:32 : Done 18000 of 21023
+2024-03-05 15:15:04 : Done 4000 of 21023
+2024-03-05 15:15:01 : Done 3000 of 21023
+2024-03-05 15:14:59 : Done 2000 of 21023
+2024-03-05 15:15:13 : Done 9000 of 21023
+2024-03-05 15:15:27 : Done 16000 of 21023
+2024-03-05 15:15:39 : Done 21000 of 21023
+2024-03-05 15:15:21 : Done 13000 of 21023
+2024-03-05 15:14:55 : Done 0 of 21023
+2024-03-05 15:15:06 : Done 5000 of 21023
+2024-03-05 15:15:10 : Done 7000 of 21023
+2024-03-05 15:15:12 : Done 8000 of 21023
+2024-03-05 15:15:30 : Done 17000 of 21023
+2024-03-05 15:15:37 : Done 20000 of 21023
+2024-03-05 15:14:57 : Done 1000 of 21023
+2024-03-05 15:15:17 : Done 11000 of 21023
+2024-03-05 15:14:53 : Done
+
+Inferring gene and species trees
+--------------------------------
+
+15337 trees had all species present and will be used by STAG to infer the species tree
+
+Best outgroup(s) for species tree
+---------------------------------
+2024-03-05 15:20:50 : Starting STRIDE
+2024-03-05 15:20:55 : Done STRIDE
+Observed 3894 well-supported, non-terminal duplications. 3852 support the best root and 42 contradict it.
+Best outgroup for species tree:
+  GCA_000001735.2_TAIR10.1_protein, GCA_905216605.1_AARE701a_protein
+
+Reconciling gene trees and species tree
+---------------------------------------
+Outgroup: GCA_000001735.2_TAIR10.1_protein, GCA_905216605.1_AARE701a_protein
+2024-03-05 15:20:55 : Starting Recon and orthologues
+2024-03-05 15:20:55 : Starting OF Orthologues
+2024-03-05 15:21:03 : Done 3000 of 21023
+2024-03-05 15:21:05 : Done 4000 of 21023
+2024-03-05 15:21:18 : Done 10000 of 21023
+2024-03-05 15:21:32 : Done 16000 of 21023
+2024-03-05 15:21:40 : Done 20000 of 21023
+2024-03-05 15:21:07 : Done 5000 of 21023
+2024-03-05 15:21:14 : Done 8000 of 21023
+2024-03-05 15:21:20 : Done 11000 of 21023
+2024-03-05 15:21:16 : Done 9000 of 21023
+2024-03-05 15:21:09 : Done 6000 of 21023
+2024-03-05 15:21:34 : Done 17000 of 21023
+2024-03-05 15:20:56 : Done 0 of 21023
+2024-03-05 15:21:36 : Done 18000 of 21023
+2024-03-05 15:21:01 : Done 2000 of 21023
+2024-03-05 15:21:25 : Done 13000 of 21023
+2024-03-05 15:21:28 : Done 14000 of 21023
+2024-03-05 15:21:42 : Done 21000 of 21023
+2024-03-05 15:20:58 : Done 1000 of 21023
+2024-03-05 15:21:12 : Done 7000 of 21023
+2024-03-05 15:21:23 : Done 12000 of 21023
+2024-03-05 15:21:30 : Done 15000 of 21023
+2024-03-05 15:21:38 : Done 19000 of 21023
+2024-03-05 15:21:43 : Done OF Orthologues
+
+Writing results files
+=====================
+2024-03-05 15:22:35 : Done orthologues
+
+Results:
+    /home/genouest/cnrs_umr6553/rdelage/results/01_orthofinder/Results_Mar05/
+
+CITATION:
+ When publishing work that uses OrthoFinder please cite:
+ Emms D.M. & Kelly S. (2019), Genome Biology 20:238
+
+ If you use the species tree in your work then please also cite:
+ Emms D.M. & Kelly S. (2017), MBE 34(12): 3267-3278
+ Emms D.M. & Kelly S. (2018), bioRxiv https://doi.org/10.1101/267914
