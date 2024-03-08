@@ -10,7 +10,7 @@ dependencies:
   - cython
   - decorator
   - jobtree
-  - kototycoon
+  - kyototycoon
   - libgcc-ng>=7.3.0
   - libstdcxx-ng>=7.3.0
   - networkx>=1.11.0
