@@ -68,8 +68,13 @@ parser = argparse.ArgumentParser(description = 'Download fasta and gff files fro
 ## Add the accession number to the parser
 parser.add_argument('-i', '--input', type = str, 
                     help = 'The accession number of the data')
+parser.add_argument('-n', '--nucleotide', action='store_true', \
+help='Download nucleotide files') 
+parser.add_argument('-p', '--protein', action='store_true', \
+help='Download protein files')
 
-def download_files(accession_number: str):
+
+def download_genomic_files(accession_number: str):
     '''
     This function allows to download the genomic fasta and gff files from 
     the NCBI database.
@@ -95,7 +100,7 @@ def download_files(accession_number: str):
     ftp_folder_path = f"/genomes/all/{'/'.join(accession_part)}/"   
     
     # Connexion to the NCBI FTP server
-    ftp = ftplib.FTP("ftp.ncbi.nlm.nih.gov")
+    ftp = ftplib.FTP("ftp.ncbi.nlm.nih.gov", timeout=300)
     ftp.login()
     
     ftp.cwd(ftp_folder_path) # Go to the folder that contains the data
@@ -108,12 +113,12 @@ def download_files(accession_number: str):
     if not matching_folders: 
         print("No files found. Check the accession number or if data exists on the NCBI GeneBank database.")
         return
-        selected_folder = matching_folders[0] # Select the first folder that mathes with the accession number
-
+    
+    selected_folder = matching_folders[0] # Select the first folder that mathes with the accession number
     ftp.cwd(selected_folder)  # Change to the selected folder  
     files = ftp.nlst()  # Get the list of files in the selected folder
 
-    # Download the files
+    # Download the nucleotidic files 
     for file in files:
         if file.endswith("_genomic.fna.gz") or file.endswith("_genomic.gff.gz"):
             if not file.endswith("_from_genomic.fna.gz"): # Download only the genomic files
@@ -121,7 +126,66 @@ def download_files(accession_number: str):
                 print(f"Downloading genomic file : {file}") # Print the downoaded file name
                 wget.download(file_url) # Download the file
                 print(" -> Download complete") # Inform the user that the download is complete
+
     
+    # Close the FTP server connexion and not display errors messages
+    try:
+        ftp.quit() 
+    except ftplib.error_temp as e: 
+        pass
+
+
+def download_protein_files(accession_number:str) :
+    '''
+    This function allows to download the proteic fasta and gff files from 
+    the NCBI database.
+
+    Parameters
+    ----------
+        accession_number : str
+            The accession_number of the data to download
+
+    Returns
+    -------
+        None
+    '''
+    accession_num = accession_number.replace("_","") # Remove the underscore
+    extension = accession_num[-2:] # Store the extension of the accession number
+    accession_no_extension = accession_num[:-2] # Remove the extension
+    accession_first_letters = accession_num[0:3] # Keep the first letters
+    accession_part = [accession_no_extension[i:i+3] for i in range(0, len(accession_no_extension), 3)]
+    # Partitionning the accession number like : AAA/xxx/xxx/xxx/xxx
+
+    # Define the path to the folder containing the data on FTP server
+    ftp_folder_path = f"/genomes/all/{'/'.join(accession_part)}/"   
+    
+    # Connexion to the NCBI FTP server
+    ftp = ftplib.FTP("ftp.ncbi.nlm.nih.gov", timeout=300)
+    ftp.login()
+    
+    ftp.cwd(ftp_folder_path) # Go to the folder that contains the data
+    folders = ftp.nlst() # Get the list of the folders of the path.
+    
+    # Get the folder that matches the accession number
+    matching_folders = [folder for folder in folders if folder.startswith(accession_number)]
+
+    # Error message if no matching folders are found
+    if not matching_folders: 
+        print("No files found. Check the accession number or if data exists on the NCBI GeneBank database.")
+        return
+    
+    selected_folder = matching_folders[0] # Select the first folder that mathes with the accession number
+    ftp.cwd(selected_folder)  # Change to the selected folder  
+    files = ftp.nlst()  # Get the list of files in the selected folder
+
+    # Download the proteic files
+    for file in files:
+        if file.endswith("_protein.faa.gz") or file.endswith("_protein.gpff.gz"):
+            file_url = f"ftp://{ftp.host}{ftp.pwd()}/{file}" # get the URL of the file
+            print(f"Downloading proteic file : {file}") # Print the downoaded file name
+            wget.download(file_url) # Download the file
+            print(" -> Download complete") # Inform the user that the download is complete
+
     # Close the FTP server connexion and not display errors messages
     try:
         ftp.quit() 
@@ -131,6 +195,10 @@ def download_files(accession_number: str):
 # Parse the arguments
 args = parser.parse_args()
 if args.input:
-    download_files(args.input)
+    if args.protein:
+        download_protein_files(args.input)
+    else:
+        download_genomic_files(args.input)
 else:
     print("No accession number provided. Please provide an accession number using the -i or --input option.")
+
