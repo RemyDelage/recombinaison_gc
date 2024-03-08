@@ -16,7 +16,7 @@ dependencies:
   - networkx>=1.11.0
   - openssl=1.0.2.*
   - psutil
-  - python>=2.7.0
+  - python>=3.0
   - sonlib
   - subprocess32
   - toil>=3.14.0.0
