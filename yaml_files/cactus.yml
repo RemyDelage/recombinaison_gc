@@ -14,7 +14,7 @@ dependencies:
   - libgcc-ng>=7.3.0
   - libstdcxx-ng>=7.3.0
   - networkx>=1.11.0
-  - openssl>=1.0.2.0
+  - openssl=1.0.2.*
   - psutil
   - python>=2.7.0
   - sonlib
