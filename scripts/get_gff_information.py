@@ -35,8 +35,8 @@ def gff_extraction(gff_file:str, tsv_file:str):
                         feature = fields[2]
                         chromosome = fields[0]
                         strand = fields[6]
-                        start = fields[3]
-                        end = fields[4]
+                        start = fields[4]
+                        end = fields[3]
 
                         tsv.write(f"{feature}\t{chromosome}\t{protein_id}\t{gene_id}\t{strand}\t{start}\t{end}\n")
 
