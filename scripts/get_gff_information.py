@@ -109,4 +109,5 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
 
+    # Exectue the gff_extraction function according to the parser arguments
     gff_extraction(args.gff, args.tsv)
