@@ -1,0 +1,120 @@
+
+Traceback (most recent call last):
+  File "/home/genouest/cnrs_umr6553/rdelage/scripts/01_orthofinder/primary_transcript.py", line 219, in <module>
+    main(args)
+  File "/home/genouest/cnrs_umr6553/rdelage/scripts/01_orthofinder/primary_transcript.py", line 188, in main
+    fn = args[0]
+IndexError: list index out of range
+
+OrthoFinder version 2.5.2 Copyright (C) 2014 David Emms
+
+2024-03-18 10:23:52 : Starting OrthoFinder 2.5.2
+16 thread(s) for highly parallel tasks (BLAST searches etc.)
+16 thread(s) for OrthoFinder algorithm
+
+Checking required programs are installed
+----------------------------------------
+Test can run "mcl -h" - ok
+Test can run "fastme -i /home/genouest/cnrs_umr6553/rdelage/results/01_orthofinder/arabidopsis/Results_Mar18/WorkingDirectory/SimpleTest.phy -o /home/genouest/cnrs_umr6553/rdelage/results/01_orthofinder/arabidopsis/Results_Mar18/WorkingDirectory/SimpleTest.tre" - ok
+
+Dividing up work for BLAST for parallel processing
+--------------------------------------------------
+2024-03-18 10:23:54 : Creating diamond database 1 of 3
+2024-03-18 10:23:55 : Creating diamond database 2 of 3
+2024-03-18 10:23:55 : Creating diamond database 3 of 3
+
+Running diamond all-versus-all
+------------------------------
+Using 16 thread(s)
+2024-03-18 10:23:56 : This may take some time....
+2024-03-18 10:41:12 : Done all-versus-all sequence search
+
+Running OrthoFinder algorithm
+-----------------------------
+2024-03-18 10:41:13 : Initial processing of each species
+2024-03-18 10:41:35 : Initial processing of species 1 complete
+2024-03-18 10:41:39 : Initial processing of species 0 complete
+2024-03-18 10:41:48 : Initial processing of species 2 complete
+2024-03-18 10:41:53 : Connected putative homologues
+2024-03-18 10:41:55 : Written final scores for species 1 to graph file
+2024-03-18 10:41:56 : Written final scores for species 0 to graph file
+2024-03-18 10:41:56 : Written final scores for species 2 to graph file
+2024-03-18 10:42:27 : Ran MCL
+
+Writing orthogroups to file
+---------------------------
+OrthoFinder assigned 134359 genes (90.8% of total) to 29436 orthogroups. Fifty percent of all genes were in orthogroups with 5 or more genes (G50 was 5) and were contained in the largest 9687 orthogroups (O50 was 9687). There were 20015 orthogroups with all species present and 7306 of these consisted entirely of single-copy genes.
+
+2024-03-18 10:44:07 : Done orthogroups
+
+Analysing Orthogroups
+=====================
+
+Calculating gene distances
+--------------------------
+2024-03-18 10:45:19 : Done 4000 of 15455
+2024-03-18 10:45:26 : Done 9000 of 15455
+2024-03-18 10:45:30 : Done 11000 of 15455
+2024-03-18 10:45:38 : Done 15000 of 15455
+2024-03-18 10:45:16 : Done 2000 of 15455
+2024-03-18 10:45:34 : Done 13000 of 15455
+2024-03-18 10:45:36 : Done 14000 of 15455
+2024-03-18 10:45:13 : Done 0 of 15455
+2024-03-18 10:45:25 : Done 8000 of 15455
+2024-03-18 10:45:20 : Done 5000 of 15455
+2024-03-18 10:45:31 : Done 12000 of 15455
+2024-03-18 10:45:14 : Done 1000 of 15455
+2024-03-18 10:45:17 : Done 3000 of 15455
+2024-03-18 10:45:23 : Done 7000 of 15455
+2024-03-18 10:45:28 : Done 10000 of 15455
+2024-03-18 10:45:22 : Done 6000 of 15455
+2024-03-18 10:45:12 : Done
+
+Inferring gene and species trees
+--------------------------------
+
+Best outgroup(s) for species tree
+---------------------------------
+2024-03-18 10:45:39 : Starting STRIDE
+2024-03-18 10:45:42 : Done STRIDE
+Observed 332 well-supported, non-terminal duplications. 328 support the best root and 4 contradict it.
+Best outgroup for species tree:
+  GCF_000309985.2_brassica_rapa
+
+Reconciling gene trees and species tree
+---------------------------------------
+Outgroup: GCF_000309985.2_brassica_rapa
+2024-03-18 10:45:42 : Starting Recon and orthologues
+2024-03-18 10:45:42 : Starting OF Orthologues
+2024-03-18 10:45:44 : Done 1000 of 15455
+2024-03-18 10:45:47 : Done 3000 of 15455
+2024-03-18 10:45:49 : Done 4000 of 15455
+2024-03-18 10:45:43 : Done 0 of 15455
+2024-03-18 10:45:56 : Done 9000 of 15455
+2024-03-18 10:45:57 : Done 10000 of 15455
+2024-03-18 10:45:50 : Done 5000 of 15455
+2024-03-18 10:46:04 : Done 14000 of 15455
+2024-03-18 10:45:46 : Done 2000 of 15455
+2024-03-18 10:46:01 : Done 12000 of 15455
+2024-03-18 10:46:06 : Done 15000 of 15455
+2024-03-18 10:45:55 : Done 8000 of 15455
+2024-03-18 10:45:53 : Done 7000 of 15455
+2024-03-18 10:45:59 : Done 11000 of 15455
+2024-03-18 10:45:52 : Done 6000 of 15455
+2024-03-18 10:46:02 : Done 13000 of 15455
+2024-03-18 10:46:08 : Done OF Orthologues
+
+Writing results files
+=====================
+2024-03-18 10:46:46 : Done orthologues
+
+Results:
+    /home/genouest/cnrs_umr6553/rdelage/results/01_orthofinder/arabidopsis/Results_Mar18/
+
+CITATION:
+ When publishing work that uses OrthoFinder please cite:
+ Emms D.M. & Kelly S. (2019), Genome Biology 20:238
+
+ If you use the species tree in your work then please also cite:
+ Emms D.M. & Kelly S. (2017), MBE 34(12): 3267-3278
+ Emms D.M. & Kelly S. (2018), bioRxiv https://doi.org/10.1101/267914
