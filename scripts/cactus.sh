@@ -26,3 +26,6 @@ max_memory="3T"
 
 # Script execution (with Singularity)
 singularity exec --bind "$data_dir":/mnt --bind "$out_dir" --pwd "$data_dir" "$sif_file" cactus --consCores 2 --maxMemory "$max_memory" "$jobStorePath" "$inputSeqFile" "$out_dir$outputHalFile"
+
+# Alignment inspection
+singularity exec "$sif_file" halStats "$outputHalFile"
