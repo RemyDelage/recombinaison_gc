@@ -60,11 +60,6 @@ Arabidopsis_thaliana_gff <- Arabidopsis_thaliana_gff[-one_base,]
 ## Remove the NA's of the strnads
 Arabidopsis_thaliana_gff <- Arabidopsis_thaliana_gff[-c(which(is.na(Arabidopsis_thaliana_gff$strand))),]
 
-create_GRanges <- function(gff_file, seqnames, start, end, strand, source, type, attributes, 
-                           species1, species2, species3, ){
-  
-}
-
 gr_at <- GRanges(seqnames = Arabidopsis_thaliana_gff$seqid[-at_one_base],
                  ranges = IRanges(
                    start = Arabidopsis_thaliana_gff$start[-at_one_base],
