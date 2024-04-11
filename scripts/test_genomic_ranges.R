@@ -5,12 +5,17 @@ path <- "/home/redelage/internship/data"
 setwd(path)
 
 ## Packages Intsallation
-
-if(!require("BiocManager"))
-  install.packages("BiocManager")
-BiocManager::install("GenomicRanges")
-install.packages("ape") # For read the GFF files
-install.packages("vcfR") # For read the VCF files
+packages_installation <- function(){
+  if(!require("BiocManager"))
+    install.packages("BiocManager")
+    BiocManager::install("GenomicRanges")
+  
+  if(!require("ape"))
+    install.packages("ape")
+  
+  if(!require("vcfR"))
+    install.packages("vcfR")
+}
 
 # Load the packages
 library(GenomicRanges)
@@ -60,15 +65,15 @@ Arabidopsis_thaliana_gff <- Arabidopsis_thaliana_gff[-one_base,]
 ## Remove the NA's of the strnads
 Arabidopsis_thaliana_gff <- Arabidopsis_thaliana_gff[-c(which(is.na(Arabidopsis_thaliana_gff$strand))),]
 
-gr_at <- GRanges(seqnames = Arabidopsis_thaliana_gff$seqid[-at_one_base],
+gr_at <- GRanges(seqnames = Arabidopsis_thaliana_gff$seqid,
                  ranges = IRanges(
-                   start = Arabidopsis_thaliana_gff$start[-at_one_base],
-                   end = Arabidopsis_thaliana_gff$end[-at_one_base]),
-                 strand = Arabidopsis_thaliana_gff$strand[-at_one_base],
+                   start = Arabidopsis_thaliana_gff$start,
+                   end = Arabidopsis_thaliana_gff$end),
+                 strand = Arabidopsis_thaliana_gff$strand,
                  metadata = data.frame(
-                   source = Arabidopsis_thaliana_gff$source[-at_one_base],
-                   type = Arabidopsis_thaliana_gff$type[-at_one_base],
-                   attributes = Arabidopsis_thaliana_gff$attributes[-at_one_base]
+                   source = Arabidopsis_thaliana_gff$source,
+                   type = Arabidopsis_thaliana_gff$type,
+                   attributes = Arabidopsis_thaliana_gff$attributes
                    )
                  )
 
@@ -89,7 +94,7 @@ gr_at_filtered <- GRanges(seqnames = Arabidopsis_thaliana_genes_gff$seqid,
 
 ## Arabidopsis lyrata
 # Remove the NAs for the strand data
-Arabidopsis_lyrata_gff <- Arabidopsis_lyrata_gff[-c(which(is.na(arabidopsis_lyrata_gff$strand))),]
+Arabidopsis_lyrata_gff <- Arabidopsis_lyrata_gff[-c(which(is.na(Arabidopsis_lyrata_gff$strand))),]
 
 # All sequences
 gr_al <- GRanges(seqnames = Arabidopsis_lyrata_gff$seqid,
@@ -132,7 +137,7 @@ gr_br <- GRanges(seqnames = Brassica_rapa_gff$seqid,
                  )
 
 # Genes only
-  gr_br_filtered <- GRanges(seqnames = Brassica_rapa_genes_gff$seqid,
+gr_br_filtered <- GRanges(seqnames = Brassica_rapa_genes_gff$seqid,
                             ranges = IRanges(
                               start = Brassica_rapa_genes_gff$start,
                               end = Brassica_rapa_genes_gff$end,
@@ -145,10 +150,10 @@ gr_br <- GRanges(seqnames = Brassica_rapa_gff$seqid,
                             )
 
   
-## Get the transcripts sequences of the 3 species
-gr_at_transcripts <- gr_at[gr_at$metadata.type != "gene"]
-gr_al_transcripts <- gr_al[gr_al$metadata.type != "gene"]
-gr_br_transcripts <- gr_br[gr_br$metadata.type != "gene"]
+# ## Get the transcripts sequences of the 3 species
+# gr_at_transcripts <- gr_at[gr_at$metadata.type != "gene"]
+# gr_al_transcripts <- gr_al[gr_al$metadata.type != "gene"]
+# gr_br_transcripts <- gr_br[gr_br$metadata.type != "gene"]
 
 
 # Store the metadatas
