@@ -161,47 +161,39 @@ at_metadatas <- mcols(gr_at)
 al_metadatas <- mcols(gr_al)
 br_metadatas <- mcols(gr_br)
 
-# Group the 3 gr objects of the 3 species
-# all_gr <- GRangesList("Arabidopsis_thaliana" = gr_at,
-#                       "Arabidopsis_lyrata" = gr_al,
-#                       "Brassica_rapa" = gr_br)
-
-# all_gr_filtered <- GRangesList("Arabidopsis_thaliana_filtered" = gr_at_filtered,
-#                                "Arabidopsis_lyrata_filtered" = gr_al_filtered,
-#                                "Brassica_rapa_filtered" = gr_br_filtered)
-
-
 
 ## Test function findOverlaps
-overlaps_at <- findOverlaps(gr_at_filtered, gr_at_transcripts, type = "within")
-overlaps_al <- findOverlaps(gr_al_filtered, gr_al_transcripts, type = "within")
-overlaps_br <- findOverlaps(gr_br_filtered, gr_br_transcripts, type = "within")
+overlaps_at <- findOverlaps(gr_at, gr_at_filtered, type = "within")
+overlaps_al <- findOverlaps(gr_al, gr_al_filtered, type = "within")
+overlaps_br <- findOverlaps(gr_br, gr_br_filtered, type = "within")
 
-# Find the primary transcripts (the largest overlapping sequences)
-# primary_transcripts_at <- unique(gr_at_transcripts[queryHits(overlaps_at),])
-# primary_transcripts_al <- unique(gr_al_transcripts[queryHits(overlaps_al),])
-# primary_transcripts_br <- unique(gr_br_transcripts[queryHits(overlaps_br),])
+## Get the metadata associated with overlaps
 
+get_metadata <- function(overlaps, gr_data, gr_filtered_data) {
+  query_gr <- queryHits(overlaps)
+  subject_gr <- subjectHits(overlaps)
+  
+  query_metadata <- mcols(gr_data)[query_gr,]
+  subject_metadata <- mcols(gr_filtered_data)[subject_gr,]
+    primary_transcript <- data.frame(Query_Metadata = query_metadata,
+                                     Subject_Metadata = subject_metadata)
+  return(primary_transcript)
+}
 
-primary_transcripts_at <- findOverlaps(gr_at, gr_at_filtered)
-primary_transcripts_al <- findOverlaps(gr_al, gr_al_filtered)
-primary_transcripts_br <- findOverlaps(gr_br, gr_br_filtered)
+at_overlapping_data <- get_metadata(overlaps_at, gr_at, gr_at_filtered)
+colnames(at_overlapping_data) = c("Original_source", "Original_type", "Original_attributes",
+                                   "Overlap_source", "Overlap_type", "Overlap_attributes")
+
+al_overlapping_data <- get_metadata(overlaps_al, gr_al, gr_al_filtered)
+colnames(al_overlapping_data) = c("Original_source", "Original_type", "Original_attributes",
+                                  "Overlap_source", "Overlap_type", "Overlap_attributes")
+
+br_overlapping_data <- get_metadata(overlaps_br, gr_br, gr_br_filtered)
+colnames(br_overlapping_data) = c("Original_source", "Original_type", "Original_attributes",
+                                  "Overlap_source", "Overlap_type", "Overlap_attributes")
 
 
 # Test selection ranges with correspond to the overlaps
 hits_at <- queryHits(overlaps_at)
 overlapping_genes_at <- overlaps_at[!is.na(hits_at)]
 
-
-# ## Save the primary transcripts into GFF file
-# 
-# 
-# 
-# #Read the VCF file
-# arabidopsis_thaliana_vcf <- read.vcfR("Arabidopsis_thaliana_1001genomes.pop.vcf",
-#                                       verbose = FALSE)
-# 
-# # Load the reference genome (fasta format ; ape package)
-# reference <- read.FASTA("GCF_000001735.4_arabidopsis_thaliana_genomic.fna", type = "DNA")
-# 
-# 
