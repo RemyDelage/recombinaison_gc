@@ -17,107 +17,136 @@ library(GenomicRanges)
 library(ape)
 library(vcfR)
 
+### Setting variables
+# Accession numbers
+accession1 <- "GCF_000001735.4"
+accession2 <- "GCF_000004255.2"
+accession3 <- "GCF_000309985.2"
+
+# Species names
+species1 <- "Arabidopsis_thaliana"
+species2 <- "Arabidopsis_lyrata"
+species3 <- "Brassica_rapa"
+
 ### Read the gff files ###
 # Complete genome GFF file (from NCBI database)
-arabidopsis_thaliana_gff <- read.gff(paste0(path,"/GCF_000001735.4_Arabidopsis_thaliana_genomic.gff"))
-arabidopsis_lyrata_gff <- read.gff(paste0(path,"/GCF_000004255.2_Arabidopsis_lyrata_genomic.gff"))
-brassica_rapa_gff <- read.gff(paste0(path,"/GCF_000309985.2_Brassica_rapa_genomic.gff"))
+
+read_gff_files <- function(species1, species2, species3, 
+                          accession1, accession2, accession3, 
+                          gff_type, variable_suffix ,path){
+  gff_files_list <- list()
+  gff_files_list[[species1]] <- read.gff(file.path(path, paste0(accession1, "_", species1, "_", gff_type)))
+  gff_files_list[[species2]] <- read.gff(file.path(path, paste0(accession2, "_", species2, "_", gff_type)))
+  gff_files_list[[species3]] <- read.gff(file.path(path, paste0(accession3, "_", species3, "_", gff_type)))
+  assign(paste0(species1, variable_suffix), gff_files_list[[species1]], envir = .GlobalEnv)
+  assign(paste0(species2, variable_suffix), gff_files_list[[species2]], envir = .GlobalEnv)
+  assign(paste0(species3, variable_suffix), gff_files_list[[species3]], envir = .GlobalEnv)
+}
+
+read_gff_files(species1, species2, species3, accession1, accession2, accession3, "genomic.gff", "_gff", path)
+
 
 # Filtered GFF files with only genes features
-filtered_at_gff <- read.gff(paste0(path,"/GCF_000001735.4_Arabidopsis_thaliana_genomic_filtered.gff"))
-filtered_al_gff <- read.gff(paste0(path, "/GCF_000004255.2_Arabidopsis_lyrata_genomic_filtered.gff"))
-filtered_br_gff <- read.gff(paste0(path, "/GCF_000309985.2_Brassica_rapa_genomic_filtered.gff"))
+
+read_gff_files(species1, species2, species3, accession1, accession2, accession3, "genomic_filtered.gff", "_genes_gff", path)
 
 ### GRanges objects creations ###
 
 
 ## Arabidopsis thaliana
 # All sequences
-at_one_base <- which(arabidopsis_thaliana_gff$start >= arabidopsis_thaliana_gff$end)
-at_one_base_df <- arabidopsis_thaliana_gff[at_one_base,]
+one_base <- which(Arabidopsis_thaliana_gff$start >= Arabidopsis_thaliana_gff$end)
+Arabidopsis_thaliana_gff <- Arabidopsis_thaliana_gff[-one_base,]
 ## Remove the NA's of the strnads
-arabidopsis_thaliana_gff <- arabidopsis_thaliana_gff[-c(which(is.na(arabidopsis_thaliana_gff$strand))),]
-gr_at <- GRanges(seqnames = arabidopsis_thaliana_gff$seqid[-at_one_base],
+Arabidopsis_thaliana_gff <- Arabidopsis_thaliana_gff[-c(which(is.na(Arabidopsis_thaliana_gff$strand))),]
+
+create_GRanges <- function(gff_file, seqnames, start, end, strand, source, type, attributes, 
+                           species1, species2, species3, ){
+  
+}
+
+gr_at <- GRanges(seqnames = Arabidopsis_thaliana_gff$seqid[-at_one_base],
                  ranges = IRanges(
-                   start = arabidopsis_thaliana_gff$start[-at_one_base],
-                   end = arabidopsis_thaliana_gff$end[-at_one_base]
-                   ),
-                 strand = arabidopsis_thaliana_gff$strand[-at_one_base],
+                   start = Arabidopsis_thaliana_gff$start[-at_one_base],
+                   end = Arabidopsis_thaliana_gff$end[-at_one_base]),
+                 strand = Arabidopsis_thaliana_gff$strand[-at_one_base],
                  metadata = data.frame(
-                   source = arabidopsis_thaliana_gff$source[-at_one_base],
-                   type = arabidopsis_thaliana_gff$type[-at_one_base],
-                   attributes = arabidopsis_thaliana_gff$attributes[-at_one_base]
+                   source = Arabidopsis_thaliana_gff$source[-at_one_base],
+                   type = Arabidopsis_thaliana_gff$type[-at_one_base],
+                   attributes = Arabidopsis_thaliana_gff$attributes[-at_one_base]
                    )
                  )
-summary(gr_at)
 
 # genes only
-gr_at_filtered <- GRanges(seqnames = filtered_at_gff$seqid,
+gr_at_filtered <- GRanges(seqnames = Arabidopsis_thaliana_genes_gff$seqid,
                           ranges = IRanges(
-                            start = filtered_at_gff$start,
-                            end = filtered_at_gff$end,
+                            start = Arabidopsis_thaliana_genes_gff$start,
+                            end = Arabidopsis_thaliana_genes_gff$end,
                           ),
-                          strand = filtered_at_gff$strand,
+                          strand = Arabidopsis_thaliana_genes_gff$strand,
                           metadata = data.frame(
-                            source = filtered_at_gff$source,
-                            type = filtered_at_gff$type,
-                            attributes = filtered_at_gff$attributes
+                            source = Arabidopsis_thaliana_genes_gff$source,
+                            type = Arabidopsis_thaliana_genes_gff$type,
+                            attributes = Arabidopsis_thaliana_genes_gff$attributes
                             )
                           )
 
 
 ## Arabidopsis lyrata
+# Remove the NAs for the strand data
+Arabidopsis_lyrata_gff <- Arabidopsis_lyrata_gff[-c(which(is.na(arabidopsis_lyrata_gff$strand))),]
+
 # All sequences
-arabidopsis_lyrata_gff <- arabidopsis_lyrata_gff[-c(which(is.na(arabidopsis_lyrata_gff$strand))),]
-gr_al <- GRanges(seqnames = arabidopsis_lyrata_gff$seqid,
+gr_al <- GRanges(seqnames = Arabidopsis_lyrata_gff$seqid,
                  ranges = IRanges(
-                   start = arabidopsis_lyrata_gff$start,
-                   end = arabidopsis_lyrata_gff$end),
-                 strand = arabidopsis_lyrata_gff$strand,
+                   start = Arabidopsis_lyrata_gff$start,
+                   end = Arabidopsis_lyrata_gff$end),
+                 strand = Arabidopsis_lyrata_gff$strand,
                  metadata = data.frame(
-                   source = arabidopsis_lyrata_gff$source,
-                   type = arabidopsis_lyrata_gff$type,
-                   attributes = arabidopsis_lyrata_gff$attributes)
+                   source = Arabidopsis_lyrata_gff$source,
+                   type = Arabidopsis_lyrata_gff$type,
+                   attributes = Arabidopsis_lyrata_gff$attributes)
                  )
 
 
 # genes only
-gr_al_filtered <- GRanges(seqnames = filtered_al_gff$seqid,
+gr_al_filtered <- GRanges(seqnames = Arabidopsis_lyrata_genes_gff$seqid,
                           ranges = IRanges(
-                            start = filtered_al_gff$start,
-                            end = filtered_al_gff$end,
+                            start = Arabidopsis_lyrata_genes_gff$start,
+                            end = Arabidopsis_lyrata_genes_gff$end,
                           ),
-                          strand = filtered_al_gff$strand,
+                          strand = Arabidopsis_lyrata_genes_gff$strand,
                           metadata = data.frame(
-                            source = filtered_al_gff$source,
-                            type = filtered_al_gff$type,
-                            attributes = filtered_al_gff$attributes
+                            source = Arabidopsis_lyrata_genes_gff$source,
+                            type = Arabidopsis_lyrata_genes_gff$type,
+                            attributes = Arabidopsis_lyrata_genes_gff$attributes
                           )
                         )
 
 
 ### Brassica rapa
 # All sequences
-gr_br <- GRanges(seqnames = brassica_rapa_gff$seqid,
-                 ranges = IRanges(start = brassica_rapa_gff$start, end = brassica_rapa_gff$end),
-                 strand = brassica_rapa_gff$strand,
+gr_br <- GRanges(seqnames = Brassica_rapa_gff$seqid,
+                 ranges = IRanges(start = Brassica_rapa_gff$start, 
+                                  end = Brassica_rapa_gff$end),
+                 strand = Brassica_rapa_gff$strand,
                  metadata = data.frame(
-                   source = brassica_rapa_gff$source,
-                   type = brassica_rapa_gff$type,
-                   attributes = brassica_rapa_gff$attributes)
+                   source = Brassica_rapa_gff$source,
+                   type = Brassica_rapa_gff$type,
+                   attributes = Brassica_rapa_gff$attributes)
                  )
 
 # Genes only
-  gr_br_filtered <- GRanges(seqnames = filtered_br_gff$seqid,
+  gr_br_filtered <- GRanges(seqnames = Brassica_rapa_genes_gff$seqid,
                             ranges = IRanges(
-                              start = filtered_br_gff$start,
-                              end = filtered_br_gff$end,
+                              start = Brassica_rapa_genes_gff$start,
+                              end = Brassica_rapa_genes_gff$end,
                             ),
-                            strand = filtered_br_gff$strand,
+                            strand = Brassica_rapa_genes_gff$strand,
                             metadata = data.frame(
-                              source = filtered_br_gff$source,
-                              type = filtered_br_gff$type,
-                              attributes = filtered_br_gff$attributes)
+                              source = Brassica_rapa_genes_gff$source,
+                              type = Brassica_rapa_genes_gff$type,
+                              attributes = Brassica_rapa_genes_gff$attributes)
                             )
 
   
@@ -157,6 +186,12 @@ overlaps_br <- findOverlaps(gr_br_filtered, gr_br_transcripts, type = "within")
 primary_transcripts_at <- findOverlaps(gr_at, gr_at_filtered)
 primary_transcripts_al <- findOverlaps(gr_al, gr_al_filtered)
 primary_transcripts_br <- findOverlaps(gr_br, gr_br_filtered)
+
+
+# Test selection ranges with correspond to the overlaps
+hits_at <- queryHits(overlaps_at)
+overlapping_genes_at <- overlaps_at[!is.na(hits_at)]
+
 
 # ## Save the primary transcripts into GFF file
 # 
