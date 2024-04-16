@@ -121,6 +121,7 @@ def extract_sequences_from_fasta(input_fasta : str, output_fasta : str, ids_to_e
 
 
 if __name__ == "__main__":
+    # Create the parser for execute the script directly in command lines:
     parser = argparse.ArgumentParser\
     (description = 'Get a proteic FASTA file with only the sequences of the primary transcripts')
     parser.add_argument('-gpff', required = True, type = str,
