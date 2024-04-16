@@ -89,19 +89,19 @@ def extract_sequences_from_fasta(input_fasta : str, output_fasta : str, ids_to_e
         The new FASTA file with the sequences of the primary transcripts.
     '''
     # Open the two files
-    with open(input_fasta, 'r') as fasta_in, \
+    with open(input_fasta, 'r') as input_fasta, \
      open(output_fasta, 'w') as output:
         write_sequence = False
         current_sequence = []
         # Extract the header and the sequences from the original FASTA file
-        for line in fasta_in:
+        for line in input_fasta:
             if line.startswith('>'):
                 identifier = line.split()[0][1:]
                 # Checks if the identifier is on the values of the dictionary
                 if identifier in ids_to_extract:
                     # If so, write the header of the new file
                     if line.startswith(">"):
-                        fasta_out.write(line)
+                        output.write(line)
                     # Get the proteic sequence
                     write_sequence = True
                     current_sequence.append(line)
