@@ -1,4 +1,5 @@
 import re
+import argparse
 
 def extract_genes_ids_from_gpff(gpff_file: str, tsv_file: str) -> dict:
     '''
@@ -53,35 +54,73 @@ def extract_genes_ids_from_gpff(gpff_file: str, tsv_file: str) -> dict:
     gene_versions = {k: v for k, v in gene_versions.items() if v is not None}                   
     return gene_versions
 
-def extract_sequences_from_fasta(input_fasta, output_fasta, ids_to_extract):
+def extract_sequences_from_fasta(input_fasta: str, output_fasta: str, ids_to_extract: dict):
+    '''
+    This function allows to extract the sequences form the original FASTA file
+    of the species to only keep the sequences of the primary transcripts.
+
+    Parameters
+    ----------
+        input_fasta : str
+            The original FASTA file of the species proteins (directly 
+            downloaded from the NCBI database).
+        output_fasta : str
+            The created FASTA file with only the sequences of the primary 
+            transcripts.
+        ids_to_extract : dict
+            The "versions" values of the primary transcripts previously 
+            stored into the dictionary.
+
+    Returns
+    -------
+        The new FASTA file with the sequences of the primary transcripts.
+    '''
+    # Open the two files
     with open(input_fasta, 'r') as fasta_in, open(output_fasta, 'w') as fasta_out:
         write_sequence = False
         current_sequence = []
-
+        # Extract the header and the sequences from the original FASTA file
         for line in fasta_in:
             if line.startswith('>'):
                 identifier = line.split()[0][1:]
+                 # Checks if the identifier is on the values of the dictionary
                 if identifier in ids_to_extract:
+                    # If it's a new sequence, write the previous sequence if exists
+                    if current_sequence:
+                        fasta_out.write(''.join(current_sequence) + '\n')
+                        current_sequence = []
+                    # Write the header
+                    fasta_out.write(line)
                     write_sequence = True
-                    current_sequence.append(line)
                 else:
                     write_sequence = False
-                    if current_sequence:
-                        fasta_out.write(''.join(current_sequence))
-                        fasta_out.write('\n')  # Ajouter un saut de ligne après chaque séquence
-                        current_sequence = []
             elif write_sequence:
                 current_sequence.append(line.strip())
 
         if current_sequence:
-            fasta_out.write(''.join(current_sequence))
-            fasta_out.write('\n')  # Ajouter un saut de ligne après la dernière séquence
+            fasta_out.write(''.join(current_sequence) + '\n')
 
+    # Inform the user that the output file has been created
     print("File created: ", output_fasta)
 
-# Example usage
-versions_names = extract_genes_ids_from_gpff("GCF_000001735.4_TAIR10.1_protein.gpff", 
-                                             "GCF_000001735.4_Arabidopsis_thaliana_primary_transcripts_updated.tsv")
 
-extract_sequences_from_fasta("GCF_000001735.4_TAIR10.1_protein.faa",
-                             "test3.faa", set(versions_names.values()))
+if __name__ == "__main__":
+    # Create the parser for execute the script directly in command lines:
+    parser = argparse.ArgumentParser\
+    (description = 'Get a proteic FASTA file with only the sequences of the primary transcripts')
+    parser.add_argument('-gpff', required = True, type = str,
+    help = 'The GPFF file of the species (from GeneBank database)')
+    parser.add_argument('-tsv', required = True, type = str,
+    help = 'The TSV file which contains the information about primary transcipts')
+    parser.add_argument('-fasta',  required = True, type = str,
+    help = 'The original proteic FASTA file of the sepcies (from GeneBank database)')
+    parser.add_argument('-o', required = True, type = str,
+    help = 'The proteic FASTA file which only contains the protein sequences of the primary transcripts')
+
+    args = parser.parse_args()
+
+    # Execute the "extract_genes_ids_from_gpff" function :
+    versions_names = extract_genes_ids_from_gpff(args.gpff, args.tsv) 
+    
+    # Execute the "extract_sequences_from_fasta" function :
+    extract_sequences_from_fasta(args.fasta, args.o, set(versions_names.values()))
