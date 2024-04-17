@@ -1,0 +1,5 @@
+(GCF_000309985.2_Brassica_rapa:0.5,(GCF_000004255.2_Arabidopsis_lyrata:1,GCF_000001735.4_Arabidopsis_thaliana:1)1:0.5);
+
+*GCF_000001735.4_Arabidopsis_thaliana	/home/genouest/cnrs_umr6553/rdelage/results/02_genes_fasta/02a_gffutils/GCF_000001735.4_Arabidopsis_thaliana_genomic.fa
+GCF_000004255.2_Arabidopsis_lyrata	/home/genouest/cnrs_umr6553/rdelage/results/02_genes_fasta/02a_gffutils/GCF_000004255.2_Arabidopsis_lyrata_genomic.fa
+GCF_000309985.2_Brassica_rapa	/home/genouest/cnrs_umr6553/rdelage/results/02_genes_fasta/02a_gffutils/GCF_000309985.2_Brassica_rapa_genomic.fa
