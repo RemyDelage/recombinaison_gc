@@ -1,4 +1,12 @@
-file : /home/genouest/cnrs_umr6553/rdelage/results/04_wgabed/arabidopsis_NC_000932.1.wga.bed.gz
+file : arabidopsis_NC_003075.7.wga.bed.gz
+Number of regions for this chromosome: 8451926
+Number of alignments with A. lyrata: 8249810
+Number of alignments with B. rapa: 7249232
+Proportion of alignments with A. lyrata: 97.608640%
+Proportion of alignments with B. rapa: 85.770178%
+Proportion of alignments with A. lyrata and B. rapa: 85.336348%
+-------------------------------------------------------------------------
+file : arabidopsis_NC_000932.1.wga.bed.gz
 Number of regions for this chromosome: 82194
 Number of alignments with A. lyrata: 82194
 Number of alignments with B. rapa: 82194
@@ -6,51 +14,44 @@ Proportion of alignments with A. lyrata: 100.000000%
 Proportion of alignments with B. rapa: 100.000000%
 Proportion of alignments with A. lyrata and B. rapa: 100.000000%
 -------------------------------------------------------------------------
-file : /home/genouest/cnrs_umr6553/rdelage/results/04_wgabed/arabidopsis_NC_003070.9.wga.bed.gz
-Number of regions for this chromosome: 13175067
-Number of alignments with A. lyrata: 13115652
-Number of alignments with B. rapa: 13175067
-Proportion of alignments with A. lyrata: 99.549035%
-Proportion of alignments with B. rapa: 100.000000%
-Proportion of alignments with A. lyrata and B. rapa: 99.549035%
--------------------------------------------------------------------------
-file : /home/genouest/cnrs_umr6553/rdelage/results/04_wgabed/arabidopsis_NC_003071.7.wga.bed.gz
-Number of regions for this chromosome: 7646004
-Number of alignments with A. lyrata: 7592571
-Number of alignments with B. rapa: 7646004
-Proportion of alignments with A. lyrata: 99.301164%
-Proportion of alignments with B. rapa: 100.000000%
-Proportion of alignments with A. lyrata and B. rapa: 99.301164%
--------------------------------------------------------------------------
-file : /home/genouest/cnrs_umr6553/rdelage/results/04_wgabed/arabidopsis_NC_003074.8.wga.bed.gz
-Number of regions for this chromosome: 10377949
-Number of alignments with A. lyrata: 10231863
-Number of alignments with B. rapa: 10377949
-Proportion of alignments with A. lyrata: 98.592342%
-Proportion of alignments with B. rapa: 100.000000%
-Proportion of alignments with A. lyrata and B. rapa: 98.592342%
--------------------------------------------------------------------------
-file : /home/genouest/cnrs_umr6553/rdelage/results/04_wgabed/arabidopsis_NC_003075.7.wga.bed.gz
-Number of regions for this chromosome: 8451926
-Number of alignments with A. lyrata: 8249810
-Number of alignments with B. rapa: 8451926
-Proportion of alignments with A. lyrata: 97.608640%
-Proportion of alignments with B. rapa: 100.000000%
-Proportion of alignments with A. lyrata and B. rapa: 97.608640%
--------------------------------------------------------------------------
-file : /home/genouest/cnrs_umr6553/rdelage/results/04_wgabed/arabidopsis_NC_003076.8.wga.bed.gz
-Number of regions for this chromosome: 14813720
-Number of alignments with A. lyrata: 14486700
-Number of alignments with B. rapa: 14813720
-Proportion of alignments with A. lyrata: 97.792452%
-Proportion of alignments with B. rapa: 100.000000%
-Proportion of alignments with A. lyrata and B. rapa: 97.792452%
--------------------------------------------------------------------------
-file : /home/genouest/cnrs_umr6553/rdelage/results/04_wgabed/arabidopsis_NC_037304.1.wga.bed.gz
+file : arabidopsis_NC_037304.1.wga.bed.gz
 Number of regions for this chromosome: 130811
 Number of alignments with A. lyrata: 59632
-Number of alignments with B. rapa: 130811
+Number of alignments with B. rapa: 42399
 Proportion of alignments with A. lyrata: 45.586380%
-Proportion of alignments with B. rapa: 100.000000%
-Proportion of alignments with A. lyrata and B. rapa: 45.586380%
+Proportion of alignments with B. rapa: 32.412412%
+Proportion of alignments with A. lyrata and B. rapa: 19.181873%
 -------------------------------------------------------------------------
+file : arabidopsis_NC_003076.8.wga.bed.gz
+Number of regions for this chromosome: 14813720
+Number of alignments with A. lyrata: 14486700
+Number of alignments with B. rapa: 12449294
+Proportion of alignments with A. lyrata: 97.792452%
+Proportion of alignments with B. rapa: 84.038945%
+Proportion of alignments with A. lyrata and B. rapa: 83.679569%
+-------------------------------------------------------------------------
+file : arabidopsis_NC_003070.9.wga.bed.gz
+Number of regions for this chromosome: 13175067
+Number of alignments with A. lyrata: 13115652
+Number of alignments with B. rapa: 11832531
+Proportion of alignments with A. lyrata: 99.549035%
+Proportion of alignments with B. rapa: 89.810025%
+Proportion of alignments with A. lyrata and B. rapa: 89.493283%
+-------------------------------------------------------------------------
+file : arabidopsis_NC_003074.8.wga.bed.gz
+Number of regions for this chromosome: 10377949
+Number of alignments with A. lyrata: 10231863
+Number of alignments with B. rapa: 9091300
+Proportion of alignments with A. lyrata: 98.592342%
+Proportion of alignments with B. rapa: 87.602088%
+Proportion of alignments with A. lyrata and B. rapa: 87.116096%
+-------------------------------------------------------------------------
+file : arabidopsis_NC_003071.7.wga.bed.gz
+Number of regions for this chromosome: 7646004
+Number of alignments with A. lyrata: 7592571
+Number of alignments with B. rapa: 6752585
+Proportion of alignments with A. lyrata: 99.301164%
+Proportion of alignments with B. rapa: 88.315217%
+Proportion of alignments with A. lyrata and B. rapa: 87.952295%
+-------------------------------------------------------------------------
+
