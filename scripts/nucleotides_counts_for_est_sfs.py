@@ -138,7 +138,7 @@ def main():
     args = parser.parse_args()
 
     bases_counts = nucleotides_counts(arg.bed_file)
-    write_output(bases_counts, arg.output_file) 
+    write_output(bases_counts, arg.output) 
 
 # Script execution
 if __name__ == "__main__":
