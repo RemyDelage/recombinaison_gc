@@ -1,6 +1,9 @@
 import gzip
 from collections import Counter
+import glob
+import os
 import argparse
+
 
 def nucleotides_counts(bed_file: str):
     '''
@@ -47,12 +50,9 @@ def nucleotides_counts(bed_file: str):
             # Create a count list for each site
             bases_count_list=[]
             # Get all the nucleotides counts for each site (not only those present)
-            bases_count_list.append({'A': count_ref_species['A'], 'T': count_ref_species['T'], \ 
-            'G': count_ref_species['G'], 'C': count_ref_species['C']})
-            bases_count_list.append({'A': count_outgroup1['A'], 'T': count_outgroup1['T'], \
-             'G': count_outgroup1['G'], 'C': count_outgroup1['C']})
-            bases_count_list.append({'A': count_outgroup2['A'], 'T': count_outgroup2['T'], \
-            'G': count_outgroup2['G'], 'C': count_outgroup2['C']})
+            bases_count_list.append({'A': count_ref_species['A'], 'T': count_ref_species['T'], 'G': count_ref_species['G'], 'C': count_ref_species['C']})
+            bases_count_list.append({'A': count_outgroup1['A'], 'T': count_outgroup1['T'], 'G': count_outgroup1['G'], 'C': count_outgroup1['C']})
+            bases_count_list.append({'A': count_outgroup2['A'], 'T': count_outgroup2['T'], 'G': count_outgroup2['G'], 'C': count_outgroup2['C']})
             
             # Add all the lists (one for each site) into the output list
             bases_counts.append(bases_count_list)
@@ -131,14 +131,20 @@ def main():
     '''
     parser = argparse.ArgumentParser(description = "Script for count the nucleotides occurences \
     for using EST-SFS Software (Keightley et al., 2016)")
-    parser.add_argument("-i", "--bed_file", type = str, required = True, \
-    help = "The BED file (compressed) which contains the sequences for which we will count the number of nucleotide occurrences")
-    parser.add_argument("-o", "--output", type = str, required = True, \
+    parser.add_argument("-i", "--input_dir", type = str, required = True, \
+    help = "The directory containing the BED files (compressed)")
+    parser.add_argument("-o", "--output_dir", type = str, required = True, \
     help = "The output file (TXT format) which contains the nucleotides counts (will use for EST-SFS)")
     args = parser.parse_args()
 
-    bases_counts = nucleotides_counts(arg.bed_file)
-    write_output(bases_counts, arg.output) 
+    # Find the BED files into the directory
+    bed_files = glob.glob(os.path.join(args.input_dir, "*.bed.gz"))
+
+    for bed_file in bed_files:
+        output_file = os.path.join(args.output_dir, os.path.basename(bed_file).replace(".bed.gz", ".data_file.txt"))
+
+        bases_counts = nucleotides_counts(bed_file)
+        write_output(bases_counts, output_file) 
 
 # Script execution
 if __name__ == "__main__":
