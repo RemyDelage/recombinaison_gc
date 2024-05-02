@@ -36,7 +36,7 @@ def snp_counts(input_file: str, output_file: str):
                     if not i.isdigit():  
                         continue
                     # Don't keep the line if the number is greater than 2
-                    if int(i) > 2:
+                    if int(i) > 1:
                         keep_line = False
                         break
                 # Skip the lines where the numbers are greater than 2
