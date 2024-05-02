@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 import gzip
 from collections import Counter
 import glob
@@ -113,14 +115,18 @@ def write_output(bases_counts: list, output_file: str):
         None
             A message informs the user that output files have been created.
     '''
-    # Reformat the nucleotide counts thanks to the format_counts funciton
+    # Reformat the nucleotide counts thanks to the format_counts function
     formatted_counts = format_counts(bases_counts)
     # Write the output file
     with open(output_file, "w") as output:
         for line in formatted_counts:
-            output.write(line + "\n")
+            cols = line.strip().split("\t")
+            # Check if the line contains at least 3 columns and each character is either '0', '1', ',', '\t', or ' '
+            if len(cols) >= 3 and all(char in ['0', '1', ',', '\t', ' '] for char in line):
+                output.write(line + "\n")
     # Print the output message
     print(f"{output_file} created")
+
 
 
 
