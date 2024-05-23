@@ -13,14 +13,22 @@ def extract_genes_names(gff_file: str):
                     gene_id_match = re.search(r'Name=([^;]+)', attributes)
                     if gene_id_match:
                         gene_id = gene_id_match.group(1)
-                        chromosome_id = info[0]
-                        start = int(info[3]) - 1
-                        end = info[4]
-                        strand = info[6]
-                        gene_coordinates = f"{chromosome_id}:{start}-{end}({strand})"
-                        genes_id[gene_coordinates] = gene_id
+                    else:
+                        dbxref_match = re.search(r'Dbxref=([^;]+)', attributes)
+                        if dbxref_match:
+                            gene_id = dbxref_match.group(1)
+                        else:
+                            continue
+                        
+                    chromosome_id = info[0]
+                    start = int(info[3]) - 1
+                    end = info[4]
+                    strand = info[6]
+                    gene_coordinates = f"{chromosome_id}:{start}-{end}({strand})"
+                    genes_id[gene_coordinates] = gene_id
     print(genes_id)
     return genes_id
+
 
 def clean_fasta_header(header):
     # Supprimer les caractères '>' et les espaces dans les en-têtes FASTA
