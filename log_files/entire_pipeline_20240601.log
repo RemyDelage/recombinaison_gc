@@ -1,0 +1,788 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+   CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT
+1      1  55         2   162              C:162                T:0
+2      1  56         2   172              T:172                A:0
+3      1  63         2   154              T:154                C:0
+4      1  73         2   168              C:152               A:16
+5      1  75         2   168              T:168                A:0
+6      1  80         2   156              G:156                T:0
+7      1  83         3   168              T:146               C:22
+8    A:0            NA    NA                                      
+9      1  88         2   156              A:156                T:0
+10     1  92         2   160              A:110               C:50
+   CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT
+1      1  55         2   162              C:162                T:0
+2      1  56         2   172              T:172                A:0
+3      1  63         2   154              T:154                C:0
+4      1  73         2   168              C:152               A:16
+5      1  75         2   168              T:168                A:0
+6      1  80         2   156              G:156                T:0
+7      1  83         3   168              T:146               C:22
+9      1  88         2   156              A:156                T:0
+10     1  92         2   160              A:110               C:50
+11     1  94         2   174              C:174                T:0
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     1  55         2   162              C:162                T:0   C   T
+2     1  56         2   172              T:172                A:0   T   A
+3     1  63         2   154              T:154                C:0   T   C
+4     1  73         2   168              C:152               A:16   C   A
+5     1  75         2   168              T:168                A:0   T   A
+6     1  80         2   156              G:156                T:0   G   T
+  count_REF count_ALT
+1       162         0
+2       172         0
+3       154         0
+4       152        16
+5       168         0
+6       156         0
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     1  55         2   162              C:162                T:0   C   T
+2     1  56         2   172              T:172                A:0   T   A
+3     1  63         2   154              T:154                C:0   T   C
+4     1  73         2   168              C:152               A:16   C   A
+5     1  75         2   168              T:168                A:0   T   A
+6     1  80         2   156              G:156                T:0   G   T
+  count_REF count_ALT count_A count_T count_C count_G
+1       162         0       0       0     162       0
+2       172         0       0     172       0       0
+3       154         0       0     154       0       0
+4       152        16      16       0     152       0
+5       168         0       0     168       0       0
+6       156         0       0       0       0     156
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     1  55         2   162              C:162                T:0   C   T
+2     1  56         2   172              T:172                A:0   T   A
+3     1  63         2   154              T:154                C:0   T   C
+4     1  73         2   168              C:152               A:16   C   A
+5     1  75         2   168              T:168                A:0   T   A
+6     1  80         2   156              G:156                T:0   G   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes
+1       162         0       0       0     162       0       162
+2       172         0       0     172       0       0       172
+3       154         0       0     154       0       0       154
+4       152        16      16       0     152       0       168
+5       168         0       0     168       0       0       168
+6       156         0       0       0       0     156       156
+[1] "C->T" "T->A" "T->C" "C->A" "T->A" "G->T"
+
+   A->C    A->G    A->T    C->A    C->G    C->T    G->A    G->C    G->T    T->A 
+ 568571 1145533  866477  585134  414806 1947699 1947606  418286  589067  868173 
+   T->C    T->G 
+1143096  567103 
+[1] 3424303
+[1] 5069506
+chromosome 1 
+          seq start end strand
+1 NC_003070.9    94  95      +
+2 NC_003070.9    95  96      +
+3 NC_003070.9    96  97      +
+4 NC_003070.9    97  98      +
+5 NC_003070.9    98  99      +
+6 NC_003070.9    99 100      +
+                                                                                          species
+1 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+2 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+3 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+4 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+5 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+6 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+                 aligned_chrom   aligned_pos sequence strands score CHROM width
+1 NC_003070.9,NW_003302548.1,? 94,13643236,?    T,T,?   +,+,?   NaN     1     1
+2 NC_003070.9,NW_003302548.1,? 95,13643237,?    A,A,?   +,+,?   NaN     1     1
+3 NC_003070.9,NW_003302548.1,? 96,13643238,?    A,T,?   +,+,?   NaN     1     1
+4 NC_003070.9,NW_003302548.1,? 97,13643239,?    t,T,?   +,+,?   NaN     1     1
+5 NC_003070.9,NW_003302548.1,? 98,13643240,?    t,T,?   +,+,?   NaN     1     1
+6 NC_003070.9,NW_003302548.1,? 99,13643241,?    c,C,?   +,+,?   NaN     1     1
+  POS ref outgroup_1 outgroup_2
+1  95   T          T          ?
+2  96   A          A          ?
+3  97   A          T          ?
+4  98   T          T          ?
+5  99   T          T          ?
+6 100   C          C          ?
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     1  55         2   162              C:162                T:0   C   T
+2     1  56         2   172              T:172                A:0   T   A
+3     1  63         2   154              T:154                C:0   T   C
+4     1  73         2   168              C:152               A:16   C   A
+5     1  75         2   168              T:168                A:0   T   A
+6     1  80         2   156              G:156                T:0   G   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1       162         0       0       0     162       0       162 C->T
+2       172         0       0     172       0       0       172 T->A
+3       154         0       0     154       0       0       154 T->C
+4       152        16      16       0     152       0       168 C->A
+5       168         0       0     168       0       0       168 T->A
+6       156         0       0       0       0     156       156 G->T
+    CHROM               POS              N_ALLELES        N_CHR      
+ Length:11061551    Length:11061551    Min.   :2.00   Min.   :  0.0  
+ Class :character   Class :character   1st Qu.:2.00   1st Qu.:276.0  
+ Mode  :character   Mode  :character   Median :2.00   Median :336.0  
+                                       Mean   :2.07   Mean   :299.6  
+                                       3rd Qu.:2.00   3rd Qu.:354.0  
+                                       Max.   :4.00   Max.   :368.0  
+ {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT     REF                ALT           
+ Length:11061551    Length:11061551    Length:11061551    Length:11061551   
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+  count_REF          count_ALT            count_A          count_T      
+ Length:11061551    Length:11061551    Min.   :  0.00   Min.   :  0.00  
+ Class :character   Class :character   1st Qu.:  0.00   1st Qu.:  0.00  
+ Mode  :character   Mode  :character   Median :  0.00   Median :  0.00  
+                                       Mean   : 70.16   Mean   : 70.13  
+                                       3rd Qu.: 36.00   3rd Qu.: 36.00  
+                                       Max.   :368.00   Max.   :368.00  
+    count_C          count_G         n_genomes         mut           
+ Min.   :  0.00   Min.   :  0.00   Min.   :  0.0   Length:11061551   
+ 1st Qu.:  0.00   1st Qu.:  0.00   1st Qu.:276.0   Class :character  
+ Median :  0.00   Median :  0.00   Median :336.0   Mode  :character  
+ Mean   : 79.51   Mean   : 79.65   Mean   :299.5                     
+ 3rd Qu.:136.00   3rd Qu.:138.00   3rd Qu.:354.0                     
+ Max.   :368.00   Max.   :368.00   Max.   :368.0                     
+     seq                start               end              strand         
+ Length:12839854    Min.   :      94   Min.   :      95   Length:12839854   
+ Class :character   1st Qu.: 6101143   1st Qu.: 6101144   Class :character  
+ Mode  :character   Median :15809582   Median :15809582   Mode  :character  
+                    Mean   :15204782   Mean   :15204783                     
+                    3rd Qu.:24526461   3rd Qu.:24526462                     
+                    Max.   :30424242   Max.   :30424243                     
+                                                                            
+   species          aligned_chrom      aligned_pos          sequence        
+ Length:12839854    Length:12839854    Length:12839854    Length:12839854   
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+   strands              score              CHROM       width  
+ Length:12839854    Min.   : NA        Min.   :1   Min.   :1  
+ Class :character   1st Qu.: NA        1st Qu.:1   1st Qu.:1  
+ Mode  :character   Median : NA        Median :1   Median :1  
+                    Mean   :NaN        Mean   :1   Mean   :1  
+                    3rd Qu.: NA        3rd Qu.:1   3rd Qu.:1  
+                    Max.   : NA        Max.   :1   Max.   :1  
+                    NA's   :12839854                          
+      POS               ref             outgroup_1         outgroup_2       
+ Min.   :      95   Length:12839854    Length:12839854    Length:12839854   
+ 1st Qu.: 6101144   Class :character   Class :character   Class :character  
+ Median :15809582   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :15204783                                                           
+ 3rd Qu.:24526462                                                           
+ Max.   :30424243                                                           
+                                                                            
+[1] 11061551
+[1] 12839854
+
+       1 
+12839854 
+[1] 12839854
+[1] 12792917
+               seq  start    end strand
+569901 NC_003070.9 999757 999758      +
+569903 NC_003070.9 999758 999759      +
+569905 NC_003070.9 999759 999760      +
+569907 NC_003070.9 999760 999761      +
+569909 NC_003070.9 999761 999762      +
+569911 NC_003070.9 999762 999763      +
+                                                                                               species
+569901 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+569903 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+569905 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+569907 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+569909 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+569911 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+                                aligned_chrom            aligned_pos sequence
+569901 NC_003070.9,NW_003302555.1,NC_024804.2 999757,1226287,1277955    A,A,A
+569903 NC_003070.9,NW_003302555.1,NC_024804.2 999758,1226288,1277956    G,G,G
+569905 NC_003070.9,NW_003302555.1,NC_024804.2 999759,1226289,1277957    G,G,G
+569907 NC_003070.9,NW_003302555.1,NC_024804.2 999760,1226290,1277958    T,T,T
+569909 NC_003070.9,NW_003302555.1,NC_024804.2 999761,1226291,1277959    A,A,A
+569911 NC_003070.9,NW_003302555.1,NC_024804.2 999762,1226292,1277960    T,T,T
+       strands score CHROM width    POS ref outgroup_1 outgroup_2
+569901   +,+,+   NaN     1     1 999758   A          A          A
+569903   +,+,+   NaN     1     1 999759   G          G          G
+569905   +,+,+   NaN     1     1 999760   G          G          G
+569907   +,+,+   NaN     1     1 999761   T          T          T
+569909   +,+,+   NaN     1     1 999762   A          A          A
+569911   +,+,+   NaN     1     1 999763   T          T          T
+[1] 12792917
+[1] 12792917
+Joining with `by = join_by(CHROM, POS)`
+chromosome 2 
+          seq start   end strand
+1 NC_003071.7 22216 22217      +
+2 NC_003071.7 22217 22218      +
+3 NC_003071.7 22218 22219      +
+4 NC_003071.7 22219 22220      +
+5 NC_003071.7 22220 22221      +
+6 NC_003071.7 22221 22222      +
+                                                                                          species
+1 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+2 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+3 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+4 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+5 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+6 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+                              aligned_chrom         aligned_pos sequence
+1 NC_003071.7,NW_003302555.1,NW_022610102.1 22216,16230657,7268    G,G,g
+2 NC_003071.7,NW_003302555.1,NW_022610102.1 22217,16230658,7269    T,T,t
+3 NC_003071.7,NW_003302555.1,NW_022610102.1 22218,16230659,7270    T,T,c
+4 NC_003071.7,NW_003302555.1,NW_022610102.1 22219,16230660,7271    A,C,c
+5 NC_003071.7,NW_003302555.1,NW_022610102.1 22220,16230661,7272    T,T,a
+6 NC_003071.7,NW_003302555.1,NW_022610102.1 22221,16230662,7273    C,C,c
+  strands score CHROM width   POS ref outgroup_1 outgroup_2
+1   +,+,+   NaN     2     1 22217   G          G          G
+2   +,+,+   NaN     2     1 22218   T          T          T
+3   +,+,+   NaN     2     1 22219   T          T          C
+4   +,+,+   NaN     2     1 22220   A          C          C
+5   +,+,+   NaN     2     1 22221   T          T          A
+6   +,+,+   NaN     2     1 22222   C          C          C
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     1  55         2   162              C:162                T:0   C   T
+2     1  56         2   172              T:172                A:0   T   A
+3     1  63         2   154              T:154                C:0   T   C
+4     1  73         2   168              C:152               A:16   C   A
+5     1  75         2   168              T:168                A:0   T   A
+6     1  80         2   156              G:156                T:0   G   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1       162         0       0       0     162       0       162 C->T
+2       172         0       0     172       0       0       172 T->A
+3       154         0       0     154       0       0       154 T->C
+4       152        16      16       0     152       0       168 C->A
+5       168         0       0     168       0       0       168 T->A
+6       156         0       0       0       0     156       156 G->T
+    CHROM               POS              N_ALLELES        N_CHR      
+ Length:11061551    Length:11061551    Min.   :2.00   Min.   :  0.0  
+ Class :character   Class :character   1st Qu.:2.00   1st Qu.:276.0  
+ Mode  :character   Mode  :character   Median :2.00   Median :336.0  
+                                       Mean   :2.07   Mean   :299.6  
+                                       3rd Qu.:2.00   3rd Qu.:354.0  
+                                       Max.   :4.00   Max.   :368.0  
+ {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT     REF                ALT           
+ Length:11061551    Length:11061551    Length:11061551    Length:11061551   
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+  count_REF          count_ALT            count_A          count_T      
+ Length:11061551    Length:11061551    Min.   :  0.00   Min.   :  0.00  
+ Class :character   Class :character   1st Qu.:  0.00   1st Qu.:  0.00  
+ Mode  :character   Mode  :character   Median :  0.00   Median :  0.00  
+                                       Mean   : 70.16   Mean   : 70.13  
+                                       3rd Qu.: 36.00   3rd Qu.: 36.00  
+                                       Max.   :368.00   Max.   :368.00  
+    count_C          count_G         n_genomes         mut           
+ Min.   :  0.00   Min.   :  0.00   Min.   :  0.0   Length:11061551   
+ 1st Qu.:  0.00   1st Qu.:  0.00   1st Qu.:276.0   Class :character  
+ Median :  0.00   Median :  0.00   Median :336.0   Mode  :character  
+ Mean   : 79.51   Mean   : 79.65   Mean   :299.5                     
+ 3rd Qu.:136.00   3rd Qu.:138.00   3rd Qu.:354.0                     
+ Max.   :368.00   Max.   :368.00   Max.   :368.0                     
+     seq                start               end              strand         
+ Length:7537900     Min.   :   22216   Min.   :   22217   Length:7537900    
+ Class :character   1st Qu.: 8193581   1st Qu.: 8193582   Class :character  
+ Mode  :character   Median :12400014   Median :12400014   Mode  :character  
+                    Mean   :11682838   Mean   :11682839                     
+                    3rd Qu.:16044751   3rd Qu.:16044752                     
+                    Max.   :19696956   Max.   :19696957                     
+                                                                            
+   species          aligned_chrom      aligned_pos          sequence        
+ Length:7537900     Length:7537900     Length:7537900     Length:7537900    
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+   strands              score             CHROM       width  
+ Length:7537900     Min.   : NA       Min.   :2   Min.   :1  
+ Class :character   1st Qu.: NA       1st Qu.:2   1st Qu.:1  
+ Mode  :character   Median : NA       Median :2   Median :1  
+                    Mean   :NaN       Mean   :2   Mean   :1  
+                    3rd Qu.: NA       3rd Qu.:2   3rd Qu.:1  
+                    Max.   : NA       Max.   :2   Max.   :1  
+                    NA's   :7537900                          
+      POS               ref             outgroup_1         outgroup_2       
+ Min.   :   22217   Length:7537900     Length:7537900     Length:7537900    
+ 1st Qu.: 8193582   Class :character   Class :character   Class :character  
+ Median :12400014   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :11682839                                                           
+ 3rd Qu.:16044752                                                           
+ Max.   :19696957                                                           
+                                                                            
+[1] 11061551
+[1] 7537900
+
+      2 
+7537900 
+[1] 7537900
+[1] 7375531
+            seq start   end strand
+117 NC_003071.7 22367 22368      +
+119 NC_003071.7 22368 22369      +
+121 NC_003071.7 22369 22370      +
+123 NC_003071.7 22370 22371      +
+125 NC_003071.7 22371 22372      +
+127 NC_003071.7 22372 22373      +
+                                                                                            species
+117 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+119 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+121 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+123 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+125 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+127 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+                                aligned_chrom         aligned_pos sequence
+117 NC_003071.7,NW_003302555.1,NW_022610102.1 22367,16230808,7386    G,G,g
+119 NC_003071.7,NW_003302555.1,NW_022610102.1 22368,16230809,7387    G,G,c
+121 NC_003071.7,NW_003302555.1,NW_022610102.1 22369,16230810,7388    T,A,a
+123 NC_003071.7,NW_003302555.1,NW_022610102.1 22370,16230811,7389    G,G,g
+125 NC_003071.7,NW_003302555.1,NW_022610102.1 22371,16230812,7390    C,T,c
+127 NC_003071.7,NW_003302555.1,NW_022610102.1 22372,16230813,7391    T,T,a
+    strands score CHROM width   POS ref outgroup_1 outgroup_2
+117   +,+,+   NaN     2     1 22368   G          G          G
+119   +,+,+   NaN     2     1 22369   G          G          C
+121   +,+,+   NaN     2     1 22370   T          A          A
+123   +,+,+   NaN     2     1 22371   G          G          G
+125   +,+,+   NaN     2     1 22372   C          T          C
+127   +,+,+   NaN     2     1 22373   T          T          A
+[1] 7375531
+[1] 7375531
+Joining with `by = join_by(CHROM, POS)`
+chromosome 3 
+          seq start end strand
+1 NC_003074.8     0   1      +
+2 NC_003074.8     1   2      +
+3 NC_003074.8     2   3      +
+4 NC_003074.8     3   4      +
+5 NC_003074.8     4   5      +
+6 NC_003074.8     5   6      +
+                                                                                          species
+1 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+2 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+3 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+4 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+5 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+6 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+                 aligned_chrom aligned_pos sequence strands score CHROM width
+1 NC_003074.8,NW_003302553.1,?  0,436338,?    N,N,?   +,-,?   NaN     3     1
+2 NC_003074.8,NW_003302553.1,?  1,436337,?    N,N,?   +,-,?   NaN     3     1
+3 NC_003074.8,NW_003302553.1,?  2,436336,?    N,N,?   +,-,?   NaN     3     1
+4 NC_003074.8,NW_003302553.1,?  3,436335,?    N,N,?   +,-,?   NaN     3     1
+5 NC_003074.8,NW_003302553.1,?  4,436334,?    N,N,?   +,-,?   NaN     3     1
+6 NC_003074.8,NW_003302553.1,?  5,436333,?    N,N,?   +,-,?   NaN     3     1
+  POS ref outgroup_1 outgroup_2
+1   1   N          N          ?
+2   2   N          N          ?
+3   3   N          N          ?
+4   4   N          N          ?
+5   5   N          N          ?
+6   6   N          N          ?
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     1  55         2   162              C:162                T:0   C   T
+2     1  56         2   172              T:172                A:0   T   A
+3     1  63         2   154              T:154                C:0   T   C
+4     1  73         2   168              C:152               A:16   C   A
+5     1  75         2   168              T:168                A:0   T   A
+6     1  80         2   156              G:156                T:0   G   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1       162         0       0       0     162       0       162 C->T
+2       172         0       0     172       0       0       172 T->A
+3       154         0       0     154       0       0       154 T->C
+4       152        16      16       0     152       0       168 C->A
+5       168         0       0     168       0       0       168 T->A
+6       156         0       0       0       0     156       156 G->T
+    CHROM               POS              N_ALLELES        N_CHR      
+ Length:11061551    Length:11061551    Min.   :2.00   Min.   :  0.0  
+ Class :character   Class :character   1st Qu.:2.00   1st Qu.:276.0  
+ Mode  :character   Mode  :character   Median :2.00   Median :336.0  
+                                       Mean   :2.07   Mean   :299.6  
+                                       3rd Qu.:2.00   3rd Qu.:354.0  
+                                       Max.   :4.00   Max.   :368.0  
+ {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT     REF                ALT           
+ Length:11061551    Length:11061551    Length:11061551    Length:11061551   
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+  count_REF          count_ALT            count_A          count_T      
+ Length:11061551    Length:11061551    Min.   :  0.00   Min.   :  0.00  
+ Class :character   Class :character   1st Qu.:  0.00   1st Qu.:  0.00  
+ Mode  :character   Mode  :character   Median :  0.00   Median :  0.00  
+                                       Mean   : 70.16   Mean   : 70.13  
+                                       3rd Qu.: 36.00   3rd Qu.: 36.00  
+                                       Max.   :368.00   Max.   :368.00  
+    count_C          count_G         n_genomes         mut           
+ Min.   :  0.00   Min.   :  0.00   Min.   :  0.0   Length:11061551   
+ 1st Qu.:  0.00   1st Qu.:  0.00   1st Qu.:276.0   Class :character  
+ Median :  0.00   Median :  0.00   Median :336.0   Mode  :character  
+ Mean   : 79.51   Mean   : 79.65   Mean   :299.5                     
+ 3rd Qu.:136.00   3rd Qu.:138.00   3rd Qu.:354.0                     
+ Max.   :368.00   Max.   :368.00   Max.   :368.0                     
+     seq                start               end              strand         
+ Length:10203554    Min.   :       0   Min.   :       1   Length:10203554   
+ Class :character   1st Qu.: 4665018   1st Qu.: 4665019   Class :character  
+ Mode  :character   Median : 9661478   Median : 9661478   Mode  :character  
+                    Mean   :11300906   Mean   :11300907                     
+                    3rd Qu.:18829959   3rd Qu.:18829960                     
+                    Max.   :23459800   Max.   :23459801                     
+                                                                            
+   species          aligned_chrom      aligned_pos          sequence        
+ Length:10203554    Length:10203554    Length:10203554    Length:10203554   
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+   strands              score              CHROM       width  
+ Length:10203554    Min.   : NA        Min.   :3   Min.   :1  
+ Class :character   1st Qu.: NA        1st Qu.:3   1st Qu.:1  
+ Mode  :character   Median : NA        Median :3   Median :1  
+                    Mean   :NaN        Mean   :3   Mean   :1  
+                    3rd Qu.: NA        3rd Qu.:3   3rd Qu.:1  
+                    Max.   : NA        Max.   :3   Max.   :1  
+                    NA's   :10203554                          
+      POS               ref             outgroup_1         outgroup_2       
+ Min.   :       1   Length:10203554    Length:10203554    Length:10203554   
+ 1st Qu.: 4665019   Class :character   Class :character   Class :character  
+ Median : 9661478   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :11300907                                                           
+ 3rd Qu.:18829960                                                           
+ Max.   :23459801                                                           
+                                                                            
+[1] 11061551
+[1] 10203554
+
+       3 
+10203554 
+[1] 10203554
+[1] 9784376
+              seq start   end strand
+16483 NC_003074.8 39458 39459      +
+16485 NC_003074.8 39459 39460      +
+16487 NC_003074.8 39460 39461      +
+16489 NC_003074.8 39461 39462      +
+16491 NC_003074.8 39462 39463      +
+16493 NC_003074.8 39463 39464      +
+                                                                                              species
+16483 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+16485 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+16487 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+16489 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+16491 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+16493 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+                               aligned_chrom           aligned_pos sequence
+16483 NC_003074.8,NW_003302553.1,NC_024804.2 39458,392203,16541149    C,C,C
+16485 NC_003074.8,NW_003302553.1,NC_024804.2 39459,392202,16541150    A,A,A
+16487 NC_003074.8,NW_003302553.1,NC_024804.2 39460,392201,16541151    T,T,T
+16489 NC_003074.8,NW_003302553.1,NC_024804.2 39461,392200,16541152    A,A,A
+16491 NC_003074.8,NW_003302553.1,NC_024804.2 39462,392199,16541153    C,C,C
+16493 NC_003074.8,NW_003302553.1,NC_024804.2 39463,392198,16541154    C,C,C
+      strands score CHROM width   POS ref outgroup_1 outgroup_2
+16483   +,-,+   NaN     3     1 39459   C          C          C
+16485   +,-,+   NaN     3     1 39460   A          A          A
+16487   +,-,+   NaN     3     1 39461   T          T          T
+16489   +,-,+   NaN     3     1 39462   A          A          A
+16491   +,-,+   NaN     3     1 39463   C          C          C
+16493   +,-,+   NaN     3     1 39464   C          C          C
+[1] 9784376
+[1] 9784376
+Joining with `by = join_by(CHROM, POS)`
+chromosome 4 
+          seq start   end strand
+1 NC_003075.7 12565 12566      +
+2 NC_003075.7 12566 12567      +
+3 NC_003075.7 12567 12568      +
+4 NC_003075.7 12568 12569      +
+5 NC_003075.7 12569 12570      +
+6 NC_003075.7 12570 12571      +
+                                                                                          species
+1 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+2 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+3 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+4 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+5 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+6 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+                           aligned_chrom           aligned_pos sequence strands
+1 NC_003075.7,NW_003302550.1,NC_024803.2 12565,25074361,508885    G,T,T   +,-,-
+2 NC_003075.7,NW_003302550.1,NC_024803.2 12566,25074360,508884    A,G,A   +,-,-
+3 NC_003075.7,NW_003302550.1,NC_024803.2 12567,25074359,508883    A,A,A   +,-,-
+4 NC_003075.7,NW_003302550.1,NC_024803.2 12568,25074358,508882    A,A,A   +,-,-
+5 NC_003075.7,NW_003302550.1,NC_024803.2 12569,25074357,508881    C,A,C   +,-,-
+6 NC_003075.7,NW_003302550.1,NC_024803.2 12570,25074356,508880    A,A,A   +,-,-
+  score CHROM width   POS ref outgroup_1 outgroup_2
+1   NaN     4     1 12566   G          T          T
+2   NaN     4     1 12567   A          G          A
+3   NaN     4     1 12568   A          A          A
+4   NaN     4     1 12569   A          A          A
+5   NaN     4     1 12570   C          A          C
+6   NaN     4     1 12571   A          A          A
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     1  55         2   162              C:162                T:0   C   T
+2     1  56         2   172              T:172                A:0   T   A
+3     1  63         2   154              T:154                C:0   T   C
+4     1  73         2   168              C:152               A:16   C   A
+5     1  75         2   168              T:168                A:0   T   A
+6     1  80         2   156              G:156                T:0   G   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1       162         0       0       0     162       0       162 C->T
+2       172         0       0     172       0       0       172 T->A
+3       154         0       0     154       0       0       154 T->C
+4       152        16      16       0     152       0       168 C->A
+5       168         0       0     168       0       0       168 T->A
+6       156         0       0       0       0     156       156 G->T
+    CHROM               POS              N_ALLELES        N_CHR      
+ Length:11061551    Length:11061551    Min.   :2.00   Min.   :  0.0  
+ Class :character   Class :character   1st Qu.:2.00   1st Qu.:276.0  
+ Mode  :character   Mode  :character   Median :2.00   Median :336.0  
+                                       Mean   :2.07   Mean   :299.6  
+                                       3rd Qu.:2.00   3rd Qu.:354.0  
+                                       Max.   :4.00   Max.   :368.0  
+ {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT     REF                ALT           
+ Length:11061551    Length:11061551    Length:11061551    Length:11061551   
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+  count_REF          count_ALT            count_A          count_T      
+ Length:11061551    Length:11061551    Min.   :  0.00   Min.   :  0.00  
+ Class :character   Class :character   1st Qu.:  0.00   1st Qu.:  0.00  
+ Mode  :character   Mode  :character   Median :  0.00   Median :  0.00  
+                                       Mean   : 70.16   Mean   : 70.13  
+                                       3rd Qu.: 36.00   3rd Qu.: 36.00  
+                                       Max.   :368.00   Max.   :368.00  
+    count_C          count_G         n_genomes         mut           
+ Min.   :  0.00   Min.   :  0.00   Min.   :  0.0   Length:11061551   
+ 1st Qu.:  0.00   1st Qu.:  0.00   1st Qu.:276.0   Class :character  
+ Median :  0.00   Median :  0.00   Median :336.0   Mode  :character  
+ Mean   : 79.51   Mean   : 79.65   Mean   :299.5                     
+ 3rd Qu.:136.00   3rd Qu.:138.00   3rd Qu.:354.0                     
+ Max.   :368.00   Max.   :368.00   Max.   :368.0                     
+     seq                start               end              strand         
+ Length:8234621     Min.   :   12565   Min.   :   12566   Length:8234621    
+ Class :character   1st Qu.: 6310641   1st Qu.: 6310642   Class :character  
+ Mode  :character   Median :10723940   Median :10723941   Mode  :character  
+                    Mean   :10241376   Mean   :10241377                     
+                    3rd Qu.:14852561   3rd Qu.:14852562                     
+                    Max.   :18585055   Max.   :18585056                     
+                                                                            
+   species          aligned_chrom      aligned_pos          sequence        
+ Length:8234621     Length:8234621     Length:8234621     Length:8234621    
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+   strands              score             CHROM       width  
+ Length:8234621     Min.   : NA       Min.   :4   Min.   :1  
+ Class :character   1st Qu.: NA       1st Qu.:4   1st Qu.:1  
+ Mode  :character   Median : NA       Median :4   Median :1  
+                    Mean   :NaN       Mean   :4   Mean   :1  
+                    3rd Qu.: NA       3rd Qu.:4   3rd Qu.:1  
+                    Max.   : NA       Max.   :4   Max.   :1  
+                    NA's   :8234621                          
+      POS               ref             outgroup_1         outgroup_2       
+ Min.   :   12566   Length:8234621     Length:8234621     Length:8234621    
+ 1st Qu.: 6310642   Class :character   Class :character   Class :character  
+ Median :10723941   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :10241377                                                           
+ 3rd Qu.:14852562                                                           
+ Max.   :18585056                                                           
+                                                                            
+[1] 11061551
+[1] 8234621
+
+      4 
+8234621 
+[1] 8234621
+[1] 7620357
+              seq start   end strand
+12260 NC_003075.7 38136 38137      +
+12262 NC_003075.7 38137 38138      +
+12264 NC_003075.7 38138 38139      +
+12266 NC_003075.7 38139 38140      +
+12268 NC_003075.7 38140 38141      +
+12270 NC_003075.7 38141 38142      +
+                                                                                              species
+12260 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+12262 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+12264 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+12266 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+12268 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+12270 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+                               aligned_chrom         aligned_pos sequence
+12260 NC_003075.7,NW_003302555.1,NC_024803.2 38136,113541,482931    G,A,G
+12262 NC_003075.7,NW_003302555.1,NC_024803.2 38137,113542,482930    G,T,g
+12264 NC_003075.7,NW_003302555.1,NC_024803.2 38138,113543,482929    A,T,a
+12266 NC_003075.7,NW_003302555.1,NC_024803.2 38139,113544,482928    G,A,a
+12268 NC_003075.7,NW_003302555.1,NC_024803.2 38140,113545,482927    G,G,g
+12270 NC_003075.7,NW_003302555.1,NC_024803.2 38141,113546,482926    A,C,t
+      strands score CHROM width   POS ref outgroup_1 outgroup_2
+12260   +,+,-   NaN     4     1 38137   G          A          G
+12262   +,+,-   NaN     4     1 38138   G          T          G
+12264   +,+,-   NaN     4     1 38139   A          T          A
+12266   +,+,-   NaN     4     1 38140   G          A          A
+12268   +,+,-   NaN     4     1 38141   G          G          G
+12270   +,+,-   NaN     4     1 38142   A          C          T
+[1] 7620357
+[1] 7620357
+Joining with `by = join_by(CHROM, POS)`
+chromosome 5 
+          seq start end strand
+1 NC_003076.8     0   1      +
+2 NC_003076.8     1   2      +
+3 NC_003076.8     2   3      +
+5 NC_003076.8     9  10      +
+6 NC_003076.8    10  11      +
+7 NC_003076.8    11  12      +
+                                                                                          species
+1 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+2 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+3 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+5 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+6 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+7 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+                           aligned_chrom  aligned_pos sequence strands score
+1 NC_003076.8,NW_003302550.1,NC_024797.2   0,2,124957    T,t,T   +,+,+   NaN
+2 NC_003076.8,NW_003302550.1,NC_024797.2   1,3,124958    A,a,A   +,+,+   NaN
+3 NC_003076.8,NW_003302550.1,NC_024797.2   2,4,124959    T,a,T   +,+,+   NaN
+5 NC_003076.8,NW_003302550.1,NC_024797.2  9,11,124961    T,c,T   +,+,+   NaN
+6 NC_003076.8,NW_003302550.1,NC_024797.2 10,12,124962    A,a,A   +,+,+   NaN
+7 NC_003076.8,NW_003302550.1,NC_024797.2 11,13,124963    C,c,T   +,+,+   NaN
+  CHROM width POS ref outgroup_1 outgroup_2
+1     5     1   1   T          T          T
+2     5     1   2   A          A          A
+3     5     1   3   T          A          T
+5     5     1  10   T          C          T
+6     5     1  11   A          A          A
+7     5     1  12   C          C          T
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     1  55         2   162              C:162                T:0   C   T
+2     1  56         2   172              T:172                A:0   T   A
+3     1  63         2   154              T:154                C:0   T   C
+4     1  73         2   168              C:152               A:16   C   A
+5     1  75         2   168              T:168                A:0   T   A
+6     1  80         2   156              G:156                T:0   G   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1       162         0       0       0     162       0       162 C->T
+2       172         0       0     172       0       0       172 T->A
+3       154         0       0     154       0       0       154 T->C
+4       152        16      16       0     152       0       168 C->A
+5       168         0       0     168       0       0       168 T->A
+6       156         0       0       0       0     156       156 G->T
+    CHROM               POS              N_ALLELES        N_CHR      
+ Length:11061551    Length:11061551    Min.   :2.00   Min.   :  0.0  
+ Class :character   Class :character   1st Qu.:2.00   1st Qu.:276.0  
+ Mode  :character   Mode  :character   Median :2.00   Median :336.0  
+                                       Mean   :2.07   Mean   :299.6  
+                                       3rd Qu.:2.00   3rd Qu.:354.0  
+                                       Max.   :4.00   Max.   :368.0  
+ {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT     REF                ALT           
+ Length:11061551    Length:11061551    Length:11061551    Length:11061551   
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+  count_REF          count_ALT            count_A          count_T      
+ Length:11061551    Length:11061551    Min.   :  0.00   Min.   :  0.00  
+ Class :character   Class :character   1st Qu.:  0.00   1st Qu.:  0.00  
+ Mode  :character   Mode  :character   Median :  0.00   Median :  0.00  
+                                       Mean   : 70.16   Mean   : 70.13  
+                                       3rd Qu.: 36.00   3rd Qu.: 36.00  
+                                       Max.   :368.00   Max.   :368.00  
+    count_C          count_G         n_genomes         mut           
+ Min.   :  0.00   Min.   :  0.00   Min.   :  0.0   Length:11061551   
+ 1st Qu.:  0.00   1st Qu.:  0.00   1st Qu.:276.0   Class :character  
+ Median :  0.00   Median :  0.00   Median :336.0   Mode  :character  
+ Mean   : 79.51   Mean   : 79.65   Mean   :299.5                     
+ 3rd Qu.:136.00   3rd Qu.:138.00   3rd Qu.:354.0                     
+ Max.   :368.00   Max.   :368.00   Max.   :368.0                     
+     seq                start               end              strand         
+ Length:14400959    Min.   :       0   Min.   :       1   Length:14400959   
+ Class :character   1st Qu.: 6020900   1st Qu.: 6020900   Class :character  
+ Mode  :character   Median :13495975   Median :13495976   Mode  :character  
+                    Mean   :13392158   Mean   :13392159                     
+                    3rd Qu.:20634892   3rd Qu.:20634892                     
+                    Max.   :26975501   Max.   :26975502                     
+                                                                            
+   species          aligned_chrom      aligned_pos          sequence        
+ Length:14400959    Length:14400959    Length:14400959    Length:14400959   
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+   strands              score              CHROM       width  
+ Length:14400959    Min.   : NA        Min.   :5   Min.   :1  
+ Class :character   1st Qu.: NA        1st Qu.:5   1st Qu.:1  
+ Mode  :character   Median : NA        Median :5   Median :1  
+                    Mean   :NaN        Mean   :5   Mean   :1  
+                    3rd Qu.: NA        3rd Qu.:5   3rd Qu.:1  
+                    Max.   : NA        Max.   :5   Max.   :1  
+                    NA's   :14400959                          
+      POS               ref             outgroup_1         outgroup_2       
+ Min.   :       1   Length:14400959    Length:14400959    Length:14400959   
+ 1st Qu.: 6020900   Class :character   Class :character   Class :character  
+ Median :13495976   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :13392159                                                           
+ 3rd Qu.:20634892                                                           
+ Max.   :26975502                                                           
+                                                                            
+[1] 11061551
+[1] 14400959
+
+       5 
+14400959 
+[1] 14400959
+[1] 12812003
+             seq start  end strand
+1112 NC_003076.8  2538 2539      +
+1114 NC_003076.8  2539 2540      +
+1116 NC_003076.8  2540 2541      +
+1118 NC_003076.8  2541 2542      +
+1120 NC_003076.8  2542 2543      +
+1122 NC_003076.8  2543 2544      +
+                                                                                             species
+1112 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+1114 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+1116 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+1118 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+1120 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+1122 GCF_000001735_Arabidopsis_thaliana,GCF_000004255_Arabidopsis_lyrata,GCF_000309985_Brassica_rapa
+                              aligned_chrom      aligned_pos sequence strands
+1112 NC_003076.8,NW_003302550.1,NC_024797.2 2538,2939,126672    A,A,A   +,+,+
+1114 NC_003076.8,NW_003302550.1,NC_024797.2 2539,2940,126673    C,C,C   +,+,+
+1116 NC_003076.8,NW_003302550.1,NC_024797.2 2540,2941,126674    T,T,T   +,+,+
+1118 NC_003076.8,NW_003302550.1,NC_024797.2 2541,2942,126675    T,T,T   +,+,+
+1120 NC_003076.8,NW_003302550.1,NC_024797.2 2542,2943,126676    A,A,G   +,+,+
+1122 NC_003076.8,NW_003302550.1,NC_024797.2 2543,2944,126677    C,C,T   +,+,+
+     score CHROM width  POS ref outgroup_1 outgroup_2
+1112   NaN     5     1 2539   A          A          A
+1114   NaN     5     1 2540   C          C          C
+1116   NaN     5     1 2541   T          T          T
+1118   NaN     5     1 2542   T          T          T
+1120   NaN     5     1 2543   A          A          G
+1122   NaN     5     1 2544   C          C          T
+[1] 12812003
+[1] 12812003
+Joining with `by = join_by(CHROM, POS)`
