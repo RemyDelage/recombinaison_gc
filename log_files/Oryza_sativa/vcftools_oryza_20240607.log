@@ -1,0 +1,216 @@
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Oryza_sativa_Wang2018.pop_sfs.no_indels.recode.vcf.gz
+	--chr 1
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out Oryza_sativa_Wang2018.1
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+After filtering, kept 475 out of 475 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 1911385 out of a possible 18128777 Sites
+Run Time = 1759.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Oryza_sativa_Wang2018.pop_sfs.no_indels.recode.vcf.gz
+	--chr 2
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out Oryza_sativa_Wang2018.2
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+After filtering, kept 475 out of 475 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 1541096 out of a possible 18128777 Sites
+Run Time = 1633.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Oryza_sativa_Wang2018.pop_sfs.no_indels.recode.vcf.gz
+	--chr 3
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out Oryza_sativa_Wang2018.3
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+After filtering, kept 475 out of 475 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 1459157 out of a possible 18128777 Sites
+Run Time = 1603.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Oryza_sativa_Wang2018.pop_sfs.no_indels.recode.vcf.gz
+	--chr 4
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out Oryza_sativa_Wang2018.4
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+After filtering, kept 475 out of 475 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 1803432 out of a possible 18128777 Sites
+Run Time = 1659.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Oryza_sativa_Wang2018.pop_sfs.no_indels.recode.vcf.gz
+	--chr 5
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out Oryza_sativa_Wang2018.5
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+After filtering, kept 475 out of 475 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 1275199 out of a possible 18128777 Sites
+Run Time = 1578.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Oryza_sativa_Wang2018.pop_sfs.no_indels.recode.vcf.gz
+	--chr 6
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out Oryza_sativa_Wang2018.6
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+After filtering, kept 475 out of 475 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 1523230 out of a possible 18128777 Sites
+Run Time = 1617.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Oryza_sativa_Wang2018.pop_sfs.no_indels.recode.vcf.gz
+	--chr 7
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out Oryza_sativa_Wang2018.7
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+After filtering, kept 475 out of 475 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 1430893 out of a possible 18128777 Sites
+Run Time = 1598.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Oryza_sativa_Wang2018.pop_sfs.no_indels.recode.vcf.gz
+	--chr 8
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out Oryza_sativa_Wang2018.8
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+After filtering, kept 475 out of 475 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 1481796 out of a possible 18128777 Sites
+Run Time = 1608.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Oryza_sativa_Wang2018.pop_sfs.no_indels.recode.vcf.gz
+	--chr 9
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out Oryza_sativa_Wang2018.9
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+After filtering, kept 475 out of 475 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 1156209 out of a possible 18128777 Sites
+Run Time = 1560.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Oryza_sativa_Wang2018.pop_sfs.no_indels.recode.vcf.gz
+	--chr 10
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out Oryza_sativa_Wang2018.10
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+After filtering, kept 475 out of 475 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 1206751 out of a possible 18128777 Sites
+Run Time = 1570.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Oryza_sativa_Wang2018.pop_sfs.no_indels.recode.vcf.gz
+	--chr 11
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out Oryza_sativa_Wang2018.11
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+After filtering, kept 475 out of 475 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 1735748 out of a possible 18128777 Sites
+Run Time = 1653.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Oryza_sativa_Wang2018.pop_sfs.no_indels.recode.vcf.gz
+	--chr 12
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out Oryza_sativa_Wang2018.12
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+After filtering, kept 475 out of 475 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 1603881 out of a possible 18128777 Sites
+Run Time = 1625.00 seconds
