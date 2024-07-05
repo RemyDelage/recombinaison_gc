@@ -1,0 +1,481 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+##### Chromosome 2 : NC_029257.1 ##### 
+---------------------------- 
+VCF 
+---------------------------- 
+head(snp_counts) 
+  V1 V2 V3  V4    V5   V6
+1  2 34  2 306 A:306  T:0
+2  2 37  2 184 C:161 T:23
+3  2 42  2 330 A:330  G:0
+4  2 43  2 156 C:137 A:19
+5  2 46  2 132 T:108 A:24
+6  2 47  2 150 A:126 T:24
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT
+1     2  34         2   306              A:306                T:0
+2     2  37         2   184              C:161               T:23
+3     2  42         2   330              A:330                G:0
+4     2  43         2   156              C:137               A:19
+5     2  46         2   132              T:108               A:24
+6     2  47         2   150              A:126               T:24
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     2  34         2   306              A:306                T:0   A   T
+2     2  37         2   184              C:161               T:23   C   T
+3     2  42         2   330              A:330                G:0   A   G
+4     2  43         2   156              C:137               A:19   C   A
+5     2  46         2   132              T:108               A:24   T   A
+6     2  47         2   150              A:126               T:24   A   T
+  count_REF count_ALT
+1       306         0
+2       161        23
+3       330         0
+4       137        19
+5       108        24
+6       126        24
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     2  34         2   306              A:306                T:0   A   T
+2     2  37         2   184              C:161               T:23   C   T
+3     2  42         2   330              A:330                G:0   A   G
+4     2  43         2   156              C:137               A:19   C   A
+5     2  46         2   132              T:108               A:24   T   A
+6     2  47         2   150              A:126               T:24   A   T
+  count_REF count_ALT count_A count_T count_C count_G
+1       306         0     306       0       0       0
+2       161        23       0      23     161       0
+3       330         0     330       0       0       0
+4       137        19      19       0     137       0
+5       108        24      24     108       0       0
+6       126        24     126      24       0       0
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     2  34         2   306              A:306                T:0   A   T
+2     2  37         2   184              C:161               T:23   C   T
+3     2  42         2   330              A:330                G:0   A   G
+4     2  43         2   156              C:137               A:19   C   A
+5     2  46         2   132              T:108               A:24   T   A
+6     2  47         2   150              A:126               T:24   A   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes
+1       306         0     306       0       0       0       306
+2       161        23       0      23     161       0       184
+3       330         0     330       0       0       0       330
+4       137        19      19       0     137       0       156
+5       108        24      24     108       0       0       132
+6       126        24     126      24       0       0       150
+[1] "A->T" "C->T" "A->G" "C->A" "T->A" "A->T"
+
+  A->C   A->G   A->T   C->A   C->G   C->T   G->A   G->C   G->T   T->A   T->C 
+ 37879 159628  63892  77094  40261 391614 392503  40581  76743  64289 158491 
+  T->G 
+ 38121 
+number of mutations WS :  394119 
+number of mutations SW :  937954 
+# ---------------------------- # 
+# WGABED - Alignement avec Cactus 
+# ---------------------------- # 
+          seq start  end strand
+1 NC_029257.1  3629 3630      +
+2 NC_029257.1  3630 3631      +
+3 NC_029257.1  3631 3632      +
+4 NC_029257.1  3632 3633      +
+5 NC_029257.1  3633 3634      +
+6 NC_029257.1  3634 3635      +
+                                                                                    species
+1 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+2 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+3 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+4 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+5 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+6 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+                        aligned_chrom     aligned_pos sequence strands score
+1 NC_029257.1,NC_068327.1,NC_023164.2 3629,6301,16896    a,a,A   +,+,+   NaN
+2 NC_029257.1,NC_068327.1,NC_023164.2 3630,6302,16897    t,t,T   +,+,+   NaN
+3 NC_029257.1,NC_068327.1,NC_023164.2 3631,6303,16898    a,a,A   +,+,+   NaN
+4 NC_029257.1,NC_068327.1,NC_023164.2 3632,6304,16899    t,t,C   +,+,+   NaN
+5 NC_029257.1,NC_068327.1,NC_023164.2 3633,6305,16900    c,c,C   +,+,+   NaN
+6 NC_029257.1,NC_068327.1,NC_023164.2 3634,6306,16901    g,g,G   +,+,+   NaN
+[1] 15978936
+[1] 15791996
+          seq start  end strand
+1 NC_029257.1  3629 3630      +
+2 NC_029257.1  3630 3631      +
+3 NC_029257.1  3631 3632      +
+4 NC_029257.1  3632 3633      +
+5 NC_029257.1  3633 3634      +
+6 NC_029257.1  3634 3635      +
+                                                                                    species
+1 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+2 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+3 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+4 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+5 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+6 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+                        aligned_chrom     aligned_pos sequence strands score
+1 NC_029257.1,NC_068327.1,NC_023164.2 3629,6301,16896    a,a,A   +,+,+   NaN
+2 NC_029257.1,NC_068327.1,NC_023164.2 3630,6302,16897    t,t,T   +,+,+   NaN
+3 NC_029257.1,NC_068327.1,NC_023164.2 3631,6303,16898    a,a,A   +,+,+   NaN
+4 NC_029257.1,NC_068327.1,NC_023164.2 3632,6304,16899    t,t,C   +,+,+   NaN
+5 NC_029257.1,NC_068327.1,NC_023164.2 3633,6305,16900    c,c,C   +,+,+   NaN
+6 NC_029257.1,NC_068327.1,NC_023164.2 3634,6306,16901    g,g,G   +,+,+   NaN
+  CHROM width  POS
+1     2     1 3630
+2     2     1 3631
+3     2     1 3632
+4     2     1 3633
+5     2     1 3634
+6     2     1 3635
+          seq start  end strand
+1 NC_029257.1  3629 3630      +
+2 NC_029257.1  3630 3631      +
+3 NC_029257.1  3631 3632      +
+4 NC_029257.1  3632 3633      +
+5 NC_029257.1  3633 3634      +
+6 NC_029257.1  3634 3635      +
+                                                                                    species
+1 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+2 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+3 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+4 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+5 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+6 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+                        aligned_chrom     aligned_pos sequence strands score
+1 NC_029257.1,NC_068327.1,NC_023164.2 3629,6301,16896    a,a,A   +,+,+   NaN
+2 NC_029257.1,NC_068327.1,NC_023164.2 3630,6302,16897    t,t,T   +,+,+   NaN
+3 NC_029257.1,NC_068327.1,NC_023164.2 3631,6303,16898    a,a,A   +,+,+   NaN
+4 NC_029257.1,NC_068327.1,NC_023164.2 3632,6304,16899    t,t,C   +,+,+   NaN
+5 NC_029257.1,NC_068327.1,NC_023164.2 3633,6305,16900    c,c,C   +,+,+   NaN
+6 NC_029257.1,NC_068327.1,NC_023164.2 3634,6306,16901    g,g,G   +,+,+   NaN
+  CHROM width  POS ref outgroup_1 outgroup_2
+1     2     1 3630   A          A          A
+2     2     1 3631   T          T          T
+3     2     1 3632   A          A          A
+4     2     1 3633   T          T          C
+5     2     1 3634   C          C          C
+6     2     1 3635   G          G          G
+          seq start  end strand
+1 NC_029257.1  3629 3630      +
+2 NC_029257.1  3630 3631      +
+3 NC_029257.1  3631 3632      +
+4 NC_029257.1  3632 3633      +
+5 NC_029257.1  3633 3634      +
+6 NC_029257.1  3634 3635      +
+                                                                                    species
+1 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+2 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+3 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+4 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+5 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+6 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+                        aligned_chrom     aligned_pos sequence strands score
+1 NC_029257.1,NC_068327.1,NC_023164.2 3629,6301,16896    a,a,A   +,+,+   NaN
+2 NC_029257.1,NC_068327.1,NC_023164.2 3630,6302,16897    t,t,T   +,+,+   NaN
+3 NC_029257.1,NC_068327.1,NC_023164.2 3631,6303,16898    a,a,A   +,+,+   NaN
+4 NC_029257.1,NC_068327.1,NC_023164.2 3632,6304,16899    t,t,C   +,+,+   NaN
+5 NC_029257.1,NC_068327.1,NC_023164.2 3633,6305,16900    c,c,C   +,+,+   NaN
+6 NC_029257.1,NC_068327.1,NC_023164.2 3634,6306,16901    g,g,G   +,+,+   NaN
+  CHROM width  POS ref outgroup_1 outgroup_2
+1     2     1 3630   A          A          A
+2     2     1 3631   T          T          T
+3     2     1 3632   A          A          A
+4     2     1 3633   T          T          C
+5     2     1 3634   C          C          C
+6     2     1 3635   G          G          G
+          seq start  end strand
+1 NC_029257.1  3629 3630      +
+2 NC_029257.1  3630 3631      +
+3 NC_029257.1  3631 3632      +
+4 NC_029257.1  3632 3633      +
+5 NC_029257.1  3633 3634      +
+6 NC_029257.1  3634 3635      +
+                                                                                    species
+1 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+2 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+3 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+4 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+5 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+6 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+                        aligned_chrom     aligned_pos sequence strands score
+1 NC_029257.1,NC_068327.1,NC_023164.2 3629,6301,16896    a,a,A   +,+,+   NaN
+2 NC_029257.1,NC_068327.1,NC_023164.2 3630,6302,16897    t,t,T   +,+,+   NaN
+3 NC_029257.1,NC_068327.1,NC_023164.2 3631,6303,16898    a,a,A   +,+,+   NaN
+4 NC_029257.1,NC_068327.1,NC_023164.2 3632,6304,16899    t,t,C   +,+,+   NaN
+5 NC_029257.1,NC_068327.1,NC_023164.2 3633,6305,16900    c,c,C   +,+,+   NaN
+6 NC_029257.1,NC_068327.1,NC_023164.2 3634,6306,16901    g,g,G   +,+,+   NaN
+  CHROM width  POS ref outgroup_1 outgroup_2
+1     2     1 3630   A          A          A
+2     2     1 3631   T          T          T
+3     2     1 3632   A          A          A
+4     2     1 3633   T          T          C
+5     2     1 3634   C          C          C
+6     2     1 3635   G          G          G
+          seq start  end strand
+1 NC_029257.1  3629 3630      +
+2 NC_029257.1  3630 3631      +
+3 NC_029257.1  3631 3632      +
+4 NC_029257.1  3632 3633      +
+5 NC_029257.1  3633 3634      +
+6 NC_029257.1  3634 3635      +
+                                                                                    species
+1 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+2 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+3 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+4 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+5 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+6 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+                        aligned_chrom     aligned_pos sequence strands score
+1 NC_029257.1,NC_068327.1,NC_023164.2 3629,6301,16896    a,a,A   +,+,+   NaN
+2 NC_029257.1,NC_068327.1,NC_023164.2 3630,6302,16897    t,t,T   +,+,+   NaN
+3 NC_029257.1,NC_068327.1,NC_023164.2 3631,6303,16898    a,a,A   +,+,+   NaN
+4 NC_029257.1,NC_068327.1,NC_023164.2 3632,6304,16899    t,t,C   +,+,+   NaN
+5 NC_029257.1,NC_068327.1,NC_023164.2 3633,6305,16900    c,c,C   +,+,+   NaN
+6 NC_029257.1,NC_068327.1,NC_023164.2 3634,6306,16901    g,g,G   +,+,+   NaN
+  CHROM width  POS ref outgroup_1 outgroup_2
+1     2     1 3630   A          A          A
+2     2     1 3631   T          T          T
+3     2     1 3632   A          A          A
+4     2     1 3633   T          T          C
+5     2     1 3634   C          C          C
+6     2     1 3635   G          G          G
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     2  34         2   306              A:306                T:0   A   T
+2     2  37         2   184              C:161               T:23   C   T
+3     2  42         2   330              A:330                G:0   A   G
+4     2  43         2   156              C:137               A:19   C   A
+5     2  46         2   132              T:108               A:24   T   A
+6     2  47         2   150              A:126               T:24   A   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1       306         0     306       0       0       0       306 A->T
+2       161        23       0      23     161       0       184 C->T
+3       330         0     330       0       0       0       330 A->G
+4       137        19      19       0     137       0       156 C->A
+5       108        24      24     108       0       0       132 T->A
+6       126        24     126      24       0       0       150 A->T
+          seq start  end strand
+1 NC_029257.1  3629 3630      +
+2 NC_029257.1  3630 3631      +
+3 NC_029257.1  3631 3632      +
+4 NC_029257.1  3632 3633      +
+5 NC_029257.1  3633 3634      +
+6 NC_029257.1  3634 3635      +
+                                                                                    species
+1 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+2 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+3 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+4 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+5 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+6 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+                        aligned_chrom     aligned_pos sequence strands score
+1 NC_029257.1,NC_068327.1,NC_023164.2 3629,6301,16896    a,a,A   +,+,+   NaN
+2 NC_029257.1,NC_068327.1,NC_023164.2 3630,6302,16897    t,t,T   +,+,+   NaN
+3 NC_029257.1,NC_068327.1,NC_023164.2 3631,6303,16898    a,a,A   +,+,+   NaN
+4 NC_029257.1,NC_068327.1,NC_023164.2 3632,6304,16899    t,t,C   +,+,+   NaN
+5 NC_029257.1,NC_068327.1,NC_023164.2 3633,6305,16900    c,c,C   +,+,+   NaN
+6 NC_029257.1,NC_068327.1,NC_023164.2 3634,6306,16901    g,g,G   +,+,+   NaN
+  CHROM width  POS ref outgroup_1 outgroup_2
+1     2     1 3630   A          A          A
+2     2     1 3631   T          T          T
+3     2     1 3632   A          A          A
+4     2     1 3633   T          T          C
+5     2     1 3634   C          C          C
+6     2     1 3635   G          G          G
+     CHROM        POS             N_ALLELES     N_CHR       {ALLELE:COUNT}_REF
+ Min.   :2   Min.   :      34   Min.   :2   Min.   :  0.0   Length:1541096    
+ 1st Qu.:2   1st Qu.: 9296893   1st Qu.:2   1st Qu.:826.0   Class :character  
+ Median :2   Median :17695368   Median :2   Median :942.0   Mode  :character  
+ Mean   :2   Mean   :17604099   Mean   :2   Mean   :796.1                     
+ 3rd Qu.:2   3rd Qu.:25148782   3rd Qu.:2   3rd Qu.:948.0                     
+ Max.   :2   Max.   :35936161   Max.   :2   Max.   :950.0                     
+ {ALLELE:COUNT}_ALT     REF                ALT             count_REF        
+ Length:1541096     Length:1541096     Length:1541096     Length:1541096    
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+  count_ALT            count_A         count_T         count_C     
+ Length:1541096     Min.   :  0.0   Min.   :  0.0   Min.   :  0.0  
+ Class :character   1st Qu.:  0.0   1st Qu.:  0.0   1st Qu.:  0.0  
+ Mode  :character   Median :  0.0   Median :  0.0   Median :  0.0  
+                    Mean   :138.2   Mean   :138.3   Mean   :259.5  
+                    3rd Qu.:  9.0   3rd Qu.:  9.0   3rd Qu.:678.0  
+                    Max.   :950.0   Max.   :950.0   Max.   :950.0  
+    count_G        n_genomes         mut           
+ Min.   :  0.0   Min.   :  0.0   Length:1541096    
+ 1st Qu.:  0.0   1st Qu.:826.0   Class :character  
+ Median :  0.0   Median :942.0   Mode  :character  
+ Mean   :260.1   Mean   :796.1                     
+ 3rd Qu.:681.0   3rd Qu.:948.0                     
+ Max.   :950.0   Max.   :950.0                     
+     seq                start               end              strand         
+ Length:15791996    Min.   :    3629   Min.   :    3630   Length:15791996   
+ Class :character   1st Qu.: 8342516   1st Qu.: 8342517   Class :character  
+ Mode  :character   Median :19900510   Median :19900512   Mode  :character  
+                    Mean   :18691756   Mean   :18691757                     
+                    3rd Qu.:28465888   3rd Qu.:28465889                     
+                    Max.   :35936248   Max.   :35936249                     
+                                                                            
+   species          aligned_chrom      aligned_pos          sequence        
+ Length:15791996    Length:15791996    Length:15791996    Length:15791996   
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+   strands              score             CHROM               width  
+ Length:15791996    Min.   : NA        Length:15791996    Min.   :1  
+ Class :character   1st Qu.: NA        Class :character   1st Qu.:1  
+ Mode  :character   Median : NA        Mode  :character   Median :1  
+                    Mean   :NaN                           Mean   :1  
+                    3rd Qu.: NA                           3rd Qu.:1  
+                    Max.   : NA                           Max.   :1  
+                    NA's   :15791996                                 
+      POS               ref             outgroup_1         outgroup_2       
+ Min.   :    3630   Length:15791996    Length:15791996    Length:15791996   
+ 1st Qu.: 8342517   Class :character   Class :character   Class :character  
+ Median :19900512   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :18691757                                                           
+ 3rd Qu.:28465889                                                           
+ Max.   :35936249                                                           
+                                                                            
+[1] 1541096
+[1] 15791996
+
+       2 
+15791996 
+[1] 15791996
+[1] 15630287
+               seq  start    end strand
+126726 NC_029257.1 318665 318666      +
+126728 NC_029257.1 318666 318667      +
+126730 NC_029257.1 318667 318668      +
+126732 NC_029257.1 318668 318669      +
+126734 NC_029257.1 318669 318670      +
+126736 NC_029257.1 318670 318671      +
+                                                                                         species
+126726 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+126728 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+126730 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+126732 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+126734 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+126736 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+                             aligned_chrom          aligned_pos sequence
+126726 NC_029257.1,NC_068327.1,NC_023164.2 318665,316574,259198    A,A,A
+126728 NC_029257.1,NC_068327.1,NC_023164.2 318666,316575,259199    C,C,C
+126730 NC_029257.1,NC_068327.1,NC_023164.2 318667,316576,259200    T,T,C
+126732 NC_029257.1,NC_068327.1,NC_023164.2 318668,316577,259201    A,A,A
+126734 NC_029257.1,NC_068327.1,NC_023164.2 318669,316578,259202    G,G,C
+126736 NC_029257.1,NC_068327.1,NC_023164.2 318670,316579,259203    G,G,A
+       strands score CHROM width    POS ref outgroup_1 outgroup_2
+126726   +,+,+   NaN     2     1 318666   A          A          A
+126728   +,+,+   NaN     2     1 318667   C          C          C
+126730   +,+,+   NaN     2     1 318668   T          T          C
+126732   +,+,+   NaN     2     1 318669   A          A          A
+126734   +,+,+   NaN     2     1 318670   G          G          C
+126736   +,+,+   NaN     2     1 318671   G          G          A
+[1] 15630287
+[1] 15630287
+          seq start  end strand
+1 NC_029257.1  3629 3630      +
+2 NC_029257.1  3630 3631      +
+3 NC_029257.1  3631 3632      +
+4 NC_029257.1  3632 3633      +
+5 NC_029257.1  3633 3634      +
+6 NC_029257.1  3634 3635      +
+                                                                                    species
+1 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+2 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+3 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+4 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+5 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+6 GCF_001433935_Oryza_sativa,GCF_000147395_Oryza_glaberrima,GCF_000231095_Oryza_brachyantha
+                        aligned_chrom     aligned_pos sequence strands score
+1 NC_029257.1,NC_068327.1,NC_023164.2 3629,6301,16896    a,a,A   +,+,+   NaN
+2 NC_029257.1,NC_068327.1,NC_023164.2 3630,6302,16897    t,t,T   +,+,+   NaN
+3 NC_029257.1,NC_068327.1,NC_023164.2 3631,6303,16898    a,a,A   +,+,+   NaN
+4 NC_029257.1,NC_068327.1,NC_023164.2 3632,6304,16899    t,t,C   +,+,+   NaN
+5 NC_029257.1,NC_068327.1,NC_023164.2 3633,6305,16900    c,c,C   +,+,+   NaN
+6 NC_029257.1,NC_068327.1,NC_023164.2 3634,6306,16901    g,g,G   +,+,+   NaN
+  CHROM width  POS ref outgroup_1 outgroup_2
+1     2     1 3630   A          A          A
+2     2     1 3631   T          T          T
+3     2     1 3632   A          A          A
+4     2     1 3633   T          T          C
+5     2     1 3634   C          C          C
+6     2     1 3635   G          G          G
+Joining with `by = join_by(CHROM, POS)`
+[1] 1541096
+[1] 1541096
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     2  34         2   306              A:306                T:0   A   T
+2     2  37         2   184              C:161               T:23   C   T
+3     2  42         2   330              A:330                G:0   A   G
+4     2  43         2   156              C:137               A:19   C   A
+5     2  46         2   132              T:108               A:24   T   A
+6     2  47         2   150              A:126               T:24   A   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1       306         0     306       0       0       0       306 A->T <NA>
+2       161        23       0      23     161       0       184 C->T <NA>
+3       330         0     330       0       0       0       330 A->G <NA>
+4       137        19      19       0     137       0       156 C->A <NA>
+5       108        24      24     108       0       0       132 T->A <NA>
+6       126        24     126      24       0       0       150 A->T <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  REF  ref
+1   A <NA>
+2   C <NA>
+3   A <NA>
+4   C <NA>
+5   T <NA>
+6   A <NA>
+[1] 0.3072015
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1     2  34         2   306              A:306                T:0   A   T
+2     2  37         2   184              C:161               T:23   C   T
+3     2  42         2   330              A:330                G:0   A   G
+4     2  43         2   156              C:137               A:19   C   A
+5     2  46         2   132              T:108               A:24   T   A
+6     2  47         2   150              A:126               T:24   A   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1       306         0     306       0       0       0       306 A->T <NA>
+2       161        23       0      23     161       0       184 C->T <NA>
+3       330         0     330       0       0       0       330 A->G <NA>
+4       137        19      19       0     137       0       156 C->A <NA>
+5       108        24      24     108       0       0       132 T->A <NA>
+6       126        24     126      24       0       0       150 A->T <NA>
+  outgroup_1 outgroup_2 A_outgroup_1 T_outgroup_1 C_outgroup_1 G_outgroup_1
+1       <NA>       <NA>            0            0            0            0
+2       <NA>       <NA>            0            0            0            0
+3       <NA>       <NA>            0            0            0            0
+4       <NA>       <NA>            0            0            0            0
+5       <NA>       <NA>            0            0            0            0
+6       <NA>       <NA>            0            0            0            0
+  A_outgroup_2 T_outgroup_2 C_outgroup_2 G_outgroup_2
+1            0            0            0            0
+2            0            0            0            0
+3            0            0            0            0
+4            0            0            0            0
+5            0            0            0            0
+6            0            0            0            0
+# ---------------------------- ## EST-SFS# ---------------------------- #  ref_species outgroup_1 outgroup_2
+1   306,0,0,0    0,0,0,0    0,0,0,0
+2  0,161,0,23    0,0,0,0    0,0,0,0
+3   330,0,0,0    0,0,0,0    0,0,0,0
+4  19,137,0,0    0,0,0,0    0,0,0,0
+5  24,0,0,108    0,0,0,0    0,0,0,0
+6  126,0,0,24    0,0,0,0    0,0,0,0
+[1] 1541096
