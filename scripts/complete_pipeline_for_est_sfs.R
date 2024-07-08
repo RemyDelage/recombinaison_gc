@@ -1,6 +1,11 @@
 ### Setting working directory (find a way to automatise this) ###
 
 setwd("/home/genouest/cnrs_umr6553/rdelage/test")
+species = "Arabidopsis_thaliana"
+species_genrus = "arabidopsis"
+chromosome_num = 1
+chromosome_id = "NC_003070.9"
+
 
 #'@title Load necessary packages
 #' 
@@ -10,7 +15,7 @@ setwd("/home/genouest/cnrs_umr6553/rdelage/test")
 #' @return None
 
 load_packages <- function(){
-  library(GenomicRanges)
+  #library(GenomicRanges)
   library(dplyr)
   library(ggplot2)
 }
@@ -36,41 +41,45 @@ load_packages()
 
 counts_snp_population <- function(species, chromosome_num){
   #wgabed_file = "/home/genouest/cnrs_umr6553/rdelage/results/04_wgabed/04a_Arabidopsis_thaliana/Arabidopsis_thaliana_1001genomes.1.frq.count"
+  
+  # Read the SNP counts file produced by WGAbed.
   wgabed_file = paste0(species,"_1001genomes.", chromosome_num, ".frq.count")
   snp_counts = read.table(wgabed_file, header = F, sep = "\t", skip = 1)
-  head(snp_counts)
   
+  # Update the names of the columns.
   colnames(snp_counts) = c("CHROM","POS","N_ALLELES","N_CHR","{ALLELE:COUNT}_REF","{ALLELE:COUNT}_ALT")
-  head(snp_counts)
   
+  # Split SNP count results for easier manipulation.
   snp_counts$REF = gsub(":[0-9]+", "", snp_counts$`{ALLELE:COUNT}_REF`)
   snp_counts$ALT = gsub(":[0-9]+", "", snp_counts$`{ALLELE:COUNT}_ALT`)
   snp_counts$count_REF = gsub("[ATCG]:", "", snp_counts$`{ALLELE:COUNT}_REF`)
   snp_counts$count_ALT = gsub("[ATCG]:", "", snp_counts$`{ALLELE:COUNT}_ALT`)
   
-  head(snp_counts)
-  
+  # Convert the counts of each alleles into numeric format.
   snp_counts$count_A = as.numeric(ifelse(snp_counts$REF == "A", snp_counts$count_REF, ifelse(snp_counts$ALT == "A", snp_counts$count_ALT, 0)))
   snp_counts$count_T = as.numeric(ifelse(snp_counts$REF == "T", snp_counts$count_REF, ifelse(snp_counts$ALT == "T", snp_counts$count_ALT, 0)))
   snp_counts$count_C = as.numeric(ifelse(snp_counts$REF == "C", snp_counts$count_REF, ifelse(snp_counts$ALT == "C", snp_counts$count_ALT, 0)))
   snp_counts$count_G = as.numeric(ifelse(snp_counts$REF == "G", snp_counts$count_REF, ifelse(snp_counts$ALT == "G", snp_counts$count_ALT, 0)))
   
+  # Get the number of individuals of the population.
   snp_counts$n_genomes = rowSums(snp_counts[,c("count_A", "count_T", "count_C", "count_G")])
   
+  # Get the direction of the mutation for the SNPs apparitions.
   snp_counts$mut = unlist(lapply(1:nrow(snp_counts), function(x) {paste(snp_counts$REF[x], snp_counts$ALT[x], sep = "->")}))
   head(snp_counts$mut)
   table(snp_counts$mut)
 
-  # WS
+  # Determine if it is a WS mutation (from AT to GC).
   sum(snp_counts$mut %in% c("A->G", "T->G", "A->C", "T->C"))
-  # SW
+  # Determine if it is a SW mutation (for GC to AT).
   sum(snp_counts$mut %in% c("G->A", "G->T", "C->A", "C->T"))
   
+  # Store the SNP counts data frame for reuse it into other functions.
   snp_counts <<- snp_counts
   return(snp_counts)
 }
 
-counts_snp_population("Arabidopsis_thaliana", 1)
+
 
 # ---------------------------- #
 # Alignments analysis
@@ -91,14 +100,14 @@ counts_snp_population("Arabidopsis_thaliana", 1)
 #'@example cactus_analysis("arabidopsis", "NC_003070.9", 1)
 
 
-cactus_analysis <- function(species, chromosome_id, chromsome_num){
-  # Read the alignment file (produced by Cactus aligner)
-  wgabed = read.table(gzfile(paste0(species, "_", chromosome_id, ".wga.bed.gz")))
-  # Upload the column names
+cactus_analysis <- function(species_genrus, chromosome_id, chromsome_num){
+  # Read the alignment file (produced by Cactus aligner).
+  wgabed = read.table(gzfile(paste0(species_genrus, "_", chromosome_id, ".wga.bed.gz")))
+  # Upload the column names.
   colnames(wgabed) = c("seq", "start", "end", "strand", "species", "aligned_chrom", "aligned_pos", "sequence", "strands", "score")
   wgabed$CHROM = chromosome_num
   
-  # Keep only SNPs
+  # Keep only SNPs.
   wgabed$width = wgabed$end - wgabed$start
   cat("wgabed before SNP filtering \n")
   nrow(wgabed)
@@ -106,77 +115,97 @@ cactus_analysis <- function(species, chromosome_id, chromsome_num){
   cat("wgabed after SNP filtering \n")
   nrow(wgabed)
   
-  # Convert the datas from 1-based into 0-based
+  # Convert the datas from 1-based into 0-based.
   wgabed$POS = wgabed$start + 1
   
-  # Obtain the allele of each species at this position (in uppercase)
+  # Obtain the allele of each species at this position (in uppercase).
   wgabed$ref = toupper(unlist(lapply(strsplit(wgabed$sequence, ","), function(x) {x[1]})))
   wgabed$outgroup_1 = toupper(unlist(lapply(strsplit(wgabed$sequence, ","), function(x) {x[2]})))
   wgabed$outgroup_2 = toupper(unlist(lapply(strsplit(wgabed$sequence, ","), function(x) {x[3]})))
   
-  # Keep the sequences of the reference species and outgroups if they are SNPs. Replace with NA if not
+  # Keep the sequences of the reference species and outgroups if they are SNPs. Replace with NA if not.
   wgabed$ref = unlist(lapply(1:nrow(wgabed), function(x) {ifelse(nchar(wgabed$ref[x]) == 1, wgabed$ref[x], NA)}))
   wgabed$outgroup_1 = unlist(lapply(1:nrow(wgabed), function(x) {ifelse(nchar(wgabed$outgroup_1[x]) == 1, wgabed$outgroup_1[x], NA)}))
   wgabed$outgroup_2 = unlist(lapply(1:nrow(wgabed), function(x) {ifelse(nchar(wgabed$outgroup_2[x]) == 1, wgabed$outgroup_2[x], NA)}))
   
   
-  # Check for duplicate lines (created by WGAbed)
+  # Check for duplicate lines (created by WGAbed).
   length(wgabed$POS)
   length(unique(wgabed$POS))
   head(wgabed[duplicated(wgabed$POS),])
 
-  # Remove duplicated lines
+  # Remove duplicated lines.
   cat("remove duplicates \n")
   wgabed = wgabed[!duplicated(wgabed$POS), ]
   length(wgabed$POS)
   length(unique(wgabed$POS))
   
-  # Merge the previous SNP counts data frame with the alignments data
+  # Merge the previous SNP counts data frame with the alignments data.
   snp_counts_merged = left_join(snp_counts, wgabed[,c("CHROM", "POS", "ref", "outgroup_1", "outgroup_2")])
   
-  # Display the first lines of merged data
+  # Display the first lines of merged data.
   print(head(snp_counts_merged))
   
-  # Store the data frame into the global environment (for use it into other functions)
+  # Store the data frame into the global environment (for use it into other functions).
   snp_counts_merged <<- snp_counts_merged
+  
+  # Save the table for use it after EST-SFS computations
+  write.table(snp_counts_merged, paste0(species_genrus, "_", chromosome_id, "_snp_counts_merged_before_est-sfs.tsv"), row.names = F, col.names = F, quote = F, sep = "\t")
   
   return(snp_counts_merged)
   }
 
-cactus_analysis("arabidopsis", "NC_003070.9", 1)
 
 
 # ---------------------------- #
 # Create EST-SFS input file
 # ---------------------------- #
 
-create_est_sfs_file
+create_est_sfs_file <- function(species, chromosome_num){
+  
+  ## Convert the outgroups into one-hot encoding.
+  # Outgroup 1
+  snp_counts_merged$A_outgroup_1 = ifelse(snp_counts_merged$outgroup_1 == "A", 1, 0)
+  snp_counts_merged$T_outgroup_1 = ifelse(snp_counts_merged$outgroup_1 == "T", 1, 0)
+  snp_counts_merged$C_outgroup_1 = ifelse(snp_counts_merged$outgroup_1 == "C", 1, 0)
+  snp_counts_merged$G_outgroup_1 = ifelse(snp_counts_merged$outgroup_1 == "G", 1, 0)
+  
+  # Outgroup 2
+  snp_counts_merged$A_outgroup_2 = ifelse(snp_counts_merged$outgroup_2 == "A", 1, 0)
+  snp_counts_merged$T_outgroup_2 = ifelse(snp_counts_merged$outgroup_2 == "T", 1, 0)
+  snp_counts_merged$C_outgroup_2 = ifelse(snp_counts_merged$outgroup_2 == "C", 1, 0)
+  snp_counts_merged$G_outgroup_2 = ifelse(snp_counts_merged$outgroup_2 == "G", 1, 0)
+  
+  ## Replace NA with 0
+  # Outgroup 1
+  snp_counts_merged$A_outgroup_1[which(is.na(snp_counts_merged$A_outgroup_1))] = 0
+  snp_counts_merged$T_outgroup_1[which(is.na(snp_counts_merged$T_outgroup_1))] = 0
+  snp_counts_merged$C_outgroup_1[which(is.na(snp_counts_merged$C_outgroup_1))] = 0
+  snp_counts_merged$G_outgroup_1[which(is.na(snp_counts_merged$G_outgroup_1))] = 0
 
-# 
-# 
-# # On convertit les outgroup en one-hot encoding
-# snp_counts_merged$A_outgroup_1 = ifelse(snp_counts_merged$outgroup_1 == "A", 1, 0)
-# snp_counts_merged$T_outgroup_1 = ifelse(snp_counts_merged$outgroup_1 == "T", 1, 0)
-# snp_counts_merged$C_outgroup_1 = ifelse(snp_counts_merged$outgroup_1 == "C", 1, 0)
-# snp_counts_merged$G_outgroup_1 = ifelse(snp_counts_merged$outgroup_1 == "G", 1, 0)
-# 
-# snp_counts_merged$A_outgroup_2 = ifelse(snp_counts_merged$outgroup_2 == "A", 1, 0)
-# snp_counts_merged$T_outgroup_2 = ifelse(snp_counts_merged$outgroup_2 == "T", 1, 0)
-# snp_counts_merged$C_outgroup_2 = ifelse(snp_counts_merged$outgroup_2 == "C", 1, 0)
-# snp_counts_merged$G_outgroup_2 = ifelse(snp_counts_merged$outgroup_2 == "G", 1, 0)
-# 
-# # Replace NA with 0
-# snp_counts_merged$A_outgroup_1[which(is.na(snp_counts_merged$A_outgroup_1))] = 0
-# snp_counts_merged$T_outgroup_1[which(is.na(snp_counts_merged$T_outgroup_1))] = 0
-# snp_counts_merged$C_outgroup_1[which(is.na(snp_counts_merged$C_outgroup_1))] = 0
-# snp_counts_merged$G_outgroup_1[which(is.na(snp_counts_merged$G_outgroup_1))] = 0
-# 
-# snp_counts_merged$A_outgroup_2[which(is.na(snp_counts_merged$A_outgroup_2))] = 0
-# snp_counts_merged$T_outgroup_2[which(is.na(snp_counts_merged$T_outgroup_2))] = 0
-# snp_counts_merged$C_outgroup_2[which(is.na(snp_counts_merged$C_outgroup_2))] = 0
-# snp_counts_merged$G_outgroup_2[which(is.na(snp_counts_merged$G_outgroup_2))] = 0
-# 
-# 
-# head(snp_counts_merged)
+  # Outgroup 2
+  snp_counts_merged$A_outgroup_2[which(is.na(snp_counts_merged$A_outgroup_2))] = 0
+  snp_counts_merged$T_outgroup_2[which(is.na(snp_counts_merged$T_outgroup_2))] = 0
+  snp_counts_merged$C_outgroup_2[which(is.na(snp_counts_merged$C_outgroup_2))] = 0
+  snp_counts_merged$G_outgroup_2[which(is.na(snp_counts_merged$G_outgroup_2))] = 0
+  
+  
+  # Format the alleles counts for create the EST-SFS input file (see EST-SFS (version 2.04) manual, Keigthley, 2019)
+  # example :  20,0,0,0        0,0,0,1 0,0,0,1
+  countRef = unlist(lapply(1:nrow(snp_counts_merged), function(x) {paste(snp_counts_merged[x,c("count_A", "count_C", "count_G", "count_T")], collapse = ",")}))
+  countOut1 = unlist(lapply(1:nrow(snp_counts_merged), function(x) {paste(snp_counts_merged[x,c("A_outgroup_2", "C_outgroup_1", "G_outgroup_1", "T_outgroup_1")], collapse = ",")}))
+  countOut2 = unlist(lapply(1:nrow(snp_counts_merged), function(x) {paste(snp_counts_merged[x,c("A_outgroup_2", "T_outgroup_2", "G_outgroup_2", "T_outgroup_2")], collapse = ",")}))
 
-# View(snp_counts_merged[1:100,])
+  # Create the data fame
+  df = data.frame(ref_species = countRef, outgroup_1 = countOut1, outgroup_2 = countOut2)
+  
+  # Software constraints : 1 million of SNPs maximum allowed
+  write.table(df[1:(1000000-1),], paste0(species, "_chrom_", chromosome_num, "_est-sfs-input.txt"), row.names = F, col.names = F, quote = F, sep = " ")
+  
+  return(df)
+}
+
+counts_snp_population(species, chromosome_num)
+cactus_analysis(species_genrus, chromosome_id, chromsome_num)
+create_est_sfs_file(speices, chromsome_num)
+
