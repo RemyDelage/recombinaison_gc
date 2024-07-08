@@ -76,6 +76,21 @@ counts_snp_population("Arabidopsis_thaliana", 1)
 # Alignments analysis
 # ---------------------------- #
 
+
+#'@title Alignments analysis
+#' 
+#'@description Recovers alignment data (BED format) to complete SNP count table
+#'
+#'@param species (character). The name of the studied species (according to the bed file name)
+#'@param chromosome_id (character). The identifyer of the chromosome (from the FASTA sequence file) 
+#'@param chromosome_num (integer). The number of the studied chromosome 
+#'
+#'@return Data frame : snp_counts_merged 
+#' A data frame with all the information about SNPs (position, frequency, alignments...) 
+#' 
+#'@example cactus_analysis("arabidopsis", "NC_003070.9", 1)
+
+
 cactus_analysis <- function(species, chromosome_id, chromsome_num){
   # Read the alignment file (produced by Cactus aligner)
   wgabed = read.table(gzfile(paste0(species, "_", chromosome_id, ".wga.bed.gz")))
@@ -124,30 +139,19 @@ cactus_analysis <- function(species, chromosome_id, chromsome_num){
   
   # Store the data frame into the global environment (for use it into other functions)
   snp_counts_merged <<- snp_counts_merged
+  
+  return(snp_counts_merged)
   }
 
 cactus_analysis("arabidopsis", "NC_003070.9", 1)
 
 
+# ---------------------------- #
+# Create EST-SFS input file
+# ---------------------------- #
 
+create_est_sfs_file
 
-# 
-# 
-# cat("Needs to be the same number of lines \n")
-# nrow(snp_counts)
-# nrow(snp_counts_merged)
-# 
-# 
-# head(snp_counts_merged)
-# 
-# # View(snp_counts_merged[1:100,])
-# 
-# # A cette etape on peut verifier que REF == ref
-# # L'allele de reference du VCF et du FASTA doivent correspondre dans la majorite des cas
-# head(snp_counts_merged[,c("REF", "ref")])
-# 
-# sum(snp_counts_merged$REF == snp_counts_merged$ref, na.rm = T)/nrow(snp_counts_merged)
-# #A quoi correspond ce ratio ?
 # 
 # 
 # # On convertit les outgroup en one-hot encoding
