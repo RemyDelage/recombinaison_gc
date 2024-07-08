@@ -1,10 +1,50 @@
-### Setting working directory (find a way to automatise this) ###
+####################################################
+# SNP count, alignment analysis and data preparation 
+# for EST-SFS (Keigthley & Jackson, 2019)
+####################################################
 
-setwd("/home/genouest/cnrs_umr6553/rdelage/test")
-species = "Arabidopsis_thaliana"
-species_genrus = "arabidopsis"
-chromosome_num = 1
-chromosome_id = "NC_003070.9"
+# ---------------------------- #
+# Environment initialization
+# ---------------------------- #
+
+# Package for command line parser
+library(optparse)
+
+
+# Get command line arguments
+args <- commandArgs(trailingOnly = TRUE)
+
+# Parse the arguments
+option_list <- list(
+  make_option(c("-s", "--species"), type="character", default=NULL,
+              help="Species name", metavar="character"),
+  make_option(c("-g", "--species_genus"), type="character", default=NULL,
+              help="Species genus", metavar="character"),
+  make_option(c("-c", "--chromosome_num"), type="integer", default=NULL,
+              help="Chromosome number", metavar="integer"),
+  make_option(c("-i", "--chromosome_id"), type="character", default=NULL,
+              help="Chromosome ID", metavar="character")
+)
+
+opt_parser <- OptionParser(option_list=option_list)
+opt <- parse_args(opt_parser, args)
+
+# Assign variables from options
+species <- opt$species
+species_genus <- opt$species_genus
+chromosome_num <- opt$chromosome_num
+chromosome_id <- opt$chromosome_id
+
+# Debugging: print the variables to check if they are correctly assigned
+cat("species: ", species, "\n")
+cat("species_genus: ", species_genus, "\n")
+cat("chromosome_num: ", chromosome_num, "\n")
+cat("chromosome_id: ", chromosome_id, "\n")
+
+# Verify that all required arguments are provided
+if (is.null(species) || is.null(species_genus) || is.null(chromosome_num) || is.null(chromosome_id)) {
+  stop("All arguments --species, --species_genus, --chromosome_num, and --chromosome_id are required")
+}
 
 
 #'@title Load necessary packages
@@ -100,9 +140,9 @@ counts_snp_population <- function(species, chromosome_num){
 #'@example cactus_analysis("arabidopsis", "NC_003070.9", 1)
 
 
-cactus_analysis <- function(species_genrus, chromosome_id, chromsome_num){
+cactus_analysis <- function(species_genus, chromosome_id, chromsome_num){
   # Read the alignment file (produced by Cactus aligner).
-  wgabed = read.table(gzfile(paste0(species_genrus, "_", chromosome_id, ".wga.bed.gz")))
+  wgabed = read.table(gzfile(paste0(species_genus, "_", chromosome_id, ".wga.bed.gz")))
   # Upload the column names.
   colnames(wgabed) = c("seq", "start", "end", "strand", "species", "aligned_chrom", "aligned_pos", "sequence", "strands", "score")
   wgabed$CHROM = chromosome_num
@@ -150,7 +190,7 @@ cactus_analysis <- function(species_genrus, chromosome_id, chromsome_num){
   snp_counts_merged <<- snp_counts_merged
   
   # Save the table for use it after EST-SFS computations
-  write.table(snp_counts_merged, paste0(species_genrus, "_", chromosome_id, "_snp_counts_merged_before_est-sfs.tsv"), row.names = F, col.names = F, quote = F, sep = "\t")
+  write.table(snp_counts_merged, paste0(species_genus, "_", chromosome_id, "_snp_counts_merged_before_est-sfs.tsv"), row.names = F, col.names = F, quote = F, sep = "\t")
   
   return(snp_counts_merged)
   }
@@ -206,6 +246,6 @@ create_est_sfs_file <- function(species, chromosome_num){
 }
 
 counts_snp_population(species, chromosome_num)
-cactus_analysis(species_genrus, chromosome_id, chromsome_num)
+cactus_analysis(species_genus, chromosome_id, chromsome_num)
 create_est_sfs_file(speices, chromsome_num)
 
