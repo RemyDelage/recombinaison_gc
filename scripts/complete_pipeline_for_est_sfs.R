@@ -110,10 +110,10 @@ cactus_analysis <- function(species_genrus, chromosome_id, chromsome_num){
   # Keep only SNPs.
   wgabed$width = wgabed$end - wgabed$start
   cat("wgabed before SNP filtering \n")
-  nrow(wgabed)
+  print(nrow(wgabed))
   wgabed = wgabed[which(wgabed$width == 1),]
   cat("wgabed after SNP filtering \n")
-  nrow(wgabed)
+  print(nrow(wgabed))
   
   # Convert the datas from 1-based into 0-based.
   wgabed$POS = wgabed$start + 1
