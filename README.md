@@ -79,3 +79,4 @@ Exemple :
 
 ```cactus-hal2maf --refGenome GCF_000001735.4_Arabidopsis_thaliana --noAncestors --chunkSize 500000 --batchCores 2 --filterGapCausingDupes "home/results/03_cactus/tmp" "home/results/03_cactus/arabidopsis_all_genomes_alignment.hal" "home/results/03_cactus/arabidopsis_all_genomes_alignment.maf"```
 
+If the user works on a cluster, he/she can run the program with SLURM (on a computing node) thanks to the **cactus.sh** shell script. This file must be modified according to the working environment of the user (see Script directory). After the modification, the simple command to run is : ```sbatch cactus.sh -o log_file.log```.
