@@ -2,7 +2,7 @@
 
 The aim of this project is to compare the strength of gBGC (GC-biaised gene conversion) between two groups of Angiosperm species (flowering plants) to test the hypothseis according to which gBGC is stronger in monocotyledonous species than in dicotyledonous species.
 
-The method that we use to estimate the gBGC needs to requires a major step, which is the polarization of SNPs (Single Nucleotide Polymorphism). For that, we need to For this we need to go through several stages.
+The method that we use to estimate the gBGC needs to requires a major step, which is the polarization of SNPs (Single Nucleotide Polymorphism). For this we need to go through several stages.
 
 ## Get NCBI data
 
