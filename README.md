@@ -44,6 +44,7 @@ Example :
 ``` vcftools --counts --gzvcf Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz --chr "chr1" --min-alleles 2 --max-alleles 2 --out "/results/vcftools/Populus_tremula_Liu2022.pop_sfs.1"```
 
 This script can be run on a computing cluster as a SLURM script (on a computing node) thanks to the **vcftools_counts.sh** shell script :
+
 ``` sbatch vcftools_counts.sh -o log_file.log ```
 
 Various parameters have to be modified according to the working directory of the user (see Scripts directory).
