@@ -1,6 +1,6 @@
 # recombination_gc
 
-The method that we use to estimate the gBGC (GC-biaised gene conversion) needs to requires a major step, which is the polarization of SNPs. For that, we need to For this we need to go through several stages
+The method that we use to estimate the gBGC (GC-biaised gene conversion) needs to requires a major step, which is the polarization of SNPs (Single Nucleotide Polymorphism). For that, we need to For this we need to go through several stages
 
 ## Get NCBI data
 
@@ -20,3 +20,13 @@ The parameters are :
 By default, the script allows to download genomic data. If they are available, two kind of data were downloaded : 
  * The sequences file (FASTA format)
  * The annotation file (GFF format)
+
+## Alleles counts and frequency (VCFtools)
+
+For the SNPs polarization, we have to determine which are the major and the minor allele in the population. From VCF file, the __counts__ function from the _VCFtools_ software (Danecek _et al._, 2011) allows to count the occurrences of the two alleles at each SNPs sites.
+The user have to run the following command :
+
+``` vcftools --counts --gzvcf *vcf_file.vcf.gz* --chr *chrom_num* --min-alleles 2 --max-alleles 2 --out *out_path/output_filename```
+
+example :
+``` vcftools --counts --gzvcf "$vcf_file" --chr "chr${i}" --min-alleles 2 --max-alleles 2 --out "${out_dir}Populus_tremula_Liu2022.pop_sfs.${i}"```
