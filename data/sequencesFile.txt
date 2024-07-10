@@ -1,7 +1,0 @@
-((GCA_905216605.1_arabidopsis_arenosa:0.081504,GCA_000001735.2_arabidopis_thaliana:0.046518)0.988264:0.0703595,(GCA_000801105.3_raphanus_sativus:0.0731282,GCF_000309985.2_brassica_rapa:0.0526878)0.988264:0.0703595);
-
-
-GCA_000001735.2_arabidopis_thaliana*	/home/genouest/cnrs_umr6553/rdelage/data/GCA_000001735.2_TAIR10.1_protein.faa.gz
-GCA_905216605.1_arabidopsis_arenosa	/home/genouest/cnrs_umr6553/rdelage/data/GCA_905216605.1_AARE701a_protein.faa.gz
-GCA_000801105.3_raphanus_sativus	/home/genouest/cnrs_umr6553/rdelage/data/GCA_000801105.3_ASM80110v3_protein.faa.gz
-GCF_000309985.2_brassica_rapa		/home/genouest/cnrs_umr6553/rdelage/data/GCF_000309985.2_CAAS_Brap_v3.01_protein.faa.gz
