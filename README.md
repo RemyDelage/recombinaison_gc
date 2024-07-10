@@ -10,7 +10,7 @@ This first step allows to retrieve data at genomic and proteic levels for the st
 
 The script allowed to download directly data from the _RefSeq_ or _GenBank_ databases (NCBI) is the following : 
 
-``` python get_ncbi_data.py -i __accession_number__ -n (or -p)``` 
+``` python get_ncbi_data.py -i accession_number -n (or -p)``` 
 
 The parameters are :
  * __-i__ : The accession number
@@ -21,12 +21,14 @@ By default, the script allows to download genomic data. If they are available, t
  * The sequences file (FASTA format)
  * The annotation file (GFF format)
 
+Example : ```python get_ncbi_data.py -i GCF_000001735.4 -n```
+
 ## Alleles counts and frequency (VCFtools)
 
 For the SNPs polarization, we have to determine which are the major and the minor allele in the population. From VCF file, the __counts__ function from the _VCFtools_ software (Danecek _et al._, 2011) allows to count the occurrences of the two alleles at each SNPs sites.
 The user have to run the following command :
 
-``` vcftools --counts --gzvcf *vcf_file.vcf.gz* --chr *chrom_num* --min-alleles 2 --max-alleles 2 --out *out_path/output_filename```
+``` vcftools --counts --gzvcf vcf_file.vcf.gz --chr chrom_num --min-alleles 2 --max-alleles 2 --out out_path/output_filename```
 
 example :
 ``` vcftools --counts --gzvcf "$vcf_file" --chr "chr${i}" --min-alleles 2 --max-alleles 2 --out "${out_dir}Populus_tremula_Liu2022.pop_sfs.${i}"```
