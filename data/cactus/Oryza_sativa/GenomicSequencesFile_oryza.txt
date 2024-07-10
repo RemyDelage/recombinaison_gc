@@ -1,0 +1,5 @@
+(GCF_000231095.2_Oryza_brachyantha:0.5,(GCF_000147395.1_Oryza_glaberrima:1,GCF_001433935.1_Oryza_sativa:1)1:0.5);
+
+*GCF_001433935.1_Oryza_sativa	/home/genouest/cnrs_umr6553/rdelage/data/GCF_001433935.1_Oryza_sativa_genomic.fna
+GCF_000147395.1_Oryza_glaberrima	/home/genouest/cnrs_umr6553/rdelage/data/GCF_000147395.1_Oryza_glaberrima_genomic.fna
+GCF_000231095.2_Oryza_brachyantha	/home/genouest/cnrs_umr6553/rdelage/data/GCF_000231095.2_Oryza_brachyantha_genomic.fna

@@ -1,0 +1,6 @@
+(GCF_005286985.1_Setaria_viridis:0.5,(GCF_902167145.1_Zea_mays:1,GCF_000003195.3_Sorghum_bicolor:1)1:0.5);
+
+*GCF_000003195.3_Sorghum_bicolor	/home/genouest/cnrs_umr6553/rdelage/data/GCF_000003195.3_Sorghum_bicolor_genomic.fna
+GCF_902167145.1_Zea_mays	/home/genouest/cnrs_umr6553/rdelage/data/GCF_902167145.1_Zea_mays_genomic.fna
+GCF_005286985.1_Setaria_viridis	/home/genouest/cnrs_umr6553/rdelage/data/GCF_005286985.1_Setaria_viridis_genomic.fna
+
