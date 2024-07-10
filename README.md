@@ -25,7 +25,7 @@ By default, the script allows to download genomic data. If they are available, t
 
 Example : ```python get_ncbi_data.py -i GCF_000001735.4 -n```
 
-## Alleles counts and frequency (VCFtools)
+## Alleles counts (VCFtools)
 
 For the SNPs polarization, we have to determine which are the major and the minor allele in the population. From VCF file, the __counts__ function from the _VCFtools_ software (Danecek _et al._, 2011) allows to count the occurrences of the two alleles at each SNPs sites.
 The user have to run the following command :
@@ -33,7 +33,7 @@ The user have to run the following command :
 ``` vcftools --counts --gzvcf vcf_file.vcf.gz --chr chrom_num --min-alleles 2 --max-alleles 2 --out out_path/output_filename```
 
 The parameters are :
- * __--counts__ : Specify you wants to use the *counts* function 
+ * __--counts__ : Specify you wants to use the **counts** function 
  * __--gzvcf__ : The compressed VCF input file containing the SNPs position and the different alleles
  * __--chr__ : The chromosome on which the counts will be done
  * __--min-alleles__ : Filter the minimal alleles number for the counts (must be 2 for the SNPs)
@@ -47,4 +47,4 @@ This script can be run on a computing cluster as a SLURM script (on a computing 
 
 ``` sbatch vcftools_counts.sh -o log_file.log ```
 
-Various parameters have to be modified according to the working directory of the user (see Scripts directory).
+Various parameters must be modified according to the working directory of the user (see Scripts directory).
