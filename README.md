@@ -73,7 +73,7 @@ The HAL files produced by *Cactus* are too complicated to use in other tools. Th
 
 ``` cactus-hal2maf --refGenome "$referenceGenome" --noAncestors --chunkSize 500000 --batchCores 2 --filterGapCausingDupes "$jobStorePath" "$out_dir$outputHalFile" "$out_dir$outputMafFile" ```
 
-All the parameters nformation can be found in the official *Cactus* documentation (https://github.com/ComparativeGenomicsToolkit/cactus/blob/master/doc/progressive.md).
+All the parameters information can be found in the official *Cactus* documentation (https://github.com/ComparativeGenomicsToolkit/cactus/blob/master/doc/progressive.md).
 
 Exemple :
 
