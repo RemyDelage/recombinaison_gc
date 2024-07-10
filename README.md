@@ -31,4 +31,4 @@ The user have to run the following command :
 ``` vcftools --counts --gzvcf vcf_file.vcf.gz --chr chrom_num --min-alleles 2 --max-alleles 2 --out out_path/output_filename```
 
 example :
-``` vcftools --counts --gzvcf "$vcf_file" --chr "chr${i}" --min-alleles 2 --max-alleles 2 --out "${out_dir}Populus_tremula_Liu2022.pop_sfs.${i}"```
+``` vcftools --counts --gzvcf Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz --chr "chr1" --min-alleles 2 --max-alleles 2 --out "/results/vcftools/Populus_tremula_Liu2022.pop_sfs.1"```
