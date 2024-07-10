@@ -2,7 +2,7 @@
 #SBATCH --job-name=cactus
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=350G
-#SBATCH --output=cactus_hal2maf_20240417.log
+
 
 
 #######################################################################
@@ -10,14 +10,14 @@
 #######################################################################
 
 # Variables definition
-data_dir="/home/genouest/cnrs_umr6553/rdelage/data/"
-out_dir="/home/genouest/cnrs_umr6553/rdelage/results/03_cactus/"
-species_dir="arabidopsis/"
-jobStorePath="${out_dir}tmp"
-inputSeqFile="${data_dir}GenomicSequencesFile_arabidopsis.txt"
-sif_file="/scratch/rdelage/cactus.sif"
-outputHalFile="arabidopsis_all_genomes_alignment.hal"
-outputMafFile="arabidopsis_genomes_alignment.maf.gz"
+data_dir="/home/genouest/cnrs_umr6553/rdelage/data/" # Set input data directory.
+out_dir="/home/genouest/cnrs_umr6553/rdelage/results/03_cactus/" # Set output data directory.
+species_dir="arabidopsis/" # Create specific species data directory.
+jobStorePath="${out_dir}tmp" # Set the directory where temporary files where stored.
+inputSeqFile="${data_dir}GenomicSequencesFile_arabidopsis.txt" # Path to the imput sequences files.
+sif_file="/scratch/rdelage/cactus.sif" # SIF file for run Cactus with container.
+outputHalFile="arabidopsis_all_genomes_alignment.hal" # Set output HAL file name.
+outputMafFile="arabidopsis_genomes_alignment.maf.gz" # Set output MAF file name.
 
 # Create the output directory
 mkdir -p "${out_dir}/cactus_results"
