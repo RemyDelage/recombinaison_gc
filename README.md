@@ -47,4 +47,4 @@ This script can be run on a computing cluster as a SLURM script (on a computing 
 
 ``` sbatch vcftools_counts.sh -o log_file.log ```
 
-Various parameters must to be modified according to the working directory of the user (see Scripts directory).
+Various parameters must be modified according to the working directory of the user (see Scripts directory).
