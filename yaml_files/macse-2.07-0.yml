@@ -1,9 +1,0 @@
-name: macse-2.07-0
-
-channels:
-  - conda-forge
-  - bioconda
-
-dependencies:
-  - openjdk>=1.5
-  - macse=2.07-0
