@@ -7,8 +7,8 @@ The method that we use to estimate the gBGC needs to requires a major step, whic
 ## Get NCBI data
 
 This first step allows to retrieve data at genomic and proteic levels for the studied species and for 2 outgroups species. These outgroups are needed to identify ancestral alleles (present in all species genomes) and derived alleles (appearing after speciation events). The two critera of selection of the outgroups are : 
- * Must be fairly close : not too much divergence between sequences ;
- * Must be sufficiently remote : polymorphyism must be observed.
+ * Must be fairly close : not too much divergence between sequences
+ * Must be sufficiently remote : polymorphyism must be observed
 
 The script allowed to download directly data from the _RefSeq_ or _GenBank_ databases (NCBI) is the following : 
 
