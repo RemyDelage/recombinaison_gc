@@ -53,4 +53,12 @@ Various parameters must be modified according to the working directory of the us
 
 To determine which of the two possible alleles at each polymorphic site is ancestral and which is derived, it is necessary to align the genome sequences of the outgroups with the reference sequence of the species under study.
 
-The **whole genome** alignments are allowed by the *Cactus* aligner (Armstrong *et al.*, 2020)
+The **whole genome** alignments are allowed by the *Cactus* aligner (Armstrong *et al.*, 2020).
+
+For use *Cactus*, the user must to type this command line : 
+
+``` cactus --consCores 2 --maxMemory "$max_memory" "$jobStorePath" "$inputSeqFile" "$out_dir$outputHalFile" ```
+
+Example : 
+
+``` cactus --consCores 2 --maxMemory "3T" "home/results/03_cactus/tmp" "/home/data/GenomicSequencesFile_arabidopsis.txt" "home/results/03_cactus/arabidopsis_all_genomes_alignment.hal" ```
