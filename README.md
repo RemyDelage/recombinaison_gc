@@ -48,3 +48,9 @@ This script can be run on a computing cluster as a SLURM script (on a computing 
 ``` sbatch vcftools_counts.sh -o log_file.log ```
 
 Various parameters must be modified according to the working directory of the user (see Scripts directory).
+
+## Genomes alignments (Cactus)
+
+To determine which of the two possible alleles at each polymorphic site is ancestral and which is derived, it is necessary to align the genome sequences of the outgroups with the reference sequence of the species under study.
+
+The **whole genome** alignments are allowed by the *Cactus* aligner (Armstrong *et al.*, 2020)
