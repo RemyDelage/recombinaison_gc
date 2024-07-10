@@ -25,7 +25,7 @@ By default, the script allows to download genomic data. If they are available, t
 
 Example : ```python get_ncbi_data.py -i GCF_000001735.4 -n```
 
-## Alleles counts and frequency (VCFtools)
+## Alleles counts (VCFtools)
 
 For the SNPs polarization, we have to determine which are the major and the minor allele in the population. From VCF file, the __counts__ function from the _VCFtools_ software (Danecek _et al._, 2011) allows to count the occurrences of the two alleles at each SNPs sites.
 The user have to run the following command :
