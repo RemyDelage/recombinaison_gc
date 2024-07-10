@@ -76,5 +76,6 @@ The HAL files produced by *Cactus* are too complicated to use in other tools. Th
 All the parameters nformation can be found in the official *Cactus* documentation (https://github.com/ComparativeGenomicsToolkit/cactus/blob/master/doc/progressive.md).
 
 Exemple :
+
 ```cactus-hal2maf --refGenome GCF_000001735.4_Arabidopsis_thaliana --noAncestors --chunkSize 500000 --batchCores 2 --filterGapCausingDupes "home/results/03_cactus/tmp" "home/results/03_cactus/arabidopsis_all_genomes_alignment.hal" "home/results/03_cactus/arabidopsis_all_genomes_alignment.maf"```
 
