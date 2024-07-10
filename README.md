@@ -33,7 +33,7 @@ The user have to run the following command :
 ``` vcftools --counts --gzvcf vcf_file.vcf.gz --chr chrom_num --min-alleles 2 --max-alleles 2 --out out_path/output_filename```
 
 The parameters are :
- * __--counts__ : Specify you wants to use the *counts* function 
+ * __--counts__ : Specify you wants to use the **counts** function 
  * __--gzvcf__ : The compressed VCF input file containing the SNPs position and the different alleles
  * __--chr__ : The chromosome on which the counts will be done
  * __--min-alleles__ : Filter the minimal alleles number for the counts (must be 2 for the SNPs)
