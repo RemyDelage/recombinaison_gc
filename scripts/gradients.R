@@ -1,51 +1,93 @@
-library(dplyr)
-library(ggplot2)
-library(gridExtra)
-library(viridis)
-setwd("/home/redelage/internship/data/gff_rho/")
+###################################################################
+# Visualize the recombination gradients and the GC rate gradients #
+###################################################################
 
-# ---- ARABIDOPSIS THALIANA ---- 
+setwd("/home/redelage/internship/data/gff_rho/") # Must to be changed according to the working directory
 
-gff_arabidopsis = readRDS("gff_rho_Arabidopsis_thaliana_1001genomes.rds")
-head(gff_arabidopsis)
+#'@title Load necessary packages
+#' 
+#' @description Allows to load all the necessary packages for process data and estimate gBGC values
+#' 
+#'
+#' @return None
 
-cds = gff_arabidopsis[which(gff_arabidopsis$feature == "CDS" & gff_arabidopsis$nb_exons < 15 & gff_arabidopsis$rank < 15),]
+load_packages <- function(){
+  library(dplyr)
+  library(ggplot2)
+  library(gridExtra)
+  library(viridis) 
+}
+
+load_packages()
+
+#'@title Read GFF
+#' 
+#' @description Allows to read GFF annotation file of the species
+#' 
+#' @param species (character) : The species which we wants to read the data
+#'
+#' @return None
+
+read_gff <- function(species){
+  if(species == "Arabidopsis_thaliana"){
+    gff = readRDS("gff_rho_Arabidopsis_thaliana_1001genomes.rds")
+  }
+  if(species == "Oryza_sativa"){
+    gff = readRDS("gff_rho_Oryza_sativa_Wang2018.rds")
+  }
+  if(species == "Sorghum_bicolor"){
+    gff = readRDS("gff_rho_Sorghum_bicolor_Lozano2021.rds")
+  }
+  if(species == "Populus_tremula"){
+    gff = readRDS("gff_rho_Populus_tremula_Liu2022.rds")
+  }
+  cds = gff[which(gff$feature == "CDS" & gff$nb_exons < 15 & gff$rank < 15),]
+  
+  assign(paste0("gff_", species), gff, envir = .GlobalEnv)
+  assign(paste0("cds_", species), cds, envir = .GlobalEnv)
+}
+
+read_gff("Arabidopsis_thaliana")
+read_gff("Oryza_sativa")
+
 
 ### Recombination gradient
 
-recomb_rank = aggregate(weighted.mean.rho ~ rank + nb_exons, cds, median)
-recomb_rank$nb_exons = as.factor(recomb_rank$nb_exons)
+recombination_gradient_plot <- function(species, frontsize = 16, dotsize = 0.2, linesize = 1.5){
+  species_plot_title <- gsub("_", " ", species)
 
-fontsize = 16
-dotsize = 0.2
-linesize = 1.5
+  cds <- get(paste0("cds_", species))
+  typeof(cds)
+  
+  recomb_rank = aggregate(weighted.mean.rho ~ rank + nb_exons, cds , median)
+  recomb_rank$nb_exons = as.factor(recomb_rank$nb_exons)
+  
+  p1 = ggplot(recomb_rank, aes(x = rank, y = weighted.mean.rho, group = nb_exons, colour = nb_exons)) +
+    scale_color_viridis_d() +
+    geom_line() +
+    geom_point() +
+    xlim(1, 14) +
+    ylim(0, 1) +
+    xlab("CDS part rank") + ylab("Median recombination rate (ρ/kb)") +
+    labs(colour = "# exons", title  = species_plot_title) +
+    scale_alpha_manual(values = c(0.4, 1)) +
+    guides(alpha = "none")+
+    theme_classic()+
+    theme(plot.title = element_text(hjust = 0.5))
+  
+  df_avg = aggregate(weighted.mean.rho ~ rank , recomb_rank , median)
+  
+  p1 = p1 + geom_line(data = df_avg, aes(x = rank, y = weighted.mean.rho, group = "black", colour = "black"), colour = "black", linewidth = 1.5)
+  p1
+  
+  ggsave(paste0(species,"_recombination_gradient.png"), p1, width = 8, height = 8)
+}
 
-# p1 = ggplot(recomb_rank, aes(x = rank, y = weighted.mean.rho, group = nb_exons, colour = nb_exons)) +
-#   scale_color_viridis_d() +
-#   geom_line() +
-#   geom_point() +
-#   xlim(1, 14) +
-#   xlab("CDS part rank") + ylab("Median recombination rate (ρ/kb)") +
-#   labs(colour = "# exons", title  = "Arabidopsis thaliana") +
-#   scale_alpha_manual(values = c(0.4, 1)) +
-#   guides(alpha = "none")+
-#   theme_classic()+
-#   theme(legend.position = "none")
+recombination_gradient_plot("Arabidopsis_thaliana")
 
-p1 = ggplot(recomb_rank, aes(x = rank, y = weighted.mean.rho, group = nb_exons, colour = nb_exons)) +
-  scale_color_viridis_d() +
-  geom_line() +
-  geom_point() +
-  xlab("Longueur des gènes (exons)") + ylab("Taux moyen de recombinaison") +
-  labs(colour = "Nombre d'exons", title = "Arabidopsis thaliana") +
-  guides(alpha = "none")+
-  theme_classic()+
-  theme(plot.title = element_text(hjust = 0.5, face = "italic"), legend.position = "none")
 
-df_avg = aggregate(weighted.mean.rho ~ rank , recomb_rank , median)
 
-p1 = p1 + geom_line(data = df_avg, aes(x = rank, y = weighted.mean.rho, group = "black", colour = "black"), colour = "black", linewidth = 1.5)
-p1
+
 
 ### GC3 gradient
 
@@ -61,9 +103,10 @@ p2 = ggplot(gc_rank, aes(x = rank, y = gc3, group = nb_exons, colour = nb_exons)
   geom_line() +
   geom_point() +
   xlim(1, 14) +
-  ylim(0.25, 1) +
-  xlab("Longueur des gènes (exons)") + ylab("Contenu en bases GC") +
-  labs(colour = "Nombre d'exons",) +
+  ylim(0, 1) +
+  xlab("CDS part rank") + ylab("GC3 rate") +
+  labs(colour = "# exons") +
+  scale_alpha_manual(values = c(0.4, 1)) +
   guides(alpha = "none")+
   theme_classic()+
   theme(legend.position = "none")
@@ -95,12 +138,13 @@ p1_oryza = ggplot(recomb_rank_oryza, aes(x = rank, y = weighted.mean.rho, group 
   geom_line() +
   geom_point() +
   xlim(1, 14) +
-  xlab("Longueur des gènes (exons)") + ylab("Taux moyen de recombinaison") +
+  ylim(0, 1)+
+  xlab("CDS part rank") + ylab("Median recombination rate (ρ/kb)") +
   labs(colour = "# exons", title  = "Oryza sativa") +
   scale_alpha_manual(values = c(0.4, 1)) +
   guides(alpha = "none")+
   theme_classic()+
-  theme(plot.title = element_text(hjust = 0.5, face = "italic"))
+  theme(plot.title = element_text(hjust = 0.5))
 
 df_avg_oryza = aggregate(weighted.mean.rho ~ rank , recomb_rank_oryza , median)
 
@@ -121,9 +165,8 @@ p2_oryza = ggplot(gc_rank_oryza, aes(x = rank, y = gc3, group = nb_exons, colour
   geom_line() +
   geom_point() +
   xlim(1, 14) +
-  ylim(0.25, 1) +
-  xlab("Longueur des gènes (exons)") + ylab("Contenu en bases GC") +
-  labs(colour = "Nombre d'exons") +
+  ylim(0, 1) +
+  xlab("CDS part rank") + ylab("GC3 rate") +
   labs(colour = "# exons") +
   scale_alpha_manual(values = c(0.4, 1)) +
   guides(alpha = "none")+
@@ -141,9 +184,10 @@ p2_oryza
 
 # ---- Display all plots ----
 
-grad_plots = grid.arrange(p1, p1_oryza, p2, p2_oryza, widths = c(1, 1), ncol = 2)
+grad_plots = grid.arrange(p1, p1_oryza, p2, p2_oryza, ncol = 2)
 
 ggsave("Recombination_vs_GC3_gradients.jpg", grad_plots, width = 9, height = 10)
 
 ######################################
+
 
