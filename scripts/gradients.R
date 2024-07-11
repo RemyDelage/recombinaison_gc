@@ -55,15 +55,17 @@ read_gff("Oryza_sativa")
 #' with sizes from 1 to 14 exons. The median recombination gradient is also plotted.
 #' The plot will be stored into a PNG file format.
 #' 
-#' @param species (character) : The species which we wants to read the data
+#' @param species (character) : The studied species.
 #' @param xlim (by default : c(1, 14)) : Scale for the x-axis.
-#' @param ylim (by default : c(0, 1)) : Scale for the y-axis
+#' @param ylim (by default : c(0, 1)) : Scale for the y-axis.
 #' @param legend (by default : TRUE) : Display the plot legend if the parameter 
-#' is fixed on TRUE. Hide it otherwise
+#' is fixed on TRUE. Hide it otherwise.
+#' @param title (by default : TRUE) : Display the plot title (i.e. the species name) 
+#' if the parameter is fixed on TRUE. Hide it otherwise.
 #'
 #' @return None
 
-recombination_gradient_plot <- function(species, xlim = c(1, 14), ylim = c(0, 1), legend = TRUE){
+recombination_gradient_plot <- function(species, xlim = c(1, 14), ylim = c(0, 1), legend = TRUE, title = TRUE){
   species_plot_title <- gsub("_", " ", species)
 
   cds <- get(paste0("cds_", species))
@@ -82,28 +84,31 @@ recombination_gradient_plot <- function(species, xlim = c(1, 14), ylim = c(0, 1)
     guides(alpha = "none")+
     theme_classic()
     
-  
-  
   df_avg = aggregate(weighted.mean.rho ~ rank , recomb_rank , median)
   
   p1 = p1 + geom_line(data = df_avg, aes(x = rank, y = weighted.mean.rho, group = "black", colour = "black"), colour = "black", linewidth = 1.5)
 
-  
   if(!legend){
     p1 = p1 + theme(legend.position = "none")
   } else {
     p1 = p1 + 
-      theme(plot.title = element_text(hjust = 0.5)) +
-      labs(colour = "# exons", title  = species_plot_title)
+      labs(colour = "# exons")
+  }
+  
+  if(title){
+    p1 = p1 + 
+      labs(title = species_plot_title) + 
+      theme(plot.title = element_text(hjust = 0.5, face = "italic"))
   }
   
   p1
   
-  #ggsave(paste0(species,"_recombination_gradient.png"), p1, width = 8, height = 8)
+  ggsave(paste0(species,"_recombination_gradient.png"), p1, width = 8, height = 8)
 }
 
-recombination_gradient_plot("Arabidopsis_thaliana", legend = TRUE)
-recombination_gradient_plot("Oryza_sativa", ylim = c(0.045, 0.125))
+recombination_gradient_plot("Arabidopsis_thaliana", title = TRUE)
+recombination_gradient_plot("Oryza_sativa", ylim = c(0.045, 0.125), legend = TRUE, title = TRUE)
+
 
 #' @title GC gradient plot
 #' 
@@ -113,15 +118,17 @@ recombination_gradient_plot("Oryza_sativa", ylim = c(0.045, 0.125))
 #' The median GC content gradient is also plotted.
 #' The plot will be stored into a PNG file format.
 #' 
-#' @param species (character) : The species which we wants to read the data.
+#' @param species (character) : The studied species.
 #' @param xlim (by default : c(1, 14)) : Scale for the x-axis.
 #' @param ylim (by default : c(0, 1)) : Scale for the y-axis.
 #' @param legend (by default : TRUE) : Display the plot legend if the parameter 
-#' is fixed on TRUE. Hide it otherwise
+#' is fixed on TRUE. Hide it otherwise.
+#' @param title (by default : TRUE) : Display the plot title (i.e. the species name) 
+#' if the parameter is fixed on TRUE. Hide it otherwise.
 #'
 #' @return None
 
-gc_gradient <- function(species, xlim = c(1,14), ylim = c(0,1), legend = TRUE){
+gc_gradient_plot <- function(species, xlim = c(1,14), ylim = c(0,1), legend = TRUE, title = TRUE){
   species_plot_title = gsub("_", " ", species)
   cds <- get(paste0("cds_", species))
   
@@ -139,8 +146,8 @@ gc_gradient <- function(species, xlim = c(1,14), ylim = c(0,1), legend = TRUE){
     scale_colour_viridis_d(option = "inferno") +
     geom_line() +
     geom_point() +
-    xlim(1, 14) +
-    ylim(0, 1) +
+    xlim(xlim) +
+    ylim(ylim) +
     xlab("Gene length (exons)") + ylab("GC content (3rd codon positions)") +
     scale_alpha_manual(values = c(0.4, 1)) +
     guides(alpha = "none")+
@@ -154,26 +161,83 @@ gc_gradient <- function(species, xlim = c(1,14), ylim = c(0,1), legend = TRUE){
     p2 = p2 + theme(legend.position = "none")
   } else {
     p2 = p2 + 
-      labs(colour = "# exons", title = species_plot_title) +
-      theme(plot.title = element_text(hjust = 0.5))
+      labs(colour = "# exons")
   }
   
+  if(title){
+  p2 = p2 +
+    labs(title = species_plot_title) +
+    theme(plot.title = element_text(hjust = 0.5, face = "italic"))
+  }
+  
+  p2
   
   ggsave(paste0(species,"_gc3_gradient.png"), p2, width = 8, height = 8)
 }
 
-gc_gradient("Arabidopsis_thaliana")
-gc_gradient("Oryza_sativa", legend = FALSE)
+gc_gradient_plot("Arabidopsis_thaliana", title = FALSE, legend = FALSE)
+gc_gradient_plot("Oryza_sativa", title = FALSE, legend = TRUE)
+
+Arabidopsis_thaliana_gc_grad_plot
+Oryza_sativa_gc_grad_plot
+
+#' @title Plots comparison
+#' 
+#' @description Allows to display all the plots of the recombination gradients and 
+#' GC gradients between two species to compare them.
+#' 
+#' @param species1 (character) : The first species to compare.
+#' @param species2 (character) : The second species to compare.
+#' @param ylim_recomb_sp1 (by default : NULL) : Scale for the y-axis for the 
+#' recombination gradients of the first species. The default value taken into account 
+#' is that of the "Recombination gradient plot" function if this parameter is set to NULL.
+#' @param ylim_gc_sp1 (by default : NULL) : Scale for the y-axis for the 
+#' GC gradients of the first species. The default value taken into account 
+#' is that of the "GC gradient plot" function if this parameter is set to NULL.
+#' @param ylim_recomb_sp2 (by default : NULL) : Scale for the y-axis for the 
+#' recombination gradients of the first species. The default value taken into account 
+#' is that of the "Recombination gradient plot" function if this parameter is set to NULL.
+#' @param ylim_gc_sp2 (by default : NULL) : Scale for the y-axis for the 
+#' GC gradients of the first species. The default value taken into account 
+#' is that of the "GC gradient plot" function if this parameter is set to NULL.
+#'
+#' @return None
 
 
+plots_comparison <- function(species1, species2, ylim_recomb_sp1 = NULL, ylim_gc_sp1 = NULL,
+                             ylim_recomb_sp2 = NULL, ylim_gc_sp2 = NULL){
+  species1_plot_title = gsub("_", " ", species1)
+  species2_plot_title = gsub("_", " ", species2)
+
+  recomb_plot_species1 <- recombination_gradient_plot(species1, legend = FALSE, title = TRUE)
+  recomb_plot_species2 <- recombination_gradient_plot(species2, legend = TRUE, title = TRUE)
+  gc_plot_species1 <- gc_gradient_plot(species1, legend = FALSE, title = FALSE)
+  gc_plot_species2 <- gc_gradient_plot(species2, legend = TRUE, title = FALSE)
+  
+  if(!is.null(ylim_recomb_sp1)){
+    recomb_plot_species1 <- recombination_gradient_plot(species1, ylim = ylim_recomb_sp1, legend = TRUE, title = TRUE)
+  }
+
+  if(!is.null(ylim_recomb_sp2)){
+    recomb_plot_species2 <- recombination_gradient_plot(species2, ylim = ylim_recomb_sp2, legend = TRUE, title = TRUE)
+  }
+
+  if(!is.null(ylim_gc_sp1)){
+    gc_plot_species1 <- gc_gradient_plot(species1, ylim = ylim_gc_sp1, legend = TRUE, title = FALSE)
+  }
+  
+  if(!is.null(ylim_gc_sp2)){
+    gc_plot_species2 <- gc_gradient_plot(species2, ylim = ylim_gc_sp2, legend = TRUE, title = FALSE)
+  }
 
 
-# ---- Display all plots ----
+  grad_plots = grid.arrange(recomb_plot_species1, recomb_plot_species2,
+                            gc_plot_species1, gc_plot_species2, ncol = 2)
 
-grad_plots = grid.arrange(p1, p1_oryza, p2, p2_oryza, ncol = 2)
+  ggsave(paste0(species1, "_vs_", species2, "_gradients_comparison.png"), grad_plots, width = 9, height = 10)
+}
 
-ggsave("Recombination_vs_GC3_gradients.jpg", grad_plots, width = 9, height = 10)
+plots_comparison("Arabidopsis_thaliana", "Oryza_sativa", ylim_recomb_sp2 = c(0.045, 0.125), ylim_gc_sp1 = c(0.25, 1), ylim_gc_sp2 = c(0.25, 1))
 
-######################################
 
 
