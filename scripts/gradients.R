@@ -78,21 +78,31 @@ recombination_gradient_plot <- function(species, xlim = c(1, 14), ylim = c(0, 1)
     xlim(xlim) +
     ylim(ylim) +
     xlab("Gene length (exons)") + ylab("Median recombination rate (ρ/kb)") +
-    labs(colour = "# exons", title  = species_plot_title) +
     scale_alpha_manual(values = c(0.4, 1)) +
     guides(alpha = "none")+
-    theme_classic()+
-    theme(plot.title = element_text(hjust = 0.5))
+    theme_classic()
+    
+  
   
   df_avg = aggregate(weighted.mean.rho ~ rank , recomb_rank , median)
   
   p1 = p1 + geom_line(data = df_avg, aes(x = rank, y = weighted.mean.rho, group = "black", colour = "black"), colour = "black", linewidth = 1.5)
+
+  
+  if(!legend){
+    p1 = p1 + theme(legend.position = "none")
+  } else {
+    p1 = p1 + 
+      theme(plot.title = element_text(hjust = 0.5)) +
+      labs(colour = "# exons", title  = species_plot_title)
+  }
+  
   p1
   
-  ggsave(paste0(species,"_recombination_gradient.png"), p1, width = 8, height = 8)
+  #ggsave(paste0(species,"_recombination_gradient.png"), p1, width = 8, height = 8)
 }
 
-recombination_gradient_plot("Arabidopsis_thaliana")
+recombination_gradient_plot("Arabidopsis_thaliana", legend = TRUE)
 recombination_gradient_plot("Oryza_sativa", ylim = c(0.045, 0.125))
 
 #' @title GC gradient plot
