@@ -4,7 +4,7 @@
 
 setwd("/home/redelage/internship/data/gff_rho/") # Must to be changed according to the working directory
 
-#'@title Load necessary packages
+#' @title Load necessary packages
 #' 
 #' @description Allows to load all the necessary packages for process data and estimate gBGC values
 #' 
@@ -20,7 +20,7 @@ load_packages <- function(){
 
 load_packages()
 
-#'@title Read GFF
+#' @title Read GFF
 #' 
 #' @description Allows to read GFF annotation file of the species
 #' 
@@ -48,7 +48,7 @@ read_gff("Arabidopsis_thaliana")
 read_gff("Oryza_sativa")
 
 
-#'@title Recombination gradient plot
+#' @title Recombination gradient plot
 #' 
 #' @description Allows to plot the recombination gradients at CDS level 
 #' (previously defined into the read GFF function) with the gradients for genes 
@@ -58,10 +58,12 @@ read_gff("Oryza_sativa")
 #' @param species (character) : The species which we wants to read the data
 #' @param xlim (by default : c(1, 14)) : Scale for the x-axis.
 #' @param ylim (by default : c(0, 1)) : Scale for the y-axis
+#' @param legend (by default : TRUE) : Display the plot legend if the parameter 
+#' is fixed on TRUE. Hide it otherwise
 #'
 #' @return None
 
-recombination_gradient_plot <- function(species, xlim = c(1, 14), ylim = c(0, 1)){
+recombination_gradient_plot <- function(species, xlim = c(1, 14), ylim = c(0, 1), legend = TRUE){
   species_plot_title <- gsub("_", " ", species)
 
   cds <- get(paste0("cds_", species))
@@ -93,7 +95,7 @@ recombination_gradient_plot <- function(species, xlim = c(1, 14), ylim = c(0, 1)
 recombination_gradient_plot("Arabidopsis_thaliana")
 recombination_gradient_plot("Oryza_sativa", ylim = c(0.045, 0.125))
 
-#'@title GC gradient plot
+#' @title GC gradient plot
 #' 
 #' @description Allows to plot the GC content gradients at CDS level 
 #' (previously defined into the read GFF function) with the gradients for genes 
@@ -101,9 +103,11 @@ recombination_gradient_plot("Oryza_sativa", ylim = c(0.045, 0.125))
 #' The median GC content gradient is also plotted.
 #' The plot will be stored into a PNG file format.
 #' 
-#' @param species (character) : The species which we wants to read the data
+#' @param species (character) : The species which we wants to read the data.
 #' @param xlim (by default : c(1, 14)) : Scale for the x-axis.
-#' @param ylim (by default : c(0, 1)) : Scale for the y-axis
+#' @param ylim (by default : c(0, 1)) : Scale for the y-axis.
+#' @param legend (by default : TRUE) : Display the plot legend if the parameter 
+#' is fixed on TRUE. Hide it otherwise
 #'
 #' @return None
 
