@@ -4,6 +4,44 @@
 
 setwd("/home/redelage/internship/data/gff_rho/") # Must to be changed according to the working directory
 
+library(optparse)
+args <- commandArgs(trailingOnly = TRUE)
+
+option_list <- list(
+  make_option(c("--species1"), type="character", default=NULL,
+              help="First species name", metavar="character"),
+  make_option(c("--species2"), type="character", default=NULL,
+              help="Second species name", metavar="character"),
+  make_option(c("--ylim_recomb_sp1"), type="character", default=NULL,
+              help=" Scale for the y-axis for the recombination gradients of the first species (format : min, max)",
+              metavar="character"),
+  make_option(c("--ylim_recomb_sp2"), type="character", default=NULL,
+              help=" Scale for the y-axis for the recombination gradients of the second species (format : min, max)",
+              metavar="character"),
+  make_option(c("--ylim_gc_sp1"), type="character", default=NULL,
+              help=" Scale for the y-axis for the GC gradients of the first species (format : min, max)",
+              metavar="character"),
+  make_option(c("--ylim_gc_sp2"), type="character", default=NULL,
+              help=" Scale for the y-axis for the GC gradients of the second species (format : min, max)",
+              metavar="character"), 
+  make_option(c("-o", "--output"), type="character", default="Rplots.pdf",
+              help="The output file name containing all the plots",
+              metavar="character")
+  )
+
+opt_parser <- OptionParser(option_list=option_list)
+opt <- parse_args(opt_parser, args)
+
+species1 <- opt$species1
+species2 <- opt$species2
+ylim_recomb_sp1 <- as.numeric(unlist(strsplit(opt$ylim_recomb_sp1, ",")))
+ylim_gc_sp1 <- as.numeric(unlist(strsplit(opt$ylim_gc_sp1, ",")))
+ylim_recomb_sp2 <- as.numeric(unlist(strsplit(opt$ylim_recomb_sp2, ",")))
+ylim_gc_sp2 <- as.numeric(unlist(strsplit(opt$ylim_gc_sp2, ",")))
+output_file <- opt$output_file
+
+
+
 #' @title Load necessary packages
 #' 
 #' @description Allows to load all the necessary packages for process data and estimate gBGC values
@@ -63,10 +101,14 @@ read_gff("Oryza_sativa")
 #' @param title (by default : TRUE) : Display the plot title (i.e. the species name) 
 #' if the parameter is fixed on TRUE. Hide it otherwise.
 #'
-#' @return None
+#' @return The recombination gradients plot
 
 recombination_gradient_plot <- function(species, xlim = c(1, 14), ylim = c(0, 1), legend = TRUE, title = TRUE){
   species_plot_title <- gsub("_", " ", species)
+  
+  if(is.null(ylim)){
+    ylim = c(0,1)
+  }
 
   cds <- get(paste0("cds_", species))
   
@@ -79,7 +121,7 @@ recombination_gradient_plot <- function(species, xlim = c(1, 14), ylim = c(0, 1)
     geom_point() +
     xlim(xlim) +
     ylim(ylim) +
-    xlab("Gene length (exons)") + ylab("Median recombination rate (ρ/kb)") +
+    xlab("Gene length (exons)") + ylab("Median recombination rate (rho/kb)") +
     scale_alpha_manual(values = c(0.4, 1)) +
     guides(alpha = "none")+
     theme_classic()
@@ -101,14 +143,9 @@ recombination_gradient_plot <- function(species, xlim = c(1, 14), ylim = c(0, 1)
       theme(plot.title = element_text(hjust = 0.5, face = "italic"))
   }
   
-  p1
-  
   ggsave(paste0(species,"_recombination_gradient.png"), p1, width = 8, height = 8)
+  return(p1)
 }
-
-recombination_gradient_plot("Arabidopsis_thaliana", title = TRUE)
-recombination_gradient_plot("Oryza_sativa", ylim = c(0.045, 0.125), legend = TRUE, title = TRUE)
-
 
 #' @title GC gradient plot
 #' 
@@ -126,11 +163,15 @@ recombination_gradient_plot("Oryza_sativa", ylim = c(0.045, 0.125), legend = TRU
 #' @param title (by default : TRUE) : Display the plot title (i.e. the species name) 
 #' if the parameter is fixed on TRUE. Hide it otherwise.
 #'
-#' @return None
+#' @return The GC gradients plot
 
-gc_gradient_plot <- function(species, xlim = c(1,14), ylim = c(0,1), legend = TRUE, title = TRUE){
+gc_gradient_plot <- function(species, xlim = c(1,14), ylim = NULL, legend = TRUE, title = TRUE){
   species_plot_title = gsub("_", " ", species)
   cds <- get(paste0("cds_", species))
+  
+  if(is.null(ylim)){
+    ylim = c(0,1)
+  }
   
   recomb_rank = aggregate(weighted.mean.rho ~ rank + nb_exons, cds , median)
   recomb_rank$nb_exons = as.factor(recomb_rank$nb_exons)
@@ -170,16 +211,13 @@ gc_gradient_plot <- function(species, xlim = c(1,14), ylim = c(0,1), legend = TR
     theme(plot.title = element_text(hjust = 0.5, face = "italic"))
   }
   
-  p2
-  
   ggsave(paste0(species,"_gc3_gradient.png"), p2, width = 8, height = 8)
+  
+  return(p2)
 }
 
-gc_gradient_plot("Arabidopsis_thaliana", title = FALSE, legend = FALSE)
-gc_gradient_plot("Oryza_sativa", title = FALSE, legend = TRUE)
 
-Arabidopsis_thaliana_gc_grad_plot
-Oryza_sativa_gc_grad_plot
+
 
 #' @title Plots comparison
 #' 
@@ -206,38 +244,67 @@ Oryza_sativa_gc_grad_plot
 
 plots_comparison <- function(species1, species2, ylim_recomb_sp1 = NULL, ylim_gc_sp1 = NULL,
                              ylim_recomb_sp2 = NULL, ylim_gc_sp2 = NULL){
-  species1_plot_title = gsub("_", " ", species1)
-  species2_plot_title = gsub("_", " ", species2)
-
+  species1_plot_title <- gsub("_", " ", species1)
+  species2_plot_title <- gsub("_", " ", species2)
+  
   recomb_plot_species1 <- recombination_gradient_plot(species1, legend = FALSE, title = TRUE)
+  if (!is.null(ylim_recomb_sp1)) {
+    recomb_plot_species1 <- recomb_plot_species1 + ylim(ylim_recomb_sp1)
+  }
+  
   recomb_plot_species2 <- recombination_gradient_plot(species2, legend = TRUE, title = TRUE)
+  if (!is.null(ylim_recomb_sp2)) {
+    recomb_plot_species2 <- recomb_plot_species2 + ylim(ylim_recomb_sp2)
+  }
+  
   gc_plot_species1 <- gc_gradient_plot(species1, legend = FALSE, title = FALSE)
+  if (!is.null(ylim_gc_sp1)) {
+    gc_plot_species1 <- gc_plot_species1 + ylim(ylim_gc_sp1)
+  }
+  
   gc_plot_species2 <- gc_gradient_plot(species2, legend = TRUE, title = FALSE)
-  
-  if(!is.null(ylim_recomb_sp1)){
-    recomb_plot_species1 <- recombination_gradient_plot(species1, ylim = ylim_recomb_sp1, legend = TRUE, title = TRUE)
-  }
-
-  if(!is.null(ylim_recomb_sp2)){
-    recomb_plot_species2 <- recombination_gradient_plot(species2, ylim = ylim_recomb_sp2, legend = TRUE, title = TRUE)
-  }
-
-  if(!is.null(ylim_gc_sp1)){
-    gc_plot_species1 <- gc_gradient_plot(species1, ylim = ylim_gc_sp1, legend = TRUE, title = FALSE)
+  if (!is.null(ylim_gc_sp2)) {
+    gc_plot_species2 <- gc_plot_species2 + ylim(ylim_gc_sp2)
   }
   
-  if(!is.null(ylim_gc_sp2)){
-    gc_plot_species2 <- gc_gradient_plot(species2, ylim = ylim_gc_sp2, legend = TRUE, title = FALSE)
-  }
+  grad_plots <- grid.arrange(recomb_plot_species1, recomb_plot_species2,
+                             gc_plot_species1, gc_plot_species2, ncol = 2)
 
-
-  grad_plots = grid.arrange(recomb_plot_species1, recomb_plot_species2,
-                            gc_plot_species1, gc_plot_species2, ncol = 2)
-
-  ggsave(paste0(species1, "_vs_", species2, "_gradients_comparison.png"), grad_plots, width = 9, height = 10)
 }
 
-plots_comparison("Arabidopsis_thaliana", "Oryza_sativa", ylim_recomb_sp2 = c(0.045, 0.125), ylim_gc_sp1 = c(0.25, 1), ylim_gc_sp2 = c(0.25, 1))
 
 
+# --- Functions execution ----
 
+
+generate_and_save_plots <- function(species1, species2, ylim_recomb_sp1 = NULL, ylim_gc_sp1 = NULL, 
+                                    ylim_recomb_sp2 = NULL, ylim_gc_sp2 = NULL, output_file = "Rplots.pdf") {
+  
+  pdf(output_file)
+  
+  # Plot for species1 recombination
+  plot1 <- recombination_gradient_plot(species1, ylim = ylim_recomb_sp1)
+  print(plot1)
+  
+  # Plot for species2 recombination
+  plot2 <- recombination_gradient_plot(species2, ylim = ylim_recomb_sp2)
+  print(plot2)
+  
+  # Plot for species1 gc
+  plot3 <- gc_gradient_plot(species1, ylim = ylim_gc_sp1)
+  print(plot3)
+  
+  # Plot for species2 gc
+  plot4 <- gc_gradient_plot(species2, ylim = ylim_gc_sp2)
+  print(plot4)
+  
+  # Comparison plot
+  comp_plot <- plots_comparison(species1, species2, ylim_recomb_sp1, ylim_gc_sp1, ylim_recomb_sp2, ylim_gc_sp2)
+  print(comp_plot)
+  
+  dev.off()
+}
+  
+# Example usage ---> Find a way to use it in simple command line
+
+generate_and_save_plots("Arabidopsis_thaliana", "Oryza_sativa", ylim_recomb_sp2 = c(0.045, 0.125), ylim_gc_sp1 = c(0.25, 1), ylim_gc_sp2 = c(0.25, 1), output_file = "Rplots.pdf")
