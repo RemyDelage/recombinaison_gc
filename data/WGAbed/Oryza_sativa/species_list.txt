@@ -1,0 +1,3 @@
+GCF_001433935_Oryza_sativa
+GCF_000147395_Oryza_glaberrima
+GCF_000231095_Oryza_brachyantha
