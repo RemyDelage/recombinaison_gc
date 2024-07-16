@@ -1,0 +1,420 @@
+Wed Jul 10 10:53:51 CEST 2024
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr1
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.1
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 1151491 out of a possible 8966513 Sites
+Run Time = 375.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr2
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.2
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 646439 out of a possible 8966513 Sites
+Run Time = 364.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr3
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.3
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 490975 out of a possible 8966513 Sites
+Run Time = 359.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr4
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.4
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 518750 out of a possible 8966513 Sites
+Run Time = 363.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr5
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.5
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 590093 out of a possible 8966513 Sites
+Run Time = 363.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr6
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.6
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 684499 out of a possible 8966513 Sites
+Run Time = 367.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr7
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.7
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 315023 out of a possible 8966513 Sites
+Run Time = 364.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr8
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.8
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 515701 out of a possible 8966513 Sites
+Run Time = 367.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr9
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.9
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 360733 out of a possible 8966513 Sites
+Run Time = 357.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr10
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.10
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 579847 out of a possible 8966513 Sites
+Run Time = 367.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr11
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.11
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 328451 out of a possible 8966513 Sites
+Run Time = 372.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr12
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.12
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 307521 out of a possible 8966513 Sites
+Run Time = 365.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr13
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.13
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 350812 out of a possible 8966513 Sites
+Run Time = 357.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr14
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.14
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 423667 out of a possible 8966513 Sites
+Run Time = 360.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr15
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.15
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 331921 out of a possible 8966513 Sites
+Run Time = 389.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr16
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.16
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 310480 out of a possible 8966513 Sites
+Run Time = 356.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr17
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.17
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 274106 out of a possible 8966513 Sites
+Run Time = 367.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr18
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.18
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 338844 out of a possible 8966513 Sites
+Run Time = 357.00 seconds
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /home/genouest/cnrs_umr6553/rdelage/data/Populus_tremula_Liu2022.pop_sfs.no_indels.recode.vcf.gz
+	--chr chr19
+	--max-alleles 2
+	--min-alleles 2
+	--counts
+	--out /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Populus_tremula/Populus_tremula_Liu2022.pop_sfs.19
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in FORMAT entry: ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+After filtering, kept 36 out of 36 Individuals
+Outputting Frequency Statistics...
+After filtering, kept 244510 out of a possible 8966513 Sites
+Run Time = 354.00 seconds
+Wed Jul 10 12:49:14 CEST 2024
