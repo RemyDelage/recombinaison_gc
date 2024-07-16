@@ -389,3 +389,9 @@ gBGC_estimations <- function(data_mutation1, data_mutation2){
   
   return(gBGC)
 }
+
+
+#### Functions execution ####
+snp_polarization(species, chromosome_num)
+sfs_computations(species, chromosome_num, gff_file, genomic_level)
+gBGC_estimations(WS, SW)
