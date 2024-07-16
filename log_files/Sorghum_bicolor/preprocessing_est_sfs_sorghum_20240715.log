@@ -1,0 +1,1161 @@
+Chromosomes IDs : NC_012870.2 NC_012871.2 NC_012872.2 NC_012873.2 NC_012874.2 NC_012875.2 NC_012876.2 NC_012877.2 NC_012878.2 NC_012879.2
+Tue Jul 16 09:47:47 CEST 2024
+species:  Sorghum_bicolor 
+species_genus:  sorghum 
+chromosome_num:  1 
+chromosome_id:  NC_012870.2 
+counts_dir:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/ 
+counts_file:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/Sorghum_bicolor_Lozano2021.1.frq.count 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr01 186         2    52               G:52                T:0   G   T
+2 Chr01 275         2    52               C:13               T:39   C   T
+3 Chr01 291         2    56               T:56                A:0   T   A
+4 Chr01 377         2    60               A:60                T:0   A   T
+5 Chr01 378         2    60               T:60                A:0   T   A
+6 Chr01 389         2    60               C:58                T:2   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1        52         0       0       0       0      52        52 G->T
+2        13        39       0      39      13       0        52 C->T
+3        56         0       0      56       0       0        56 T->A
+4        60         0      60       0       0       0        60 A->T
+5        60         0       0      60       0       0        60 T->A
+6        58         2       0       2      58       0        60 C->T
+wgabed before SNP filtering 
+[1] 12214037
+wgabed after SNP filtering 
+[1] 11912990
+remove duplicates 
+Joining with `by = join_by(CHROM, POS)`
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr01 186         2    52               G:52                T:0   G   T
+2 Chr01 275         2    52               C:13               T:39   C   T
+3 Chr01 291         2    56               T:56                A:0   T   A
+4 Chr01 377         2    60               A:60                T:0   A   T
+5 Chr01 378         2    60               T:60                A:0   T   A
+6 Chr01 389         2    60               C:58                T:2   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        52         0       0       0       0      52        52 G->T <NA>
+2        13        39       0      39      13       0        52 C->T <NA>
+3        56         0       0      56       0       0        56 T->A <NA>
+4        60         0      60       0       0       0        60 A->T <NA>
+5        60         0       0      60       0       0        60 T->A <NA>
+6        58         2       0       2      58       0        60 C->T <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr01 186         2    52               G:52                T:0   G   T
+2 Chr01 275         2    52               C:13               T:39   C   T
+3 Chr01 291         2    56               T:56                A:0   T   A
+4 Chr01 377         2    60               A:60                T:0   A   T
+5 Chr01 378         2    60               T:60                A:0   T   A
+6 Chr01 389         2    60               C:58                T:2   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        52         0       0       0       0      52        52 G->T <NA>
+2        13        39       0      39      13       0        52 C->T <NA>
+3        56         0       0      56       0       0        56 T->A <NA>
+4        60         0      60       0       0       0        60 A->T <NA>
+5        60         0       0      60       0       0        60 T->A <NA>
+6        58         2       0       2      58       0        60 C->T <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr01 186         2    52               G:52                T:0   G   T
+2 Chr01 275         2    52               C:13               T:39   C   T
+3 Chr01 291         2    56               T:56                A:0   T   A
+4 Chr01 377         2    60               A:60                T:0   A   T
+5 Chr01 378         2    60               T:60                A:0   T   A
+6 Chr01 389         2    60               C:58                T:2   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        52         0       0       0       0      52        52 G->T <NA>
+2        13        39       0      39      13       0        52 C->T <NA>
+3        56         0       0      56       0       0        56 T->A <NA>
+4        60         0      60       0       0       0        60 A->T <NA>
+5        60         0       0      60       0       0        60 T->A <NA>
+6        58         2       0       2      58       0        60 C->T <NA>
+  outgroup_1 outgroup_2 A_outgroup_1 T_outgroup_1 C_outgroup_1 G_outgroup_1
+1       <NA>       <NA>            0            0            0            0
+2       <NA>       <NA>            0            0            0            0
+3       <NA>       <NA>            0            0            0            0
+4       <NA>       <NA>            0            0            0            0
+5       <NA>       <NA>            0            0            0            0
+6       <NA>       <NA>            0            0            0            0
+  A_outgroup_2 T_outgroup_2 C_outgroup_2 G_outgroup_2
+1            0            0            0            0
+2            0            0            0            0
+3            0            0            0            0
+4            0            0            0            0
+5            0            0            0            0
+6            0            0            0            0
+  ref_species outgroup_1 outgroup_2
+1    0,0,52,0    0,0,0,0    0,0,0,0
+2   0,13,0,39    0,0,0,0    0,0,0,0
+3    0,0,0,56    0,0,0,0    0,0,0,0
+4    60,0,0,0    0,0,0,0    0,0,0,0
+5    0,0,0,60    0,0,0,0    0,0,0,0
+6    0,58,0,2    0,0,0,0    0,0,0,0
+Tue Jul 16 10:05:35 CEST 2024
+Tue Jul 16 10:05:35 CEST 2024
+species:  Sorghum_bicolor 
+species_genus:  sorghum 
+chromosome_num:  2 
+chromosome_id:  NC_012871.2 
+counts_dir:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/ 
+counts_file:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/Sorghum_bicolor_Lozano2021.2.frq.count 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+  CHROM   POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr02 62265         2    52               C:50                G:2   C   G
+2 Chr02 62272         2    52               G:52                T:0   G   T
+3 Chr02 62332         2    48               G:30               C:18   G   C
+4 Chr02 62608         2    56               C:56                T:0   C   T
+5 Chr02 62613         2    56               C:56                A:0   C   A
+6 Chr02 62649         2    58               C:58                T:0   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1        50         2       0       0      50       2        52 C->G
+2        52         0       0       0       0      52        52 G->T
+3        30        18       0       0      18      30        48 G->C
+4        56         0       0       0      56       0        56 C->T
+5        56         0       0       0      56       0        56 C->A
+6        58         0       0       0      58       0        58 C->T
+wgabed before SNP filtering 
+[1] 9174895
+wgabed after SNP filtering 
+[1] 8956349
+remove duplicates 
+Joining with `by = join_by(CHROM, POS)`
+  CHROM   POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr02 62265         2    52               C:50                G:2   C   G
+2 Chr02 62272         2    52               G:52                T:0   G   T
+3 Chr02 62332         2    48               G:30               C:18   G   C
+4 Chr02 62608         2    56               C:56                T:0   C   T
+5 Chr02 62613         2    56               C:56                A:0   C   A
+6 Chr02 62649         2    58               C:58                T:0   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        50         2       0       0      50       2        52 C->G <NA>
+2        52         0       0       0       0      52        52 G->T <NA>
+3        30        18       0       0      18      30        48 G->C <NA>
+4        56         0       0       0      56       0        56 C->T <NA>
+5        56         0       0       0      56       0        56 C->A <NA>
+6        58         0       0       0      58       0        58 C->T <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM   POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr02 62265         2    52               C:50                G:2   C   G
+2 Chr02 62272         2    52               G:52                T:0   G   T
+3 Chr02 62332         2    48               G:30               C:18   G   C
+4 Chr02 62608         2    56               C:56                T:0   C   T
+5 Chr02 62613         2    56               C:56                A:0   C   A
+6 Chr02 62649         2    58               C:58                T:0   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        50         2       0       0      50       2        52 C->G <NA>
+2        52         0       0       0       0      52        52 G->T <NA>
+3        30        18       0       0      18      30        48 G->C <NA>
+4        56         0       0       0      56       0        56 C->T <NA>
+5        56         0       0       0      56       0        56 C->A <NA>
+6        58         0       0       0      58       0        58 C->T <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM   POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr02 62265         2    52               C:50                G:2   C   G
+2 Chr02 62272         2    52               G:52                T:0   G   T
+3 Chr02 62332         2    48               G:30               C:18   G   C
+4 Chr02 62608         2    56               C:56                T:0   C   T
+5 Chr02 62613         2    56               C:56                A:0   C   A
+6 Chr02 62649         2    58               C:58                T:0   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        50         2       0       0      50       2        52 C->G <NA>
+2        52         0       0       0       0      52        52 G->T <NA>
+3        30        18       0       0      18      30        48 G->C <NA>
+4        56         0       0       0      56       0        56 C->T <NA>
+5        56         0       0       0      56       0        56 C->A <NA>
+6        58         0       0       0      58       0        58 C->T <NA>
+  outgroup_1 outgroup_2 A_outgroup_1 T_outgroup_1 C_outgroup_1 G_outgroup_1
+1       <NA>       <NA>            0            0            0            0
+2       <NA>       <NA>            0            0            0            0
+3       <NA>       <NA>            0            0            0            0
+4       <NA>       <NA>            0            0            0            0
+5       <NA>       <NA>            0            0            0            0
+6       <NA>       <NA>            0            0            0            0
+  A_outgroup_2 T_outgroup_2 C_outgroup_2 G_outgroup_2
+1            0            0            0            0
+2            0            0            0            0
+3            0            0            0            0
+4            0            0            0            0
+5            0            0            0            0
+6            0            0            0            0
+  ref_species outgroup_1 outgroup_2
+1    0,50,2,0    0,0,0,0    0,0,0,0
+2    0,0,52,0    0,0,0,0    0,0,0,0
+3   0,18,30,0    0,0,0,0    0,0,0,0
+4    0,56,0,0    0,0,0,0    0,0,0,0
+5    0,56,0,0    0,0,0,0    0,0,0,0
+6    0,58,0,0    0,0,0,0    0,0,0,0
+Tue Jul 16 10:22:52 CEST 2024
+Tue Jul 16 10:22:52 CEST 2024
+species:  Sorghum_bicolor 
+species_genus:  sorghum 
+chromosome_num:  3 
+chromosome_id:  NC_012872.2 
+counts_dir:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/ 
+counts_file:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/Sorghum_bicolor_Lozano2021.3.frq.count 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr03 2105         2    44               G:43                A:1   G   A
+2 Chr03 4718         2    42               C:42                A:0   C   A
+3 Chr03 4783         2    42               C:42                T:0   C   T
+4 Chr03 4896         2    50               C:50                T:0   C   T
+5 Chr03 4898         2    50               C:50                T:0   C   T
+6 Chr03 4928         2    54               C:44               T:10   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1        43         1       1       0       0      43        44 G->A
+2        42         0       0       0      42       0        42 C->A
+3        42         0       0       0      42       0        42 C->T
+4        50         0       0       0      50       0        50 C->T
+5        50         0       0       0      50       0        50 C->T
+6        44        10       0      10      44       0        54 C->T
+wgabed before SNP filtering 
+[1] 10411285
+wgabed after SNP filtering 
+[1] 10160763
+remove duplicates 
+Joining with `by = join_by(CHROM, POS)`
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr03 2105         2    44               G:43                A:1   G   A
+2 Chr03 4718         2    42               C:42                A:0   C   A
+3 Chr03 4783         2    42               C:42                T:0   C   T
+4 Chr03 4896         2    50               C:50                T:0   C   T
+5 Chr03 4898         2    50               C:50                T:0   C   T
+6 Chr03 4928         2    54               C:44               T:10   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        43         1       1       0       0      43        44 G->A <NA>
+2        42         0       0       0      42       0        42 C->A <NA>
+3        42         0       0       0      42       0        42 C->T <NA>
+4        50         0       0       0      50       0        50 C->T <NA>
+5        50         0       0       0      50       0        50 C->T <NA>
+6        44        10       0      10      44       0        54 C->T <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr03 2105         2    44               G:43                A:1   G   A
+2 Chr03 4718         2    42               C:42                A:0   C   A
+3 Chr03 4783         2    42               C:42                T:0   C   T
+4 Chr03 4896         2    50               C:50                T:0   C   T
+5 Chr03 4898         2    50               C:50                T:0   C   T
+6 Chr03 4928         2    54               C:44               T:10   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        43         1       1       0       0      43        44 G->A <NA>
+2        42         0       0       0      42       0        42 C->A <NA>
+3        42         0       0       0      42       0        42 C->T <NA>
+4        50         0       0       0      50       0        50 C->T <NA>
+5        50         0       0       0      50       0        50 C->T <NA>
+6        44        10       0      10      44       0        54 C->T <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr03 2105         2    44               G:43                A:1   G   A
+2 Chr03 4718         2    42               C:42                A:0   C   A
+3 Chr03 4783         2    42               C:42                T:0   C   T
+4 Chr03 4896         2    50               C:50                T:0   C   T
+5 Chr03 4898         2    50               C:50                T:0   C   T
+6 Chr03 4928         2    54               C:44               T:10   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        43         1       1       0       0      43        44 G->A <NA>
+2        42         0       0       0      42       0        42 C->A <NA>
+3        42         0       0       0      42       0        42 C->T <NA>
+4        50         0       0       0      50       0        50 C->T <NA>
+5        50         0       0       0      50       0        50 C->T <NA>
+6        44        10       0      10      44       0        54 C->T <NA>
+  outgroup_1 outgroup_2 A_outgroup_1 T_outgroup_1 C_outgroup_1 G_outgroup_1
+1       <NA>       <NA>            0            0            0            0
+2       <NA>       <NA>            0            0            0            0
+3       <NA>       <NA>            0            0            0            0
+4       <NA>       <NA>            0            0            0            0
+5       <NA>       <NA>            0            0            0            0
+6       <NA>       <NA>            0            0            0            0
+  A_outgroup_2 T_outgroup_2 C_outgroup_2 G_outgroup_2
+1            0            0            0            0
+2            0            0            0            0
+3            0            0            0            0
+4            0            0            0            0
+5            0            0            0            0
+6            0            0            0            0
+  ref_species outgroup_1 outgroup_2
+1    1,0,43,0    0,0,0,0    0,0,0,0
+2    0,42,0,0    0,0,0,0    0,0,0,0
+3    0,42,0,0    0,0,0,0    0,0,0,0
+4    0,50,0,0    0,0,0,0    0,0,0,0
+5    0,50,0,0    0,0,0,0    0,0,0,0
+6   0,44,0,10    0,0,0,0    0,0,0,0
+Tue Jul 16 10:40:30 CEST 2024
+Tue Jul 16 10:40:30 CEST 2024
+species:  Sorghum_bicolor 
+species_genus:  sorghum 
+chromosome_num:  4 
+chromosome_id:  NC_012873.2 
+counts_dir:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/ 
+counts_file:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/Sorghum_bicolor_Lozano2021.4.frq.count 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr04 3887         2    60               G:60                T:0   G   T
+2 Chr04 3893         2    50               C:49                G:1   C   G
+3 Chr04 3910         2    58               T:58                G:0   T   G
+4 Chr04 3912         2    58               A:56                G:2   A   G
+5 Chr04 3914         2    58               A:58                T:0   A   T
+6 Chr04 3936         2    62               C:62                A:0   C   A
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1        60         0       0       0       0      60        60 G->T
+2        49         1       0       0      49       1        50 C->G
+3        58         0       0      58       0       0        58 T->G
+4        56         2      56       0       0       2        58 A->G
+5        58         0      58       0       0       0        58 A->T
+6        62         0       0       0      62       0        62 C->A
+wgabed before SNP filtering 
+[1] 9039730
+wgabed after SNP filtering 
+[1] 8834312
+remove duplicates 
+Joining with `by = join_by(CHROM, POS)`
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr04 3887         2    60               G:60                T:0   G   T
+2 Chr04 3893         2    50               C:49                G:1   C   G
+3 Chr04 3910         2    58               T:58                G:0   T   G
+4 Chr04 3912         2    58               A:56                G:2   A   G
+5 Chr04 3914         2    58               A:58                T:0   A   T
+6 Chr04 3936         2    62               C:62                A:0   C   A
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        60         0       0       0       0      60        60 G->T <NA>
+2        49         1       0       0      49       1        50 C->G <NA>
+3        58         0       0      58       0       0        58 T->G <NA>
+4        56         2      56       0       0       2        58 A->G <NA>
+5        58         0      58       0       0       0        58 A->T <NA>
+6        62         0       0       0      62       0        62 C->A <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr04 3887         2    60               G:60                T:0   G   T
+2 Chr04 3893         2    50               C:49                G:1   C   G
+3 Chr04 3910         2    58               T:58                G:0   T   G
+4 Chr04 3912         2    58               A:56                G:2   A   G
+5 Chr04 3914         2    58               A:58                T:0   A   T
+6 Chr04 3936         2    62               C:62                A:0   C   A
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        60         0       0       0       0      60        60 G->T <NA>
+2        49         1       0       0      49       1        50 C->G <NA>
+3        58         0       0      58       0       0        58 T->G <NA>
+4        56         2      56       0       0       2        58 A->G <NA>
+5        58         0      58       0       0       0        58 A->T <NA>
+6        62         0       0       0      62       0        62 C->A <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr04 3887         2    60               G:60                T:0   G   T
+2 Chr04 3893         2    50               C:49                G:1   C   G
+3 Chr04 3910         2    58               T:58                G:0   T   G
+4 Chr04 3912         2    58               A:56                G:2   A   G
+5 Chr04 3914         2    58               A:58                T:0   A   T
+6 Chr04 3936         2    62               C:62                A:0   C   A
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        60         0       0       0       0      60        60 G->T <NA>
+2        49         1       0       0      49       1        50 C->G <NA>
+3        58         0       0      58       0       0        58 T->G <NA>
+4        56         2      56       0       0       2        58 A->G <NA>
+5        58         0      58       0       0       0        58 A->T <NA>
+6        62         0       0       0      62       0        62 C->A <NA>
+  outgroup_1 outgroup_2 A_outgroup_1 T_outgroup_1 C_outgroup_1 G_outgroup_1
+1       <NA>       <NA>            0            0            0            0
+2       <NA>       <NA>            0            0            0            0
+3       <NA>       <NA>            0            0            0            0
+4       <NA>       <NA>            0            0            0            0
+5       <NA>       <NA>            0            0            0            0
+6       <NA>       <NA>            0            0            0            0
+  A_outgroup_2 T_outgroup_2 C_outgroup_2 G_outgroup_2
+1            0            0            0            0
+2            0            0            0            0
+3            0            0            0            0
+4            0            0            0            0
+5            0            0            0            0
+6            0            0            0            0
+  ref_species outgroup_1 outgroup_2
+1    0,0,60,0    0,0,0,0    0,0,0,0
+2    0,49,1,0    0,0,0,0    0,0,0,0
+3    0,0,0,58    0,0,0,0    0,0,0,0
+4    56,0,2,0    0,0,0,0    0,0,0,0
+5    58,0,0,0    0,0,0,0    0,0,0,0
+6    0,62,0,0    0,0,0,0    0,0,0,0
+Tue Jul 16 10:55:40 CEST 2024
+Tue Jul 16 10:55:40 CEST 2024
+species:  Sorghum_bicolor 
+species_genus:  sorghum 
+chromosome_num:  5 
+chromosome_id:  NC_012874.2 
+counts_dir:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/ 
+counts_file:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/Sorghum_bicolor_Lozano2021.5.frq.count 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr05 952         2    56               G:56                T:0   G   T
+2 Chr05 962         2    48               C:28               A:20   C   A
+3 Chr05 973         2    50               G:50                A:0   G   A
+4 Chr05 987         2    54               C:54                T:0   C   T
+5 Chr05 991         2    54               C:54                T:0   C   T
+6 Chr05 992         2    54               G:54                A:0   G   A
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1        56         0       0       0       0      56        56 G->T
+2        28        20      20       0      28       0        48 C->A
+3        50         0       0       0       0      50        50 G->A
+4        54         0       0       0      54       0        54 C->T
+5        54         0       0       0      54       0        54 C->T
+6        54         0       0       0       0      54        54 G->A
+wgabed before SNP filtering 
+[1] 4621899
+wgabed after SNP filtering 
+[1] 4532364
+remove duplicates 
+Joining with `by = join_by(CHROM, POS)`
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr05 952         2    56               G:56                T:0   G   T
+2 Chr05 962         2    48               C:28               A:20   C   A
+3 Chr05 973         2    50               G:50                A:0   G   A
+4 Chr05 987         2    54               C:54                T:0   C   T
+5 Chr05 991         2    54               C:54                T:0   C   T
+6 Chr05 992         2    54               G:54                A:0   G   A
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        56         0       0       0       0      56        56 G->T <NA>
+2        28        20      20       0      28       0        48 C->A <NA>
+3        50         0       0       0       0      50        50 G->A <NA>
+4        54         0       0       0      54       0        54 C->T <NA>
+5        54         0       0       0      54       0        54 C->T <NA>
+6        54         0       0       0       0      54        54 G->A <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr05 952         2    56               G:56                T:0   G   T
+2 Chr05 962         2    48               C:28               A:20   C   A
+3 Chr05 973         2    50               G:50                A:0   G   A
+4 Chr05 987         2    54               C:54                T:0   C   T
+5 Chr05 991         2    54               C:54                T:0   C   T
+6 Chr05 992         2    54               G:54                A:0   G   A
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        56         0       0       0       0      56        56 G->T <NA>
+2        28        20      20       0      28       0        48 C->A <NA>
+3        50         0       0       0       0      50        50 G->A <NA>
+4        54         0       0       0      54       0        54 C->T <NA>
+5        54         0       0       0      54       0        54 C->T <NA>
+6        54         0       0       0       0      54        54 G->A <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr05 952         2    56               G:56                T:0   G   T
+2 Chr05 962         2    48               C:28               A:20   C   A
+3 Chr05 973         2    50               G:50                A:0   G   A
+4 Chr05 987         2    54               C:54                T:0   C   T
+5 Chr05 991         2    54               C:54                T:0   C   T
+6 Chr05 992         2    54               G:54                A:0   G   A
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        56         0       0       0       0      56        56 G->T <NA>
+2        28        20      20       0      28       0        48 C->A <NA>
+3        50         0       0       0       0      50        50 G->A <NA>
+4        54         0       0       0      54       0        54 C->T <NA>
+5        54         0       0       0      54       0        54 C->T <NA>
+6        54         0       0       0       0      54        54 G->A <NA>
+  outgroup_1 outgroup_2 A_outgroup_1 T_outgroup_1 C_outgroup_1 G_outgroup_1
+1       <NA>       <NA>            0            0            0            0
+2       <NA>       <NA>            0            0            0            0
+3       <NA>       <NA>            0            0            0            0
+4       <NA>       <NA>            0            0            0            0
+5       <NA>       <NA>            0            0            0            0
+6       <NA>       <NA>            0            0            0            0
+  A_outgroup_2 T_outgroup_2 C_outgroup_2 G_outgroup_2
+1            0            0            0            0
+2            0            0            0            0
+3            0            0            0            0
+4            0            0            0            0
+5            0            0            0            0
+6            0            0            0            0
+  ref_species outgroup_1 outgroup_2
+1    0,0,56,0    0,0,0,0    0,0,0,0
+2   20,28,0,0    0,0,0,0    0,0,0,0
+3    0,0,50,0    0,0,0,0    0,0,0,0
+4    0,54,0,0    0,0,0,0    0,0,0,0
+5    0,54,0,0    0,0,0,0    0,0,0,0
+6    0,0,54,0    0,0,0,0    0,0,0,0
+Tue Jul 16 11:08:14 CEST 2024
+Tue Jul 16 11:08:14 CEST 2024
+species:  Sorghum_bicolor 
+species_genus:  sorghum 
+chromosome_num:  6 
+chromosome_id:  NC_012875.2 
+counts_dir:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/ 
+counts_file:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/Sorghum_bicolor_Lozano2021.6.frq.count 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr06 3038         2    42                C:6               G:36   C   G
+2 Chr06 3039         2    42                C:6               T:36   C   T
+3 Chr06 3121         2    44               G:44                A:0   G   A
+4 Chr06 3196         2    54               G:52                T:2   G   T
+5 Chr06 3251         2    54               G:54                C:0   G   C
+6 Chr06 3368         2    60               A:60                G:0   A   G
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1         6        36       0       0       6      36        42 C->G
+2         6        36       0      36       6       0        42 C->T
+3        44         0       0       0       0      44        44 G->A
+4        52         2       0       2       0      52        54 G->T
+5        54         0       0       0       0      54        54 G->C
+6        60         0      60       0       0       0        60 A->G
+wgabed before SNP filtering 
+[1] 8274224
+wgabed after SNP filtering 
+[1] 8095424
+remove duplicates 
+Joining with `by = join_by(CHROM, POS)`
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr06 3038         2    42                C:6               G:36   C   G
+2 Chr06 3039         2    42                C:6               T:36   C   T
+3 Chr06 3121         2    44               G:44                A:0   G   A
+4 Chr06 3196         2    54               G:52                T:2   G   T
+5 Chr06 3251         2    54               G:54                C:0   G   C
+6 Chr06 3368         2    60               A:60                G:0   A   G
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1         6        36       0       0       6      36        42 C->G <NA>
+2         6        36       0      36       6       0        42 C->T <NA>
+3        44         0       0       0       0      44        44 G->A <NA>
+4        52         2       0       2       0      52        54 G->T <NA>
+5        54         0       0       0       0      54        54 G->C <NA>
+6        60         0      60       0       0       0        60 A->G <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr06 3038         2    42                C:6               G:36   C   G
+2 Chr06 3039         2    42                C:6               T:36   C   T
+3 Chr06 3121         2    44               G:44                A:0   G   A
+4 Chr06 3196         2    54               G:52                T:2   G   T
+5 Chr06 3251         2    54               G:54                C:0   G   C
+6 Chr06 3368         2    60               A:60                G:0   A   G
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1         6        36       0       0       6      36        42 C->G <NA>
+2         6        36       0      36       6       0        42 C->T <NA>
+3        44         0       0       0       0      44        44 G->A <NA>
+4        52         2       0       2       0      52        54 G->T <NA>
+5        54         0       0       0       0      54        54 G->C <NA>
+6        60         0      60       0       0       0        60 A->G <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr06 3038         2    42                C:6               G:36   C   G
+2 Chr06 3039         2    42                C:6               T:36   C   T
+3 Chr06 3121         2    44               G:44                A:0   G   A
+4 Chr06 3196         2    54               G:52                T:2   G   T
+5 Chr06 3251         2    54               G:54                C:0   G   C
+6 Chr06 3368         2    60               A:60                G:0   A   G
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1         6        36       0       0       6      36        42 C->G <NA>
+2         6        36       0      36       6       0        42 C->T <NA>
+3        44         0       0       0       0      44        44 G->A <NA>
+4        52         2       0       2       0      52        54 G->T <NA>
+5        54         0       0       0       0      54        54 G->C <NA>
+6        60         0      60       0       0       0        60 A->G <NA>
+  outgroup_1 outgroup_2 A_outgroup_1 T_outgroup_1 C_outgroup_1 G_outgroup_1
+1       <NA>       <NA>            0            0            0            0
+2       <NA>       <NA>            0            0            0            0
+3       <NA>       <NA>            0            0            0            0
+4       <NA>       <NA>            0            0            0            0
+5       <NA>       <NA>            0            0            0            0
+6       <NA>       <NA>            0            0            0            0
+  A_outgroup_2 T_outgroup_2 C_outgroup_2 G_outgroup_2
+1            0            0            0            0
+2            0            0            0            0
+3            0            0            0            0
+4            0            0            0            0
+5            0            0            0            0
+6            0            0            0            0
+  ref_species outgroup_1 outgroup_2
+1    0,6,36,0    0,0,0,0    0,0,0,0
+2    0,6,0,36    0,0,0,0    0,0,0,0
+3    0,0,44,0    0,0,0,0    0,0,0,0
+4    0,0,52,2    0,0,0,0    0,0,0,0
+5    0,0,54,0    0,0,0,0    0,0,0,0
+6    60,0,0,0    0,0,0,0    0,0,0,0
+Tue Jul 16 11:21:26 CEST 2024
+Tue Jul 16 11:21:26 CEST 2024
+species:  Sorghum_bicolor 
+species_genus:  sorghum 
+chromosome_num:  7 
+chromosome_id:  NC_012876.2 
+counts_dir:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/ 
+counts_file:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/Sorghum_bicolor_Lozano2021.7.frq.count 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr07  715         2    48               A:48                T:0   A   T
+2 Chr07  723         2    48               A:48                T:0   A   T
+3 Chr07 1159         2    52               G:52                A:0   G   A
+4 Chr07 1170         2    52               T:52                A:0   T   A
+5 Chr07 4021         2    44               G:44                A:0   G   A
+6 Chr07 4073         2    48               C:48                T:0   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1        48         0      48       0       0       0        48 A->T
+2        48         0      48       0       0       0        48 A->T
+3        52         0       0       0       0      52        52 G->A
+4        52         0       0      52       0       0        52 T->A
+5        44         0       0       0       0      44        44 G->A
+6        48         0       0       0      48       0        48 C->T
+wgabed before SNP filtering 
+[1] 6995243
+wgabed after SNP filtering 
+[1] 6854465
+remove duplicates 
+Joining with `by = join_by(CHROM, POS)`
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr07  715         2    48               A:48                T:0   A   T
+2 Chr07  723         2    48               A:48                T:0   A   T
+3 Chr07 1159         2    52               G:52                A:0   G   A
+4 Chr07 1170         2    52               T:52                A:0   T   A
+5 Chr07 4021         2    44               G:44                A:0   G   A
+6 Chr07 4073         2    48               C:48                T:0   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        48         0      48       0       0       0        48 A->T <NA>
+2        48         0      48       0       0       0        48 A->T <NA>
+3        52         0       0       0       0      52        52 G->A <NA>
+4        52         0       0      52       0       0        52 T->A <NA>
+5        44         0       0       0       0      44        44 G->A <NA>
+6        48         0       0       0      48       0        48 C->T <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr07  715         2    48               A:48                T:0   A   T
+2 Chr07  723         2    48               A:48                T:0   A   T
+3 Chr07 1159         2    52               G:52                A:0   G   A
+4 Chr07 1170         2    52               T:52                A:0   T   A
+5 Chr07 4021         2    44               G:44                A:0   G   A
+6 Chr07 4073         2    48               C:48                T:0   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        48         0      48       0       0       0        48 A->T <NA>
+2        48         0      48       0       0       0        48 A->T <NA>
+3        52         0       0       0       0      52        52 G->A <NA>
+4        52         0       0      52       0       0        52 T->A <NA>
+5        44         0       0       0       0      44        44 G->A <NA>
+6        48         0       0       0      48       0        48 C->T <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr07  715         2    48               A:48                T:0   A   T
+2 Chr07  723         2    48               A:48                T:0   A   T
+3 Chr07 1159         2    52               G:52                A:0   G   A
+4 Chr07 1170         2    52               T:52                A:0   T   A
+5 Chr07 4021         2    44               G:44                A:0   G   A
+6 Chr07 4073         2    48               C:48                T:0   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        48         0      48       0       0       0        48 A->T <NA>
+2        48         0      48       0       0       0        48 A->T <NA>
+3        52         0       0       0       0      52        52 G->A <NA>
+4        52         0       0      52       0       0        52 T->A <NA>
+5        44         0       0       0       0      44        44 G->A <NA>
+6        48         0       0       0      48       0        48 C->T <NA>
+  outgroup_1 outgroup_2 A_outgroup_1 T_outgroup_1 C_outgroup_1 G_outgroup_1
+1       <NA>       <NA>            0            0            0            0
+2       <NA>       <NA>            0            0            0            0
+3       <NA>       <NA>            0            0            0            0
+4       <NA>       <NA>            0            0            0            0
+5       <NA>       <NA>            0            0            0            0
+6       <NA>       <NA>            0            0            0            0
+  A_outgroup_2 T_outgroup_2 C_outgroup_2 G_outgroup_2
+1            0            0            0            0
+2            0            0            0            0
+3            0            0            0            0
+4            0            0            0            0
+5            0            0            0            0
+6            0            0            0            0
+  ref_species outgroup_1 outgroup_2
+1    48,0,0,0    0,0,0,0    0,0,0,0
+2    48,0,0,0    0,0,0,0    0,0,0,0
+3    0,0,52,0    0,0,0,0    0,0,0,0
+4    0,0,0,52    0,0,0,0    0,0,0,0
+5    0,0,44,0    0,0,0,0    0,0,0,0
+6    0,48,0,0    0,0,0,0    0,0,0,0
+Tue Jul 16 11:34:41 CEST 2024
+Tue Jul 16 11:34:41 CEST 2024
+species:  Sorghum_bicolor 
+species_genus:  sorghum 
+chromosome_num:  8 
+chromosome_id:  NC_012877.2 
+counts_dir:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/ 
+counts_file:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/Sorghum_bicolor_Lozano2021.8.frq.count 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr08 210         2    42               G:42                A:0   G   A
+2 Chr08 466         2    64               C:64                T:0   C   T
+3 Chr08 488         2    60               C:60                T:0   C   T
+4 Chr08 501         2    58               G:58                A:0   G   A
+5 Chr08 574         2    62               T:62                C:0   T   C
+6 Chr08 594         2    56               T:54                C:2   T   C
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1        42         0       0       0       0      42        42 G->A
+2        64         0       0       0      64       0        64 C->T
+3        60         0       0       0      60       0        60 C->T
+4        58         0       0       0       0      58        58 G->A
+5        62         0       0      62       0       0        62 T->C
+6        54         2       0      54       2       0        56 T->C
+wgabed before SNP filtering 
+[1] 8084479
+wgabed after SNP filtering 
+[1] 7957314
+remove duplicates 
+Joining with `by = join_by(CHROM, POS)`
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr08 210         2    42               G:42                A:0   G   A
+2 Chr08 466         2    64               C:64                T:0   C   T
+3 Chr08 488         2    60               C:60                T:0   C   T
+4 Chr08 501         2    58               G:58                A:0   G   A
+5 Chr08 574         2    62               T:62                C:0   T   C
+6 Chr08 594         2    56               T:54                C:2   T   C
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        42         0       0       0       0      42        42 G->A <NA>
+2        64         0       0       0      64       0        64 C->T <NA>
+3        60         0       0       0      60       0        60 C->T <NA>
+4        58         0       0       0       0      58        58 G->A <NA>
+5        62         0       0      62       0       0        62 T->C <NA>
+6        54         2       0      54       2       0        56 T->C <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr08 210         2    42               G:42                A:0   G   A
+2 Chr08 466         2    64               C:64                T:0   C   T
+3 Chr08 488         2    60               C:60                T:0   C   T
+4 Chr08 501         2    58               G:58                A:0   G   A
+5 Chr08 574         2    62               T:62                C:0   T   C
+6 Chr08 594         2    56               T:54                C:2   T   C
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        42         0       0       0       0      42        42 G->A <NA>
+2        64         0       0       0      64       0        64 C->T <NA>
+3        60         0       0       0      60       0        60 C->T <NA>
+4        58         0       0       0       0      58        58 G->A <NA>
+5        62         0       0      62       0       0        62 T->C <NA>
+6        54         2       0      54       2       0        56 T->C <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr08 210         2    42               G:42                A:0   G   A
+2 Chr08 466         2    64               C:64                T:0   C   T
+3 Chr08 488         2    60               C:60                T:0   C   T
+4 Chr08 501         2    58               G:58                A:0   G   A
+5 Chr08 574         2    62               T:62                C:0   T   C
+6 Chr08 594         2    56               T:54                C:2   T   C
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        42         0       0       0       0      42        42 G->A <NA>
+2        64         0       0       0      64       0        64 C->T <NA>
+3        60         0       0       0      60       0        60 C->T <NA>
+4        58         0       0       0       0      58        58 G->A <NA>
+5        62         0       0      62       0       0        62 T->C <NA>
+6        54         2       0      54       2       0        56 T->C <NA>
+  outgroup_1 outgroup_2 A_outgroup_1 T_outgroup_1 C_outgroup_1 G_outgroup_1
+1       <NA>       <NA>            0            0            0            0
+2       <NA>       <NA>            0            0            0            0
+3       <NA>       <NA>            0            0            0            0
+4       <NA>       <NA>            0            0            0            0
+5       <NA>       <NA>            0            0            0            0
+6       <NA>       <NA>            0            0            0            0
+  A_outgroup_2 T_outgroup_2 C_outgroup_2 G_outgroup_2
+1            0            0            0            0
+2            0            0            0            0
+3            0            0            0            0
+4            0            0            0            0
+5            0            0            0            0
+6            0            0            0            0
+  ref_species outgroup_1 outgroup_2
+1    0,0,42,0    0,0,0,0    0,0,0,0
+2    0,64,0,0    0,0,0,0    0,0,0,0
+3    0,60,0,0    0,0,0,0    0,0,0,0
+4    0,0,58,0    0,0,0,0    0,0,0,0
+5    0,0,0,62    0,0,0,0    0,0,0,0
+6    0,2,0,54    0,0,0,0    0,0,0,0
+Tue Jul 16 11:48:16 CEST 2024
+Tue Jul 16 11:48:16 CEST 2024
+species:  Sorghum_bicolor 
+species_genus:  sorghum 
+chromosome_num:  9 
+chromosome_id:  NC_012878.2 
+counts_dir:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/ 
+counts_file:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/Sorghum_bicolor_Lozano2021.9.frq.count 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr09  749         2    40               C:40                T:0   C   T
+2 Chr09  750         2    40               T:40                A:0   T   A
+3 Chr09  755         2    40               A:40                T:0   A   T
+4 Chr09  793         2    40               A:40                C:0   A   C
+5 Chr09 1179         2    32               T:32                A:0   T   A
+6 Chr09 1342         2    34               G:34                T:0   G   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1        40         0       0       0      40       0        40 C->T
+2        40         0       0      40       0       0        40 T->A
+3        40         0      40       0       0       0        40 A->T
+4        40         0      40       0       0       0        40 A->C
+5        32         0       0      32       0       0        32 T->A
+6        34         0       0       0       0      34        34 G->T
+wgabed before SNP filtering 
+[1] 9205232
+wgabed after SNP filtering 
+[1] 9013932
+remove duplicates 
+Joining with `by = join_by(CHROM, POS)`
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr09  749         2    40               C:40                T:0   C   T
+2 Chr09  750         2    40               T:40                A:0   T   A
+3 Chr09  755         2    40               A:40                T:0   A   T
+4 Chr09  793         2    40               A:40                C:0   A   C
+5 Chr09 1179         2    32               T:32                A:0   T   A
+6 Chr09 1342         2    34               G:34                T:0   G   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        40         0       0       0      40       0        40 C->T <NA>
+2        40         0       0      40       0       0        40 T->A <NA>
+3        40         0      40       0       0       0        40 A->T <NA>
+4        40         0      40       0       0       0        40 A->C <NA>
+5        32         0       0      32       0       0        32 T->A <NA>
+6        34         0       0       0       0      34        34 G->T <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr09  749         2    40               C:40                T:0   C   T
+2 Chr09  750         2    40               T:40                A:0   T   A
+3 Chr09  755         2    40               A:40                T:0   A   T
+4 Chr09  793         2    40               A:40                C:0   A   C
+5 Chr09 1179         2    32               T:32                A:0   T   A
+6 Chr09 1342         2    34               G:34                T:0   G   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        40         0       0       0      40       0        40 C->T <NA>
+2        40         0       0      40       0       0        40 T->A <NA>
+3        40         0      40       0       0       0        40 A->T <NA>
+4        40         0      40       0       0       0        40 A->C <NA>
+5        32         0       0      32       0       0        32 T->A <NA>
+6        34         0       0       0       0      34        34 G->T <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr09  749         2    40               C:40                T:0   C   T
+2 Chr09  750         2    40               T:40                A:0   T   A
+3 Chr09  755         2    40               A:40                T:0   A   T
+4 Chr09  793         2    40               A:40                C:0   A   C
+5 Chr09 1179         2    32               T:32                A:0   T   A
+6 Chr09 1342         2    34               G:34                T:0   G   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1        40         0       0       0      40       0        40 C->T <NA>
+2        40         0       0      40       0       0        40 T->A <NA>
+3        40         0      40       0       0       0        40 A->T <NA>
+4        40         0      40       0       0       0        40 A->C <NA>
+5        32         0       0      32       0       0        32 T->A <NA>
+6        34         0       0       0       0      34        34 G->T <NA>
+  outgroup_1 outgroup_2 A_outgroup_1 T_outgroup_1 C_outgroup_1 G_outgroup_1
+1       <NA>       <NA>            0            0            0            0
+2       <NA>       <NA>            0            0            0            0
+3       <NA>       <NA>            0            0            0            0
+4       <NA>       <NA>            0            0            0            0
+5       <NA>       <NA>            0            0            0            0
+6       <NA>       <NA>            0            0            0            0
+  A_outgroup_2 T_outgroup_2 C_outgroup_2 G_outgroup_2
+1            0            0            0            0
+2            0            0            0            0
+3            0            0            0            0
+4            0            0            0            0
+5            0            0            0            0
+6            0            0            0            0
+  ref_species outgroup_1 outgroup_2
+1    0,40,0,0    0,0,0,0    0,0,0,0
+2    0,0,0,40    0,0,0,0    0,0,0,0
+3    40,0,0,0    0,0,0,0    0,0,0,0
+4    40,0,0,0    0,0,0,0    0,0,0,0
+5    0,0,0,32    0,0,0,0    0,0,0,0
+6    0,0,34,0    0,0,0,0    0,0,0,0
+Tue Jul 16 12:02:18 CEST 2024
+Tue Jul 16 12:02:18 CEST 2024
+species:  Sorghum_bicolor 
+species_genus:  sorghum 
+chromosome_num:  10 
+chromosome_id:  NC_012879.2 
+counts_dir:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/ 
+counts_file:  /home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/Sorghum_bicolor_Lozano2021.10.frq.count 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr10 1182         2     8                G:8                C:0   G   C
+2 Chr10 1419         2    12                T:8                C:4   T   C
+3 Chr10 1434         2    16               G:16                A:0   G   A
+4 Chr10 1435         2    16               A:16                G:0   A   G
+5 Chr10 1496         2    16               C:16                T:0   C   T
+6 Chr10 3873         2    14               C:14                T:0   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut
+1         8         0       0       0       0       8         8 G->C
+2         8         4       0       8       4       0        12 T->C
+3        16         0       0       0       0      16        16 G->A
+4        16         0      16       0       0       0        16 A->G
+5        16         0       0       0      16       0        16 C->T
+6        14         0       0       0      14       0        14 C->T
+wgabed before SNP filtering 
+[1] 13550105
+wgabed after SNP filtering 
+[1] 13283590
+remove duplicates 
+Joining with `by = join_by(CHROM, POS)`
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr10 1182         2     8                G:8                C:0   G   C
+2 Chr10 1419         2    12                T:8                C:4   T   C
+3 Chr10 1434         2    16               G:16                A:0   G   A
+4 Chr10 1435         2    16               A:16                G:0   A   G
+5 Chr10 1496         2    16               C:16                T:0   C   T
+6 Chr10 3873         2    14               C:14                T:0   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1         8         0       0       0       0       8         8 G->C <NA>
+2         8         4       0       8       4       0        12 T->C <NA>
+3        16         0       0       0       0      16        16 G->A <NA>
+4        16         0      16       0       0       0        16 A->G <NA>
+5        16         0       0       0      16       0        16 C->T <NA>
+6        14         0       0       0      14       0        14 C->T <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr10 1182         2     8                G:8                C:0   G   C
+2 Chr10 1419         2    12                T:8                C:4   T   C
+3 Chr10 1434         2    16               G:16                A:0   G   A
+4 Chr10 1435         2    16               A:16                G:0   A   G
+5 Chr10 1496         2    16               C:16                T:0   C   T
+6 Chr10 3873         2    14               C:14                T:0   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1         8         0       0       0       0       8         8 G->C <NA>
+2         8         4       0       8       4       0        12 T->C <NA>
+3        16         0       0       0       0      16        16 G->A <NA>
+4        16         0      16       0       0       0        16 A->G <NA>
+5        16         0       0       0      16       0        16 C->T <NA>
+6        14         0       0       0      14       0        14 C->T <NA>
+  outgroup_1 outgroup_2
+1       <NA>       <NA>
+2       <NA>       <NA>
+3       <NA>       <NA>
+4       <NA>       <NA>
+5       <NA>       <NA>
+6       <NA>       <NA>
+  CHROM  POS N_ALLELES N_CHR {ALLELE:COUNT}_REF {ALLELE:COUNT}_ALT REF ALT
+1 Chr10 1182         2     8                G:8                C:0   G   C
+2 Chr10 1419         2    12                T:8                C:4   T   C
+3 Chr10 1434         2    16               G:16                A:0   G   A
+4 Chr10 1435         2    16               A:16                G:0   A   G
+5 Chr10 1496         2    16               C:16                T:0   C   T
+6 Chr10 3873         2    14               C:14                T:0   C   T
+  count_REF count_ALT count_A count_T count_C count_G n_genomes  mut  ref
+1         8         0       0       0       0       8         8 G->C <NA>
+2         8         4       0       8       4       0        12 T->C <NA>
+3        16         0       0       0       0      16        16 G->A <NA>
+4        16         0      16       0       0       0        16 A->G <NA>
+5        16         0       0       0      16       0        16 C->T <NA>
+6        14         0       0       0      14       0        14 C->T <NA>
+  outgroup_1 outgroup_2 A_outgroup_1 T_outgroup_1 C_outgroup_1 G_outgroup_1
+1       <NA>       <NA>            0            0            0            0
+2       <NA>       <NA>            0            0            0            0
+3       <NA>       <NA>            0            0            0            0
+4       <NA>       <NA>            0            0            0            0
+5       <NA>       <NA>            0            0            0            0
+6       <NA>       <NA>            0            0            0            0
+  A_outgroup_2 T_outgroup_2 C_outgroup_2 G_outgroup_2
+1            0            0            0            0
+2            0            0            0            0
+3            0            0            0            0
+4            0            0            0            0
+5            0            0            0            0
+6            0            0            0            0
+  ref_species outgroup_1 outgroup_2
+1     0,0,8,0    0,0,0,0    0,0,0,0
+2     0,4,0,8    0,0,0,0    0,0,0,0
+3    0,0,16,0    0,0,0,0    0,0,0,0
+4    16,0,0,0    0,0,0,0    0,0,0,0
+5    0,16,0,0    0,0,0,0    0,0,0,0
+6    0,14,0,0    0,0,0,0    0,0,0,0
+Tue Jul 16 12:20:26 CEST 2024
