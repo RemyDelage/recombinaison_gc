@@ -32,8 +32,6 @@ echo "Chromosomes IDs : ${chromosomes_ids[@]}"
 for i in {1..19}; do
 	date
 	chromosome_id=${chromosomes_ids[$i-1]}
-	#Rscript complete_pipeline_for_est_sfs.R -s "${species}" -g "${species_genus}" -c ${i} -i "${chromosome_id}" -d "${counts_dir}" -f "${counts_dir}Populus_tremula_Liu2022.${i}.frq.count"
-	# ---- For Populus tremula ----
-	Rscript complete_pipeline_for_est_sfs.R -s "${species}" -g "${species_genus}" -c "${i}" -i "chr${i}"  -d "${counts_dir}" -f "${counts_dir}Populus_tremula_Liu2022.${i}.frq.count"
+	Rscript complete_pipeline_for_est_sfs.R -s "${species}" -g "${species_genus}" -c ${i} -i "${chromosome_id}" -d "${counts_dir}" -f "${counts_dir}Populus_tremula_Liu2022.${i}.frq.count"
 	date
 done 
