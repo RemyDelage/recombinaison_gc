@@ -102,11 +102,11 @@ snp_polarization <- function(species, chromosome_num){
   snp_counts_merged$P_trees_T[estsfs$IdxSite] = estsfs$P_trees_T
   
   # Display the first rows to check the table
-  head(snp_counts_megred)
+  head(snp_counts_merged)
   
   # Ancestral and derivate allele (test on a specific site)
   cat("Site tested : 10 \n")
-  cat(snp_counts_megred[10,])
+  cat(snp_counts_merged[10,])
   
   # Major allele determination
   major = function(x) {
@@ -166,7 +166,7 @@ snp_polarization <- function(species, chromosome_num){
   # Store the data frame into the global environment (for use it into other functions).
   snp_counts_merged <<- snp_counts_merged
   
-  return(head(snp_counts_megred))                    
+  return(head(snp_counts_merged))                    
 }
 
 # ------------------------- #
