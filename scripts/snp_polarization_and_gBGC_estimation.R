@@ -82,7 +82,7 @@ snp_polarization <- function(species, chromosome_num){
   estsfs = read.table(paste0(species, "_chrom_", chromosome_num, "_output_file_pvalues.txt"), header = FALSE, skip = 8, sep = " ")
   estsfs = estsfs[,-8]
   colnames(estsfs) = c("IdxSite", "Code", "P_major_ancestral", "P_trees_A", "P_trees_C", "P_trees_G", "P_trees_T")
-  cat(head(estsfs))
+  head(estsfs)
   
   
   # Import the snp_counts_merged table (from 'complete_pipeline_for_est_sfs.R' script)
@@ -193,18 +193,18 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
   
   # Read the GFF file
   gff = readRDS(gff_file)
-  cat(head(gff))
+  head(gff)
   
   # Create GenomicRanges object for the GFF data
   gff_ranges = makeGRangesFromDataFrame(gff, keep.extra.columns=T)
-  cat(head(gff_ranges))
+  head(gff_ranges)
   
   # Create GenomicRanges object for the SNPs data
   snps = snp_counts_merged
   snps$start = snps$POS
   snps$end = snps$POS + 1
   snp_ranges = makeGRangesFromDataFrame(snps)
-  cat(head(snp_ranges))
+  head(snp_ranges)
   
   if(genomic_level == "exon"){
     # Subdivide the data for only keep the exon data (with 15 exons maximum)
@@ -227,11 +227,11 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
   # Filter the alleles to keep only those with a P-trees probability greater than 0.70
   snp_counts_merged$filter = unlist(lapply(1:nrow(snp_counts_merged), function(x) {ifelse(max(snp_counts_merged[x,c("P_trees_A", "P_trees_C", "P_trees_G", "P_trees_T")]) > 0.7, "PASS", "REMOVE")}))
   
-  cat(table(snp_counts_merged$filter))
+  print(table(snp_counts_merged$filter))
   
   snp_counts_merged_filtered_p70 <- snp_counts_merged[which(snp_counts_merged$filter == "PASS"),]
   cat("nrow(snp_counts_merged_filtered_p70) \n", nrow(snp_counts_merged_filtered_p70))
-  cat(table(snp_counts_merged_filtered_p70$Derived))
+  table(snp_counts_merged_filtered_p70$Derived)
   
   # Counts the number of derived alleles
   snp_counts_merged_filtered_p70$Nb_Derived <- ifelse(snp_counts_merged_filtered_p70$Derived == "A",
@@ -249,7 +249,7 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
   write.table(snp_counts_merged_filtered_p70, paste0("snp_counts_merged_filtered_p70_", species, "_chrom_", chromosome_num, "_", genomic_level, ".tsv"), col.names = TRUE, row.names = FALSE, quote = FALSE, sep = "\t")
   
   # Check the number of each mututaion (WS : AT -> GC, SW : GC -> AT, W : AT <-> AT, S : GC <-> GC)
-  cat(table(snp_counts_merged_filtered_p70$Mutation))
+  table(snp_counts_merged_filtered_p70$Mutation)
   
   # Create 4 data frames according to the mutations types 
   snp_counts_p70_sw <- snp_counts_merged_filtered_p70[which(snp_counts_merged_filtered_p70$Mutation == "SW"),]
@@ -442,6 +442,7 @@ gBGC_estimations <- function(data_mutation1, data_mutation2){
     gBGC = least_square(data_mutation1$DAF,data_mutation2$DAF)
   }
   
+  cat(paste0("gBGC estimation chromosome ", chromosome_num, " : \n"))
   return(gBGC)
 }
 
