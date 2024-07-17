@@ -106,7 +106,7 @@ snp_polarization <- function(species, chromosome_num){
   
   # Ancestral and derivate allele (test on a specific site)
   cat("Site tested : 10 \n")
-  cat(snp_counts_merged[10,])
+  snp_counts_merged[10,]
   
   # Major allele determination
   major = function(x) {
