@@ -2,7 +2,55 @@
 # SNP analysis and gBGC estimations (Glémin, 2022) #
 ####################################################
 
-setwd("/home/genouest/cnrs_umr6553/rdelage/results/06_est-sfs/06c_Sorghum_bicolor/")
+setwd("/home/genouest/cnrs_umr6553/rdelage/results/06_est-sfs/06c_Sorghum_bicolor/") # Must be changed
+
+# ---------------------------- #
+# Environment initialization
+# ---------------------------- #
+
+# Package for command line parser
+library(optparse)
+
+# Get command line arguments
+args <- commandArgs(trailingOnly = TRUE)
+
+# Parse the arguments
+option_list <- list(
+  make_option(c("-s", "--species"), type = "character", default = NULL,
+              help = "Species name", metavar = "character"),
+  make_option(c("-c", "--chromosome_num"), type = "integer", default = NULL, 
+              help = "Chromosome number", metavar = "integer"),
+  make_option(c("-f", "--gff_file"), type = "character", default = NULL,
+              help = "GFF file of the species", metavar = "character"),
+  make_option(c("-g", "--genomic_level"), type = "character", default = NULL,
+              help = "Genomic level for the SFS computations (i.e. gene or exon)",
+              metavar = "character")
+)
+
+opt_parser <- OptionParser(option_list = option_list)
+opt <- parse_args(opt_parser, args)
+
+# Assign variables from options
+species <- opt$species
+chromosome_num <- opt$chromosome_num
+gff_file <- opt$gff_file
+genomic_level <- opt$genomic_level
+
+# Print the variables to check if they are correctly assigned
+cat("species: ", species, "\n")
+cat("chormosome_num: ", chromosome_num, "\n")
+cat("gff_file: ", gff_file, "\n")
+cat("genomic_level: ", genomic_level, "\n")
+
+# Check if all required arguments are provided
+if (is.null(species) || is.null(chromosome_num) || is.null(gff_file) || is.null(genomic_level)){
+  stop("All arguments --species, --chromosome_num, --gff_file, --genomic_level are required.")
+}
+
+# ---------------------------- #
+# Packages loading
+# ---------------------------- #
+
 
 load_packages <- function(){
   library(GenomicRanges)
@@ -121,6 +169,9 @@ snp_polarization <- function(species, chromosome_num){
   return(head(snp_counts_megred))                    
 }
 
+# ------------------------- #
+# uSFS computations
+# ------------------------- #
 
 
 #'@title sfs_computations
@@ -355,6 +406,10 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
   SW <<- SW
 }
 
+# ------------------------- #
+# gBGC strength estimation
+# ------------------------- #
+
 #'@title gBGC_estimations
 #' 
 #'@description Enables to make estimate the strength of the gBGC thanks to another R script (from Glémin, 2022).
@@ -391,7 +446,10 @@ gBGC_estimations <- function(data_mutation1, data_mutation2){
 }
 
 
-#### Functions execution ####
+# --------------------- #
+# Functions execution
+# --------------------- #
+
 snp_polarization(species, chromosome_num)
 sfs_computations(species, chromosome_num, gff_file, genomic_level)
 gBGC_estimations(WS, SW)
