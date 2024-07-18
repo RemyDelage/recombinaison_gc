@@ -98,9 +98,19 @@ Many parameters must be entered :
  * **-d** : The directory of the counts files (i.e. VCFtools results directory) ;
  * **-f** : The counts file of the chromosome (i.e. the file produced by VCFtools).
 
-This script also needs the *R* packages **optparse** and **dplyr** to be used. If they are not installed on your environment, you can type the command ```install.packages("optparse")``` and ```install.packages("dplyr")``` in *R* for install them on your device. If you using conda environments, you can also install these packages with the commands ```conda install conda-forge::r-optparse``` and ```conda install conda-forge::r-dplyr```.
-
 Example of use : 
 
-``` Rscript complete_pipeline_for_est_sfs.R -s "Sorghum_bicolor" -g "sorghum" -c 1 -i "NC_012870.2" -d "/home/results/vcftools/Sorghum_bicolor/" -f "Sorghum_bicolor_Lozano2021.1.frq.count"```
+```Rscript complete_pipeline_for_est_sfs.R -s "Sorghum_bicolor" -g "sorghum" -c 1 -i "NC_012870.2" -d "/home/results/vcftools/Sorghum_bicolor/" -f "Sorghum_bicolor_Lozano2021.1.frq.count"```
 
+
+This script also needs the *R* packages **optparse** and **dplyr** to be used. If they are not installed on your environment, you can type the command ```install.packages("optparse")``` and ```install.packages("dplyr")``` in *R* for install them on your device. If you using conda environments, you can also install these packages with the commands ```conda install conda-forge::r-optparse``` and ```conda install conda-forge::r-dplyr```.
+
+If you wants to execute this script on many chromosome, you can use the bash script 
+
+```complete_pipeline_for_est_sfs.sh```.
+
+You must to change the parameters inside the script before run it (they are clearely identifiable). The part *get the chromosomes IDs* not needed to be changed. In that script, each loop lap allows to process one chromosome. You need to adapt the number of loop turns to the number of chromosomes you wish to process.
+
+You can also run this script on a computing cluster as a SLURM script (on a computing node) thanks to the command :
+
+``` sbatch complete_pipeline_for_est_sfs.sh -o log_file.log ```.
