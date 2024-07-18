@@ -251,9 +251,8 @@ create_est_sfs_file <- function(species, chromosome_num){
     write.table(df[1:(1000000-1),], paste0(species, "_chrom_", chromosome_num, "_est-sfs-input.txt"), 
                 row.names = F, col.names = F, quote = F, sep = " ")
   }
-  write.table(df[1:(1000000-1),], paste0(species, "_chrom_", chromosome_num, "_est-sfs-input.txt"), row.names = F, col.names = F, quote = F, sep = " ")
   
-  return(df)
+  return(head(df))
 }
 
 counts_snp_population(species, chromosome_num)
