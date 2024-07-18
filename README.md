@@ -102,5 +102,5 @@ This script also needs the *R* packages **optparse** and **dplyr** to be used. I
 
 Example of use : 
 
-``` Rscript complete_pipeline_for_est_sfs.R -s "Sorghum_bicolor" -g "sorghum" -c 1 -i "NC_012870.2" -d "/home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/" -f "Sorghum_bicolor_Lozano2021.1.frq.count"```
+``` Rscript complete_pipeline_for_est_sfs.R -s "Sorghum_bicolor" -g "sorghum" -c 1 -i "NC_012870.2" -d "/home/results/vcftools/Sorghum_bicolor/" -f "Sorghum_bicolor_Lozano2021.1.frq.count"```
 
