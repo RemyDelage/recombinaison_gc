@@ -40,6 +40,7 @@ cat("species: ", species, "\n")
 cat("species_genus: ", species_genus, "\n")
 cat("chromosome_num: ", chromosome_num, "\n")
 cat("chromosome_id: ", chromosome_id, "\n")
+cat("counts_file: ", counts_file, "\n")
 
 # Verify that all required arguments are provided
 if (is.null(species) || is.null(species_genus) || is.null(chromosome_num) || is.null(chromosome_id)) {
@@ -79,11 +80,11 @@ load_packages()
 #' 
 #'@example counts_snp_population("Arabidopsis_thaliana", 1)
 
-counts_snp_population <- function(species, chromosome_num){
+counts_snp_population <- function(species, chromosome_num, counts_file){
   #wgabed_file = "/home/genouest/cnrs_umr6553/rdelage/results/04_wgabed/04a_Arabidopsis_thaliana/Arabidopsis_thaliana_1001genomes.1.frq.count"
   
   # Read the SNP counts file produced by WGAbed.
-  wgabed_file = paste0(species,"_1001genomes.", chromosome_num, ".frq.count")
+  wgabed_file = counts_file
   snp_counts = read.table(wgabed_file, header = F, sep = "\t", skip = 1)
   
   # Update the names of the columns.
@@ -240,6 +241,16 @@ create_est_sfs_file <- function(species, chromosome_num){
   df = data.frame(ref_species = countRef, outgroup_1 = countOut1, outgroup_2 = countOut2)
   
   # Software constraints : 1 million of SNPs maximum allowed
+  n_rows <- nrow(df)
+  cat("Number of sites :", n_rows, "\n")
+  
+  if (n_rows < 1000000) {
+    write.table(df, paste0(species, "_chrom_", chromosome_num, "_est-sfs-input.txt"), 
+                row.names = F, col.names = F, quote = F, sep = " ")
+  } else {
+    write.table(df[1:(1000000-1),], paste0(species, "_chrom_", chromosome_num, "_est-sfs-input.txt"), 
+                row.names = F, col.names = F, quote = F, sep = " ")
+  }
   write.table(df[1:(1000000-1),], paste0(species, "_chrom_", chromosome_num, "_est-sfs-input.txt"), row.names = F, col.names = F, quote = F, sep = " ")
   
   return(df)
