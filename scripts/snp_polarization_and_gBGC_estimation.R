@@ -115,7 +115,7 @@ snp_polarization <- function(species, chromosome_num){
     maj = alphabet[which.max(snp_counts_merged[x, c("count_A", "count_C", "count_G", "count_T")])]
     return(maj)
   }
-  cat("Major allele position 10 : \n", major(10))
+  cat("Major allele position 10 : ", major(10), "\n")
   
   # Minor allele determination
   minor = function(x) {
@@ -129,7 +129,7 @@ snp_polarization <- function(species, chromosome_num){
       return(mino)
     }
   }
-  cat("Minor allele position 10 : \n", minor(10))
+  cat("Minor allele position 10 : ", minor(10), "\n")
   
   # Ancestral allele determination (higher probability among P_trees)
   ancestral = function(x) {
@@ -159,6 +159,8 @@ snp_polarization <- function(species, chromosome_num){
   snp_counts_merged$Mutation[which(snp_counts_merged$Ancestral %in% c("C", "G") & snp_counts_merged$Derived %in% c("A", "T"))] = "SW"
   snp_counts_merged$Mutation[which(snp_counts_merged$Ancestral %in% c("A", "T") & snp_counts_merged$Derived %in% c("A", "T"))] = "W"
   snp_counts_merged$Mutation[which(snp_counts_merged$Ancestral %in% c("C", "G") & snp_counts_merged$Derived %in% c("C", "G"))] = "S"
+  
+  head(snp_counts_merged)
   
   # Save the updated snp_counts_merged table
   write.table(snp_counts_merged, paste0("snp_counts_merged_", species, "_chrom_", chromosome_num, ".tsv"), row.names = FALSE, col.names = TRUE,quote = FALSE, sep = "\t")
@@ -231,7 +233,7 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
   
   snp_counts_merged_filtered_p70 <- snp_counts_merged[which(snp_counts_merged$filter == "PASS"),]
   cat("nrow(snp_counts_merged_filtered_p70) \n", nrow(snp_counts_merged_filtered_p70))
-  table(snp_counts_merged_filtered_p70$Derived)
+  print(table(snp_counts_merged_filtered_p70$Derived))
   
   # Counts the number of derived alleles
   snp_counts_merged_filtered_p70$Nb_Derived <- ifelse(snp_counts_merged_filtered_p70$Derived == "A",
@@ -249,7 +251,7 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
   write.table(snp_counts_merged_filtered_p70, paste0("snp_counts_merged_filtered_p70_", species, "_chrom_", chromosome_num, "_", genomic_level, ".tsv"), col.names = TRUE, row.names = FALSE, quote = FALSE, sep = "\t")
   
   # Check the number of each mututaion (WS : AT -> GC, SW : GC -> AT, W : AT <-> AT, S : GC <-> GC)
-  table(snp_counts_merged_filtered_p70$Mutation)
+  print(table(snp_counts_merged_filtered_p70$Mutation))
   
   # Create 4 data frames according to the mutations types 
   snp_counts_p70_sw <- snp_counts_merged_filtered_p70[which(snp_counts_merged_filtered_p70$Mutation == "SW"),]
@@ -258,10 +260,10 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
   snp_counts_p70_w <- snp_counts_merged_filtered_p70[which(snp_counts_merged_filtered_p70$Mutation == "W"),]
   
   # Check the number of lines of these data frames (must be the same as the number of mutations)
-  cat("nrow(snp_counts_p70_sw) : ", nrow(snp_counts_p70_sw), "\n")
-  cat("nrow(snp_counts_p70_ws) : ", nrow(snp_counts_p70_ws), "\n")
-  cat("nrow(snp_counts_p70_s) : ", nrow(snp_counts_p70_s), "\n")
-  cat("nrow(snp_counts_p70_w) : ", nrow(snp_counts_p70_w), "\n")
+  cat(paste0("nrow(snp_counts_p70_sw) : ", nrow(snp_counts_p70_sw), "\n"))
+  cat(paste0("nrow(snp_counts_p70_ws) : ", nrow(snp_counts_p70_ws), "\n"))
+  cat(paste0("nrow(snp_counts_p70_s) : ", nrow(snp_counts_p70_s), "\n"))
+  cat(paste0("nrow(snp_counts_p70_w) : ", nrow(snp_counts_p70_w), "\n"))
   
   ### Making the SFS (Bagley et al., 2016) ####
   # Principle : sub-sampling data to retain an optimal amount of information while removing missing data
@@ -302,6 +304,7 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
     return(min_ss)
   }
 
+  subsampling(snp_counts_p70_sw) # Allows to get the min_ss (sub-sampling) value  
   
   making_sfs <- function(mutation, dataframe, chromosome_num, species, genomic_level){
    # Compute the number of SNPs
@@ -366,7 +369,7 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
     
   # Compute the SFS for each mutation type
   
-  subsampling(snp_counts_p70_sw) # Allows to get the min_ss (sub-sampling) value
+  #subsampling(snp_counts_p70_sw) # Allows to get the min_ss (sub-sampling) value
   WS <- compute_sfs("WS", snp_counts_p70_ws, chromosome_num, species, genomic_level)
   SW <- compute_sfs("SW", snp_counts_p70_sw, chromosome_num, species, genomic_level)
   S <- compute_sfs("S", snp_counts_p70_s, chromosome_num, species, genomic_level)
