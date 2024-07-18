@@ -99,3 +99,8 @@ Many parameters must be entered :
  * **-f** : The counts file of the chromosome (i.e. the file produced by VCFtools).
 
 This script also needs the *R* packages **optparse** and **dplyr** to be used. If they are not installed on your environment, you can type the command ```install.packages("optparse")``` and ```install.packages("dplyr")``` in *R* for install them on your device. If you using conda environments, you can also install these packages with the commands ```conda install conda-forge::r-optparse``` and ```conda install conda-forge::r-dplyr```.
+
+Example of use : 
+
+``` Rscript complete_pipeline_for_est_sfs.R -s "Sorghum_bicolor" -g "sorghum" -c 1 -i "NC_012870.2" -d "/home/genouest/cnrs_umr6553/rdelage/results/vcftools/Sorghum_bicolor/" -f "Sorghum_bicolor_Lozano2021.1.frq.count"```
+
