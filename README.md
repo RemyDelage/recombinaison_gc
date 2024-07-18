@@ -80,3 +80,22 @@ Exemple :
 ```cactus-hal2maf --refGenome GCF_000001735.4_Arabidopsis_thaliana --noAncestors --chunkSize 500000 --batchCores 2 --filterGapCausingDupes "home/results/03_cactus/tmp" "home/results/03_cactus/arabidopsis_all_genomes_alignment.hal" "home/results/03_cactus/arabidopsis_all_genomes_alignment.maf"```
 
 If the user works on a cluster, he/she can run the program with SLURM (on a computing node) thanks to the **cactus.sh** shell script. This file must be modified according to the working environment of the user (see scripts directory). After the modification, the simple command to run is : ```sbatch cactus.sh -o log_file.log```.
+
+## SNPs Polarization (est-sfs)
+SNP polarization involves determining which of the two alleles found at this site is the ancestral allele (present in all species) and which is the derived allele (appearing in the species genome after speciation). This step is allowed by the *est-sfs* software (Keigthley & Jackson, 2019).
+
+### Preprocessing
+For use *est-sfs* software, data must be formatted to match valid input data (see *est-sfs* documentation). These data can be formatted using the script 
+
+```complete_pipeline_for_est_sfs.R```.
+
+Many parameters must be entered : 
+
+ * **-s** : The species name (genus name and species name must be separate by underscore). Example : *Sorghum_bicolor* ;
+ * **-g** : The genus name (must be started by lowercase letter). Example : *sorghum* ;
+ * **-c** : The chromosome number processed. Example : *1* ;
+ * **-i** : The identifyer of chromosome processed. Example : *NC_012870.2* ;
+ * **-d** : The directory of the counts files (i.e. VCFtools results directory) ;
+ * **-f** : The counts file of the chromosome (i.e. the file produced by VCFtools).
+
+This script also needs the *R* packages **optparse** and **dplyr** to be used. If they are not installed on your environment, you can type the command ```install.packages("optparse")``` and ```install.packages("dplyr")``` in *R* for install them on your device. If you using conda environments, you can also install these packages with the commands ```conda install conda-forge::r-optparse``` and ```conda install conda-forge::r-dplyr```.
