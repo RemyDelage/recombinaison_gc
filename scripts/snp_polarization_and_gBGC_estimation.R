@@ -2,39 +2,45 @@
 # SNP analysis and gBGC estimations (Glémin, 2022) #
 ####################################################
 
-setwd("/home/genouest/cnrs_umr6553/rdelage/results/06_est-sfs/06c_Sorghum_bicolor/") # Must be changed
-
+#setwd("/home/genouest/cnrs_umr6553/rdelage/results/06_est-sfs/06c_Sorghum_bicolor/") # Must be changed
+setwd("~/M2/Stage/test_results/test_sorghum_bicolor/")
+  
 # ---------------------------- #
 # Environment initialization
 # ---------------------------- #
 
-# Package for command line parser
-library(optparse)
+# # Package for command line parser
+# library(optparse)
+# 
+# # Get command line arguments
+# args <- commandArgs(trailingOnly = TRUE)
+# 
+# # Parse the arguments
+# option_list <- list(
+#   make_option(c("-s", "--species"), type = "character", default = NULL,
+#               help = "Species name", metavar = "character"),
+#   make_option(c("-c", "--chromosome_num"), type = "integer", default = NULL, 
+#               help = "Chromosome number", metavar = "integer"),
+#   make_option(c("-f", "--gff_file"), type = "character", default = NULL,
+#               help = "GFF file of the species", metavar = "character"),
+#   make_option(c("-g", "--genomic_level"), type = "character", default = NULL,
+#               help = "Genomic level for the SFS computations (i.e. gene or exon)",
+#               metavar = "character")
+# )
+# 
+# opt_parser <- OptionParser(option_list = option_list)
+# opt <- parse_args(opt_parser, args)
+# 
+# # Assign variables from options
+# species <- opt$species
+# chromosome_num <- opt$chromosome_num
+# gff_file <- opt$gff_file
+# genomic_level <- opt$genomic_level
 
-# Get command line arguments
-args <- commandArgs(trailingOnly = TRUE)
-
-# Parse the arguments
-option_list <- list(
-  make_option(c("-s", "--species"), type = "character", default = NULL,
-              help = "Species name", metavar = "character"),
-  make_option(c("-c", "--chromosome_num"), type = "integer", default = NULL, 
-              help = "Chromosome number", metavar = "integer"),
-  make_option(c("-f", "--gff_file"), type = "character", default = NULL,
-              help = "GFF file of the species", metavar = "character"),
-  make_option(c("-g", "--genomic_level"), type = "character", default = NULL,
-              help = "Genomic level for the SFS computations (i.e. gene or exon)",
-              metavar = "character")
-)
-
-opt_parser <- OptionParser(option_list = option_list)
-opt <- parse_args(opt_parser, args)
-
-# Assign variables from options
-species <- opt$species
-chromosome_num <- opt$chromosome_num
-gff_file <- opt$gff_file
-genomic_level <- opt$genomic_level
+species <- species
+chromosome_num <- chromosome_num
+gff_file <- gff_file
+genomic_level <- genomic_level
 
 # Print the variables to check if they are correctly assigned
 cat("species: ", species, "\n")
@@ -42,10 +48,10 @@ cat("chormosome_num: ", chromosome_num, "\n")
 cat("gff_file: ", gff_file, "\n")
 cat("genomic_level: ", genomic_level, "\n")
 
-# Check if all required arguments are provided
-if (is.null(species) || is.null(chromosome_num) || is.null(gff_file) || is.null(genomic_level)){
-  stop("All arguments --species, --chromosome_num, --gff_file, --genomic_level are required.")
-}
+# # Check if all required arguments are provided
+# if (is.null(species) || is.null(chromosome_num) || is.null(gff_file) || is.null(genomic_level)){
+#   stop("All arguments --species, --chromosome_num, --gff_file, --genomic_level are required.")
+# }
 
 # ---------------------------- #
 # Packages loading
@@ -163,7 +169,7 @@ snp_polarization <- function(species, chromosome_num){
   head(snp_counts_merged)
   
   # Save the updated snp_counts_merged table
-  write.table(snp_counts_merged, paste0("snp_counts_merged_", species, "_chrom_", chromosome_num, ".tsv"), row.names = FALSE, col.names = TRUE,quote = FALSE, sep = "\t")
+  write.table(snp_counts_merged, paste0("snp_counts_merged_", species, "_chrom_", chromosome_num, "_v2.tsv"), row.names = FALSE, col.names = TRUE,quote = FALSE, sep = "\t")
   
   # Store the data frame into the global environment (for use it into other functions).
   snp_counts_merged <<- snp_counts_merged
@@ -195,18 +201,18 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
   
   # Read the GFF file
   gff = readRDS(gff_file)
-  head(gff)
+  print(head(gff))
   
   # Create GenomicRanges object for the GFF data
   gff_ranges = makeGRangesFromDataFrame(gff, keep.extra.columns=T)
-  head(gff_ranges)
+  print(head(gff_ranges))
   
   # Create GenomicRanges object for the SNPs data
   snps = snp_counts_merged
   snps$start = snps$POS
   snps$end = snps$POS + 1
   snp_ranges = makeGRangesFromDataFrame(snps)
-  head(snp_ranges)
+  print(head(snp_ranges))
   
   if(genomic_level == "exon"){
     # Subdivide the data for only keep the exon data (with 15 exons maximum)
@@ -248,7 +254,7 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
   snp_counts_merged_filtered_p70$Nb_Total_Alleles <- snp_counts_merged_filtered_p70$N_CHR
   
   # Save the snp_counts_merged filtered data
-  write.table(snp_counts_merged_filtered_p70, paste0("snp_counts_merged_filtered_p70_", species, "_chrom_", chromosome_num, "_", genomic_level, ".tsv"), col.names = TRUE, row.names = FALSE, quote = FALSE, sep = "\t")
+  write.table(snp_counts_merged_filtered_p70, paste0("snp_counts_merged_filtered_p70_2", species, "_chrom_", chromosome_num, "_", genomic_level, ".tsv"), col.names = TRUE, row.names = FALSE, quote = FALSE, sep = "\t")
   
   # Check the number of each mututaion (WS : AT -> GC, SW : GC -> AT, W : AT <-> AT, S : GC <-> GC)
   print(table(snp_counts_merged_filtered_p70$Mutation))
@@ -268,7 +274,7 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
   ### Making the SFS (Bagley et al., 2016) ####
   # Principle : sub-sampling data to retain an optimal amount of information while removing missing data
   
-  subsampling -> function(dataframe){
+  subsampling <- function(dataframe){
     # Compute the number of SNPs
     nsnps <- nrow(dataframe)
     # Compute the number of individuals
@@ -288,9 +294,9 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
     # n derived alleles (= 1), m ancestral alleles (= 0) et l NAs
     
     for (i in 1:ncol(md_geno)) {
-      n = snp_counts_p70_ws$Nb_Derived[i]
-      m = snp_counts_p70_ws$Nb_Total[i] - snp_counts_p70_ws$Nb_Derived[i]
-      l = nind*2 - snp_counts_p70_ws$Nb_Total[i]
+      n = snp_counts_p70_sw$Nb_Derived[i]
+      m = snp_counts_p70_sw$Nb_Total[i] - snp_counts_p70_sw$Nb_Derived[i]
+      l = nind*2 - snp_counts_p70_sw$Nb_Total[i]
       md_geno[,i] = c(rep(1, n), rep(0, m), rep(NA, l))
     }
     
@@ -308,18 +314,18 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
   
   making_sfs <- function(mutation, dataframe, chromosome_num, species, genomic_level){
    # Compute the number of SNPs
-   nsnps <- nrow(snp_counts)
+   nsnps <- nrow(dataframe)
    # Compute the number of individuals
-   nind <- max(snp_counts$Nb_Total_Alleles, na.rm = T)/2
+   nind <- max(dataframe$Nb_Total_Alleles, na.rm = T)/2
    
    # Create a pseudo-matrix with 'nsnps' columns and 'nind*2' lignes for making the SFS
    md_geno <- matrix(NA, nrow = nind*2, ncol = nsnps)
    
    # Create vector with n derived alleles (= 1), m ancestal alleles (= 0) and l NAs
    for (i in 1:ncol(md_geno)) {
-     n <- snp_counts$Nb_Derived[i]
-     m <- snp_counts$Nb_Total[i] - snp_counts$Nb_Derived[i]
-     l <- nind*2 - snp_counts$Nb_Total[i]
+     n <- dataframe$Nb_Derived[i]
+     m <- dataframe$Nb_Total[i] - dataframe$Nb_Derived[i]
+     l <- nind*2 - dataframe$Nb_Total[i]
      md_geno[,i] <- c(rep(1, n), rep(0, m), rep(NA, l))
    }
    
@@ -358,23 +364,27 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
    }
    
    # Create the plot for the SFS
-   jpeg(paste0("SFS_", mutation_type, "_Chrom_", chromosome_num, "_", species, ".jpg"), width = 1200, height = 700)
+   jpeg(paste0("SFS_", mutation, "_Chrom_", chromosome_num, "_", species, ".jpg"), width = 1200, height = 700)
    barplot(sfs_df$DAF, xlab="derived allele frequency", ylab="number of sites")
-   title(paste0("SFS ", mutation_type, " Chromosome ", chromosome_num, " ", species, " ", genomic_level))
+   title(paste0("SFS ", mutation, " Chromosome ", chromosome_num, " ", species, " ", genomic_level))
    dev.off()
-   cat(paste0("Plot ", "SFS_", mutation_type, "_Chrom_", chromosome_num, "_", species, ".jpg created \n"))
+   cat(paste0("Plot ", "SFS_", mutation, "_Chrom_", chromosome_num, "_", species, ".jpg created \n"))
    
-   sfs_df <<- paste0("df_", muatation, "_", species, "_", genomic_level)
+   # Store the data_frame for gBGC computations
+   assign(paste0("df_", mutation, "_", species, "_", genomic_level), sfs_df)
+   
+   return(sfs_df)
   }
     
   # Compute the SFS for each mutation type
   
   #subsampling(snp_counts_p70_sw) # Allows to get the min_ss (sub-sampling) value
-  WS <- compute_sfs("WS", snp_counts_p70_ws, chromosome_num, species, genomic_level)
-  SW <- compute_sfs("SW", snp_counts_p70_sw, chromosome_num, species, genomic_level)
-  S <- compute_sfs("S", snp_counts_p70_s, chromosome_num, species, genomic_level)
-  W <- compute_sfs("W", snp_counts_p70_w, chromosome_num, species, genomic_level)
+  WS <- making_sfs("WS", snp_counts_p70_ws, chromosome_num, species, genomic_level)
+  SW <- making_sfs("SW", snp_counts_p70_sw, chromosome_num, species, genomic_level)
+  S <- making_sfs("S", snp_counts_p70_s, chromosome_num, species, genomic_level)
+  W <- making_sfs("W", snp_counts_p70_w, chromosome_num, species, genomic_level)
   
+ 
   # Display all the SFS of each mutation
   jpeg(paste0("SFS_ALL_MUT_Chrom_", chromosome_num,"_", species, ".jpg"), width = 1200, height = 700)
   par(mfrow = c(2,2))
@@ -393,20 +403,22 @@ sfs_computations <- function(species, chromosome_num, gff_file, genomic_level){
                   density = c(SW$DAF/sum(SW$DAF), WS$DAF/sum(WS$DAF), W$DAF/sum(W$DAF), S$DAF/sum(S$DAF)))
   
   # Save the data frame
-  write.table(df, paste0("df_", species, "_chrom_", chromosome_num, "_", genomic_level, ".tsv"), row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
+  write.table(df, paste0("df_", species, "_chrom_", chromosome_num, "_", genomic_level, "test.tsv"), row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
   
   # Plot the SFS for WS and SW mutations on the same plot (to compare them)
   p = ggplot(df[which(df$mutation %in% c("WS", "SW")),], aes(x = n_sites, y = density, colour = mutation, fill = mutation)) +
     geom_bar(stat="identity", position=position_dodge()) +
+    labs(title = c("SFS ", species, "Chromosome ", chromosome_num, " ", genomic_level))+
     theme_bw()
   
   # Save these plots
-  ggsave(paste0("SFS_WS_SW_Chrom_", chromosome_num, "_", species, ".jpg"), p, width = 14, height =  10)
+  ggsave(paste0("SFS_WS_SW_Chrom_", chromosome_num, "_", species, "_test.jpg"), p, width = 14, height =  10)
   
   # Store the necessary data into the global environment for use it into the next function
-  
-  WS <<- WS
-  SW <<- SW
+  return(list(
+    WS = WS,
+    SW = SW
+  ))
 }
 
 # ------------------------- #
@@ -432,8 +444,8 @@ gBGC_estimations <- function(data_mutation1, data_mutation2){
   source("gBGC_estimation_by_least_squares.R")
   
   # Check if the two data have the same length
-  cat(nrow(data_mutation1))
-  cat(nrow(data_mutation2))
+  cat("nrow(data_mutation1) ", nrow(data_mutation1), "\n")
+  cat("nrow(data_mutation2) ", nrow(data_mutation2), "\n")
   
   # The computation is the ratio. We needs to remove the 0 values
   rm_zeros = which(data_mutation1$DAF == 0 | data_mutation2$DAF == 0)
@@ -446,6 +458,8 @@ gBGC_estimations <- function(data_mutation1, data_mutation2){
   }
   
   cat(paste0("gBGC estimation chromosome ", chromosome_num, " : \n"))
+  
+  cat(gBGC)
   return(gBGC)
 }
 
@@ -455,5 +469,5 @@ gBGC_estimations <- function(data_mutation1, data_mutation2){
 # --------------------- #
 
 snp_polarization(species, chromosome_num)
-sfs_computations(species, chromosome_num, gff_file, genomic_level)
-gBGC_estimations(WS, SW)
+results <- sfs_computations(species, chromosome_num, gff_file, genomic_level)
+gBGC_estimations(results$WS, results$SW)
