@@ -6,7 +6,7 @@ The method that we use to estimate the gBGC needs to requires a major step, whic
 
 The analysis steps of this project following this pipeline : 
 
-<img scr="internship_pipeline.png" width="150">
+<img scr="./internship_pipeline.png" alt="Pipeline visualisation" width="150">
 
 ## Get NCBI data
 
