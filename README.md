@@ -144,5 +144,31 @@ If you work on computing cluster, you can run it into a SLURM script by using :
 In that script, each loop lap allows to process one chromosome.
 
 ## SFS inferences (Bagley, *et al.*, 2016) and gBGC strength estimation (Glémin, 2022)
+### SFS inferences
 
 Once the SNP are polarized, the SFS (Sites Frequency Spectrum) can be computed thanks to the method described by Bagley *et al.* (2016). A tutorial of this method is available [here](https://gtpb.github.io/PGDH19/pages/PracticalFastsimcoal2.html) (see the sections 1, 4.1 and 4.2).
+
+Four uSFS (unfolded SFS) are produced. One for each mutation type : **WS** (AT -> GC) ; **SW** (GC -> AT) ; **S** (GC <-> GC) and **W** (AT <-> AT).
+The SFS are unfolded because we know which are the ancestral and the derivate alleles thanks to the SNP polarization steps.
+
+### gBGC strength estimation
+For this final step, the script to use is ```gBGC_estimation_by_least_squares.R``` by Glémin(2022). It allows to estimate the strength of the gBGC for the WS and the WS mutations.
+
+### Analysis
+These two steps are executed on the same time thanks to the ```snp_polarization_and_gBGC_estimation.R``` script. For the users, a second script named  ```snp_polarization_and_gBGC_estimation_user.R``` can be used (they don't need to modify the fist script, except for the working directory). Into this script, they just have to modify some parameters : 
+
+ * **species** :  The name of the species. Example : *"Sorghum_bicolor"*
+ * **chromosome_num** : The chromosome number processed. Example : *1*
+ * **gff_file** : The genome annotation file (GFF file). It is mandatory to process the analysis according to the genomic level (exon, gene, CDS...). Example : *"gff_rho_Sorghum_bicolor_Lozano2021.rds"*
+ * **genomic_level** : Specify the genomic level in which you wants to run the analysis. Example : *"exon"*
+
+The 3 scrips must to be in the same directory. The user script can be run thanks to the *RStudio* interface.
+
+## References
+
+ * Danecek, P. *et al.* The variant call format and VCFtools. *Bioinformatics* 27, 2156–2158 (2011).
+ * Armstrong, J. *et al.* Progressive Cactus is a multiple-genome aligner for the thousand-genome era. *Nature* 587, 246–251 (2020).
+ * Keightley, P. D. & Jackson, B. C. Inferring the Probability of the Derived vs. the
+Ancestral Allelic State at a Polymorphic Site. *Genetics* 209, 897–906 (2018).
+ * Bagley, R. K., Sousa, V. C., Niemiller, M. L. & Linnen, C. R. History, geography and host use shape genomewide patterns of genetic variation in the redheaded pine sawfly (*Neodiprion lecontei* ). *Molecular Ecology* 26, 1022–1044 (2017).
+ * Glémin, S. Fast estimation of GC-biased gene conversion using a least-squares approach. (2022)
