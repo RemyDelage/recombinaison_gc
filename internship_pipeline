@@ -1,0 +1,13 @@
+// Internship Pipeline
+digraph {
+	A [label=<<B>Data recovery</B><BR/><I><FONT POINT-SIZE="10">get_ncbi_data.py</FONT></I>> shape=box]
+	B [label=<<B>Genomes alignment</B><BR/><I><FONT POINT-SIZE="10">Cactus (Armstrong et al., 2020)</FONT></I>> shape=box]
+	C [label=<<B>SNP polarization</B><BR/><I><FONT POINT-SIZE="10">est-sfs (Keightley &amp; Jackson, 2018)</FONT></I>> shape=box]
+	D [label=<<B>SFS inferences</B><BR/><I><FONT POINT-SIZE="10">(Bagley et al., 2016)</FONT></I>> shape=box]
+	E [label=<<B>gBGC strength estimation</B><BR/><I><FONT POINT-SIZE="10">gBGC_estimation_by_least_squares.R (Glémin, 2022)</FONT></I>> shape=box]
+	A -> B
+	B -> C
+	C -> D
+	D -> E
+	dpi=1200
+}
