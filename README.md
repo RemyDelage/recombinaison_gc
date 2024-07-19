@@ -4,6 +4,10 @@ The aim of this project is to compare the strength of gBGC (GC-biaised gene conv
 
 The method that we use to estimate the gBGC needs to requires a major step, which is the polarization of SNPs (Single Nucleotide Polymorphism). For this we need to go through several stages.
 
+The analysis steps of this project following this pipeline : 
+
+![Pipeline visulation](internship_pipeline.png)
+
 ## Get NCBI data
 
 This first step allows to retrieve data at genomic and proteic levels for the studied species and for 2 outgroups species. These outgroups are needed to identify ancestral alleles (present in all species genomes) and derived alleles (appearing after speciation events). The two critera of selection of the outgroups are : 
@@ -138,3 +142,4 @@ If you work on computing cluster, you can run it into a SLURM script by using :
 ```sbatch est-sfs.sh -o log_file.log ```.
 
 In that script, each loop lap allows to process one chromosome.
+
