@@ -143,3 +143,6 @@ If you work on computing cluster, you can run it into a SLURM script by using :
 
 In that script, each loop lap allows to process one chromosome.
 
+## SFS inferences (Bagley, *et al.*, 2016) and gBGC strength estimation (Glémin, 2022)
+
+Once the SNP are polarized, the SFS (Sites Frequency Spectrum) can be computed thanks to the method described by Bagley *et al.* (2016). A tutorial of this method is available [here](https://gtpb.github.io/PGDH19/pages/PracticalFastsimcoal2.html)(see the sections 1, 4.1 and 4.2).
