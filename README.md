@@ -29,9 +29,9 @@ By default, the script allows to download genomic data. If they are available, t
 
 Example : ```python get_ncbi_data.py -i GCF_000001735.4 -n```
 
-## Alleles counts (VCFtools)
+## Alleles counts : *VCFtools* (Danecek *et al.*, 2011)
 
-For the SNPs polarization, we have to determine which are the major and the minor allele in the population. From VCF file, the __counts__ function from the _VCFtools_ software (Danecek _et al._, 2011) allows to count the occurrences of the two alleles at each SNPs sites.
+For the SNPs polarization, we have to determine which are the major and the minor allele in the population. From VCF file, the __counts__ function from the _VCFtools_ software (Danecek *et al.*, 2011) allows to count the occurrences of the two alleles at each SNPs sites.
 The user have to run the following command :
 
 ``` vcftools --counts --gzvcf vcf_file.vcf.gz --chr chrom_num --min-alleles 2 --max-alleles 2 --out out_path/output_filename```
@@ -53,7 +53,7 @@ This script can be run on a computing cluster as a SLURM script (on a computing 
 
 Various parameters must be modified according to the working directory of the user (see scripts directory).
 
-## Genomes alignments (*Cactus* (Armstrong *et al.*, 2020))
+## Genomes alignments *Cactus* (Armstrong *et al.*, 2020))
 
 To determine which of the two possible alleles at each polymorphic site is ancestral and which is derived, it is necessary to align the genome sequences of the outgroups with the reference sequence of the species under study.
 
@@ -85,7 +85,7 @@ Exemple :
 
 If the user works on a cluster, he/she can run the program with SLURM (on a computing node) thanks to the **cactus.sh** shell script. This file must be modified according to the working environment of the user (see scripts directory). After the modification, the simple command to run is : ```sbatch cactus.sh -o log_file.log```.
 
-## SNPs Polarization (*est-sfs* (Keigthley & Jackson, 2019))
+## SNPs Polarization : *est-sfs* (Keigthley & Jackson, 2019)
 SNP polarization involves determining which of the two alleles found at this site is the ancestral allele (present in all species) and which is the derived allele (appearing in the species genome after speciation). This step is allowed by the *est-sfs* software (Keigthley & Jackson, 2019).
 
 ### Preprocessing
