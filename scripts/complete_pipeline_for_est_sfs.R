@@ -3,6 +3,8 @@
 # for EST-SFS (Keigthley & Jackson, 2019)
 ####################################################
 
+setwd("/home/genouest/cnrs_umr6553/rdelage/results/04_wgabed/04d_Populus_tremula/")
+
 # ---------------------------- #
 # Environment initialization
 # ---------------------------- #
@@ -23,7 +25,11 @@ option_list <- list(
   make_option(c("-c", "--chromosome_num"), type="integer", default=NULL,
               help="Chromosome number", metavar="integer"),
   make_option(c("-i", "--chromosome_id"), type="character", default=NULL,
-              help="Chromosome ID", metavar="character")
+              help="Chromosome ID", metavar="character"),
+  make_option(c("-d", "--counts_dir"), type="character", default=NULL,
+              help="Counts files directory", metavar="character"),
+  make_option(c("-f", "--counts_file"), type="character", default=NULL,
+              help="Counts file", metavar="character")
 )
 
 opt_parser <- OptionParser(option_list=option_list)
@@ -34,6 +40,8 @@ species <- opt$species
 species_genus <- opt$species_genus
 chromosome_num <- opt$chromosome_num
 chromosome_id <- opt$chromosome_id
+counts_dir <- opt$counts_dir
+counts_file <- opt$counts_file
 
 # Debugging: print the variables to check if they are correctly assigned
 cat("species: ", species, "\n")
@@ -43,8 +51,8 @@ cat("chromosome_id: ", chromosome_id, "\n")
 cat("counts_file: ", counts_file, "\n")
 
 # Verify that all required arguments are provided
-if (is.null(species) || is.null(species_genus) || is.null(chromosome_num) || is.null(chromosome_id)) {
-  stop("All arguments --species, --species_genus, --chromosome_num, and --chromosome_id are required")
+if (is.null(species) || is.null(species_genus) || is.null(chromosome_num) || is.null(chromosome_id) || is.null(counts_dir) || is.null(counts_file)) {
+  stop("All arguments --species, --species_genus, --chromosome_num, --chromosome_id, --counts_dir and --counts_file are required")
 }
 
 
@@ -56,9 +64,7 @@ if (is.null(species) || is.null(species_genus) || is.null(chromosome_num) || is.
 #' @return None
 
 load_packages <- function(){
-  #library(GenomicRanges)
-  library(dplyr)
-  library(ggplot2)
+ library(dplyr)
 }
 
 load_packages()
@@ -117,7 +123,7 @@ counts_snp_population <- function(species, chromosome_num, counts_file){
   
   # Store the SNP counts data frame for reuse it into other functions.
   snp_counts <<- snp_counts
-  return(snp_counts)
+  return(head(snp_counts))
 }
 
 
@@ -181,8 +187,18 @@ cactus_analysis <- function(species_genus, chromosome_id, chromsome_num){
   length(wgabed$POS)
   length(unique(wgabed$POS))
   
+  # Convert CHROM variable to merge the 2 data frames
+  wgabed$CHROM = is.character(wgabed$CHROM)
+  snp_counts= is.character(snp_counts$CHROM)
+ 
   # Merge the previous SNP counts data frame with the alignments data.
   snp_counts_merged = left_join(snp_counts, wgabed[,c("CHROM", "POS", "ref", "outgroup_1", "outgroup_2")])
+
+  # TO FIX : 
+  # Error in UseMethod("left_join") :
+  #    no applicable method for 'left_join' applied to an object of class "logical"
+  # Calls: cactus_analysis -> left_join
+
   
   # Display the first lines of merged data.
   print(head(snp_counts_merged))
@@ -193,7 +209,7 @@ cactus_analysis <- function(species_genus, chromosome_id, chromsome_num){
   # Save the table for use it after EST-SFS computations
   write.table(snp_counts_merged, paste0(species_genus, "_", chromosome_id, "_snp_counts_merged_before_est-sfs.tsv"), row.names = F, col.names = F, quote = F, sep = "\t")
   
-  return(snp_counts_merged)
+  return(head(snp_counts_merged))
   }
 
 
@@ -255,7 +271,7 @@ create_est_sfs_file <- function(species, chromosome_num){
   return(head(df))
 }
 
-counts_snp_population(species, chromosome_num)
+counts_snp_population(species, chromosome_num, counts_file)
 cactus_analysis(species_genus, chromosome_id, chromsome_num)
 create_est_sfs_file(speices, chromsome_num)
 
