@@ -1,0 +1,5 @@
+(GCA_015852605.2_Populus_deltoides:0.5,(GCA_030145905.1_Populus_davidiana:1,Potra02_Populus_tremula:1)1:0.5);
+
+*Potra02_Populus_tremula	/home/genouest/cnrs_umr6553/rdelage/data/Potra02_Populus_tremula_genome.fasta
+GCA_015852605.2_Populus_deltoides	/home/genouest/cnrs_umr6553/rdelage/data/GCA_015852605.2_Populus_deltoides_genomic.fna
+GCA_030145905.1_Populus_davidiana	/home/genouest/cnrs_umr6553/rdelage/data/GCA_030145905.1_Populus_davidiana_genomic.fna
